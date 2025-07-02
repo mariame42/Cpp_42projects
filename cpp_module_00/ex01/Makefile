@@ -2,16 +2,16 @@ NAME = phonebook
 COMPILE = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = something.cpp
+SRC = main.cpp commands.cpp utils.cpp
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(COMPILE) $(CFLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.c
+%.o: %.cpp
 	$(COMPILE) $(CFLAGS) -c $< -o $@
 
 clean:

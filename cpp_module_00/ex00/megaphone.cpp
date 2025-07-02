@@ -1,6 +1,5 @@
 #include <iostream> 
 #include <cctype>
-// For std::cout, std::cin, std::endl
 
 int main(int ac, char **av) {
     if (ac == 1)
