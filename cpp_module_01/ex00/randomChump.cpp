@@ -1,14 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   randomChump.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/06 12:23:30 by meid              #+#    #+#             */
-/*   Updated: 2025/07/06 12:23:31 by meid             ###   ########.fr       */
+/*   Created: 2025/07/06 11:50:30 by meid              #+#    #+#             */
+/*   Updated: 2025/07/06 11:50:31 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
-#include <iostream>
+#include "Zombie.hpp"
+
+void randomChump( std::string name )
+{
+    Zombie zombie(name);
+    zombie.announce();
+}

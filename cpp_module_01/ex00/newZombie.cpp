@@ -1,14 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/06 12:23:30 by meid              #+#    #+#             */
-/*   Updated: 2025/07/06 12:23:31 by meid             ###   ########.fr       */
+/*   Created: 2025/07/06 11:52:10 by meid              #+#    #+#             */
+/*   Updated: 2025/07/06 11:52:11 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
-#include <iostream>
+#include "Zombie.hpp"
+
+Zombie* newZombie( std::string name )
+{
+    Zombie *zombie = new Zombie(name);
+    return zombie;
+}

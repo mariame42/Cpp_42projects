@@ -1,10 +1,14 @@
-// Zombie* zombieHorde( int N, std::string name );
-// It must allocate N Zombie objects in a single allocation. Then, it must initialize the
-// zombies, giving each of them the name passed as a parameter. The function returns a
-// pointer to the first zombie.
-// Implement your own tests to ensure that your zombieHorde() function works as expected. Try calling announce() for each of the zombies.
-// Do not forget to use delete to deallocate all the zombies and check for memory
-// leaks.
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/06 11:49:59 by meid              #+#    #+#             */
+/*   Updated: 2025/07/06 11:51:24 by meid             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "Zombie.hpp"
 
@@ -22,28 +26,4 @@ Zombie::~Zombie() {
 
 void Zombie::announce(void) {
     std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
-
-void Zombie::setName(std::string name) {
-    this->name = name;
-}
-
-Zombie* zombieHorde(int N, std::string name )
-{
-    Zombie *zombiehorde = new Zombie[N];
-    for (int i = 0; i < N; i++)
-    {
-        zombiehorde[i].setName(name);
-    }
-    return (zombiehorde);
-}
-
-int main()
-{
-    Zombie *zombiehorde = zombieHorde(5, "zombie");
-    for (int i = 0; i < 5; i++)
-    {
-        zombiehorde[i].announce();
-    }
-    delete[] zombiehorde;
 }

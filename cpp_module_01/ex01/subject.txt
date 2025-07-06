@@ -14,3 +14,8 @@ pointer to the first zombie.
 Implement your own tests to ensure that your zombieHorde() function works as expected. Try calling announce() for each of the zombies.
 Do not forget to use delete to deallocate all the zombies and check for memory
 leaks.
+
+Definition of "Horde":
+Noun: A large group or crowd of people or animals
+Verb: To gather or move in a large group
+
