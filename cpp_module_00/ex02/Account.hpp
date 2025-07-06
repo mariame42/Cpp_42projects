@@ -40,10 +40,17 @@ public:
 
 private:
 
+<<<<<<< HEAD
 	static int	_nbAccounts;
 	static int	_totalAmount;
 	static int	_totalNbDeposits;
 	static int	_totalNbWithdrawals;
+=======
+	static int	_nbAccounts; // number of accounts
+	static int	_totalAmount; // total amount of all accounts
+	static int	_totalNbDeposits; // total number of deposits
+	static int	_totalNbWithdrawals; // total number of withdrawals
+>>>>>>> 1fa57235c05d510188e14264023d8bce3ee524d9
 
 	static void	_displayTimestamp( void );
 
