@@ -1,1 +1,0 @@
-the hello worldhello world a filename and two strings, hello world s1 and s2.

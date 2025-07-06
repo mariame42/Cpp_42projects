@@ -20,7 +20,6 @@ void Account::_displayTimestamp(void){
 
 Account::Account(int initial_deposit)
 {
-
     this->_accountIndex = Account::_nbAccounts;
     this->_amount = initial_deposit;
     this->_nbDeposits = 0;
