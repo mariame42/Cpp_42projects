@@ -41,10 +41,10 @@ public:
 
 private:
 
-	static int&	_nbAccounts( void ); // number of accounts
-	static int&	_totalAmount( void ); // total amount of all accounts
-	static int&	_totalNbDeposits( void ); // total number of deposits
-	static int&	_totalNbWithdrawals( void ); // total number of withdrawals
+	static int	_nbAccounts; // number of accounts
+	static int	_totalAmount; // total amount of all accounts
+	static int	_totalNbDeposits; // total number of deposits
+	static int	_totalNbWithdrawals; // total number of withdrawals
 
 	static void	_displayTimestamp( void );
 
