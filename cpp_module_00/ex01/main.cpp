@@ -2,7 +2,7 @@
 
 int main(void)
 {
-    PhoneBook phoneBook;
+    PhoneBook phoneBook; //  instantiating an object of the class PhoneBook
     std::string command;
     
     std::cout << GREEN << "Welcome to the PhoneBook!" << RESET << std::endl;

@@ -12,14 +12,6 @@
 #include <functional>
 #include "Account.hpp"
 
-// int main(void) {
-//     int const amounts[] = { 42, 54, 957, 432, 1234, 0, 754, 16576 };
-//     size_t const amounts_size( sizeof(amounts) / sizeof(int) );
-//     std::vector<Account::t> accounts( amounts, amounts + amounts_size );
-// 	Account::displayAccountsInfos();
-    
-//     return 0;  // Destructors will be called here
-// }
 
 int		main( void ) {
 
