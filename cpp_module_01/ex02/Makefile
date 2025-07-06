@@ -1,4 +1,4 @@
-NAME = zombie
+NAME = braaain
 COMPILE = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
