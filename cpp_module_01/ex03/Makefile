@@ -1,4 +1,4 @@
-NAME = braaain
+NAME = Weapon
 COMPILE = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
