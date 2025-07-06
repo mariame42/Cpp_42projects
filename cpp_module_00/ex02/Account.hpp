@@ -23,47 +23,38 @@ public:
 
 	typedef Account		t;
 
-	static int	getNbAccounts( void ); // get the number of accounts
-	static int	getTotalAmount( void ); // get the total amount of all accounts
-	static int	getNbDeposits( void ); // get the total number of deposits
-	static int	getNbWithdrawals( void ); // get the total number of withdrawals
-	static void	displayAccountsInfos( void ); // display the total number of accounts, the total amount of all accounts, the total number of deposits, the total number of withdrawals
+	static int	getNbAccounts( void );
+	static int	getTotalAmount( void );
+	static int	getNbDeposits( void );
+	static int	getNbWithdrawals( void );
+	static void	displayAccountsInfos( void );
 
-	// constructor and destructor Always return void
-	Account( int initial_deposit ); // constructor
-	~Account( void ); // destructor
+	Account( int initial_deposit );
+	~Account( void );
 
-	void	makeDeposit( int deposit ); // make a deposit
-	bool	makeWithdrawal( int withdrawal ); // make a withdrawal
-	int		checkAmount( void ) const; // check the amount
-	void	displayStatus( void ) const; // display the status of the account
+	void	makeDeposit( int deposit );
+	bool	makeWithdrawal( int withdrawal );
+	int		checkAmount( void ) const;
+	void	displayStatus( void ) const;
 
 
 private:
 
-	static int&	_nbAccounts( void ); // number of accounts
-	static int&	_totalAmount( void ); // total amount of all accounts
-	static int&	_totalNbDeposits( void ); // total number of deposits
-	static int&	_totalNbWithdrawals( void ); // total number of withdrawals
+	static int	_nbAccounts;
+	static int	_totalAmount;
+	static int	_totalNbDeposits;
+	static int	_totalNbWithdrawals;
 
 	static void	_displayTimestamp( void );
 
-	int				_accountIndex; // index of the account
-	int				_amount; // amount of the account
-	int				_nbDeposits; // number of deposits
-	int				_nbWithdrawals; // number of withdrawals
+	int				_accountIndex;
+	int				_amount;
+	int				_nbDeposits;
+	int				_nbWithdrawals;
 
 	Account( void );
 
 };
-
-// Key Concepts:
-// Static members = Shared across ALL accounts (global bank statistics)
-// Instance members = Unique to EACH account (individual account data)
-// Deposits = Adding money to account (always successful)
-// Withdrawals = Removing money from account (can fail if insufficient funds)
-// Account Index = Sequential numbering (0, 1, 2, 3...) for identification
-// The static members track the entire bank's activity, while instance members track individual account activity.
 
 
 
