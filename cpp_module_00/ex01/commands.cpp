@@ -70,8 +70,7 @@ void  search_function(PhoneBook& phoneBook)
     std::string input;
     std::getline(std::cin, input);
     
-    // std::stoi
-    int index = atoi(input.c_str());
+    int index = std::stoi(input);
     if (index >= 0 && index < phoneBook.getCount()) {
         Contact contact = phoneBook.getContact(index);
         std::cout << "First Name: " << contact.getFirstName() << std::endl;
