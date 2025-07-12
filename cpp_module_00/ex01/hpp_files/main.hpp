@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   main.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/07 09:55:25 by meid              #+#    #+#             */
-/*   Updated: 2025/07/12 14:36:56 by meid             ###   ########.fr       */
+/*   Created: 2025/07/07 09:53:09 by meid              #+#    #+#             */
+/*   Updated: 2025/07/12 15:39:02 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "hpp_files/main.hpp"
+#ifndef MAIN_H
+#define MAIN_H
 
-int main(void)
-{
-    PhoneBook phoneBook; //  instantiating an object of the class PhoneBook
-    phoneBook.startYourPhonebookApp();
-    return 0;
-}
+#include "libraries_micro.hpp"
+#include "PhoneBook.hpp"
+
+
+void displayc_ten_char(const std::string& str);
+bool containsOnlySpaces(const std::string& str);
+bool is_number(const std::string& str);
+std::string check_for_eof_and_print(const std::string& prompt, const std::string& color);
+int name_check(const std::string& name);
+
+#endif
