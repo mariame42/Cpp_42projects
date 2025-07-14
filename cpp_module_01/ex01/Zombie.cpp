@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 12:18:43 by meid              #+#    #+#             */
-/*   Updated: 2025/07/06 12:20:20 by meid             ###   ########.fr       */
+/*   Updated: 2025/07/14 13:07:05 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ Zombie::Zombie(std::string name) {
 }
 
 Zombie::~Zombie() {
-    std::cout<< this->name << " is destroyed" << std::endl;
+    std::cout << RED << this->name << " is destroyed" << RESET << std::endl;
 }
 
 void Zombie::announce(void) {
-    std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+    std::cout << BLUE << this->name << ": BraiiiiiiinnnzzzZ..." << RESET << std::endl;
 }

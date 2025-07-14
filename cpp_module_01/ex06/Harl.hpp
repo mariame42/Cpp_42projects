@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 18:40:49 by meid              #+#    #+#             */
-/*   Updated: 2025/07/06 18:55:35 by meid             ###   ########.fr       */
+/*   Updated: 2025/07/14 16:02:12 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 class Harl {
     public:
         void switch_cace_fun (std::string level);
-
 };
 
 #endif

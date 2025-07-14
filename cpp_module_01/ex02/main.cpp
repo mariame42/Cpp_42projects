@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 12:23:30 by meid              #+#    #+#             */
-/*   Updated: 2025/07/06 12:54:40 by meid             ###   ########.fr       */
+/*   Updated: 2025/07/14 13:24:50 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 int main() {
     std::string str = "HI THIS IS BRAIN";
     std::string* strPTR = &str;
-    std::string& strREF = str;
+    std::string& strREF = str; //  another name for the exact same object
     std::cout << GREEN;
     std::cout << "The memory address of the string variable: " << &str << std::endl;
     std::cout << "The memory address held by stringPTR:      " << strPTR << std::endl;

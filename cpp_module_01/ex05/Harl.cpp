@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 17:48:20 by meid              #+#    #+#             */
-/*   Updated: 2025/07/06 18:34:57 by meid             ###   ########.fr       */
+/*   Updated: 2025/07/14 16:00:09 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@ void Harl::error()
     std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
+// funPtr[0] = pointer to Harl::debug
+// funPtr[1] = pointer to Harl::info
+// funPtr[2] = pointer to Harl::warning
+// funPtr[3] = pointer to Harl::error
 
 void    Harl::complain( std::string level )
 {
