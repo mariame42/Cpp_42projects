@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 19:58:48 by meid              #+#    #+#             */
-/*   Updated: 2025/09/03 21:36:52 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/03 21:49:45 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Fixed
 {
     private :
         int _value;
-        static const int fractional_bits = 8;
+        static const int _fractional_bits = 8;
 
     public :
         Fixed();

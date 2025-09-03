@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 19:59:02 by meid              #+#    #+#             */
-/*   Updated: 2025/09/03 21:38:52 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/03 22:32:58 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,34 @@ class Fixed
 {
     private :
         int _value;
-        static const int fractional_bits = 8;
+        static const int _fractional_bits = 8;
 
     public :
         Fixed();
+        Fixed(const int n); //ex01
+        Fixed(const float f); //ex01
         Fixed(const Fixed& other);
         ~Fixed();
         Fixed&	operator=(const Fixed &other);
+    
         int		getRawBits( void ) const;
         void	setRawBits( int const raw );
-    };
+        float   toFloat( void ) const; // ex01
+        int     toInt( void) const; // ex02
+
+        friend std::ostream& operator<<(std::ostream& os, const Fixed& obj);
+        
+};
+
+
+    // • A member function float toFloat( void ) const;
+    // that converts the fixed-point value to a floating-point value.
+
+    // • A member function int toInt( void ) const;
+    // that converts the fixed-point value to an integer value.
+
+    // And add the following function to the Fixed class files:
+    // • An overload of the insertion («) operator that inserts a floating-point representation
+    // of the fixed-point number into the output stream object passed as a parameter.
     
 #endif

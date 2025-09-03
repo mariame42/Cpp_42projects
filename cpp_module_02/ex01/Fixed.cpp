@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 19:58:59 by meid              #+#    #+#             */
-/*   Updated: 2025/09/03 21:36:43 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/03 22:38:37 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,35 @@ void	Fixed::setRawBits( int const raw )
 Fixed::~Fixed()
 {
     std::cout << RED << "Destructor called" << RESET << std::endl;
+}
+
+// ex01
+
+Fixed::Fixed(const int n)
+{
+    // In binary, shifting left by 1 bit = multiplying by 2.
+    _value = n << _fractional_bits;
+    std::cout << "Int constructor called" << std::endl;
+}
+
+Fixed::Fixed(const float f)
+{
+    _value = roundf(f * (1 << _fractional_bits));
+    std::cout << "Float constructor called" << std::endl;
+}
+
+float   Fixed::toFloat( void ) const
+{
+    return ((float)_value / (1 << _fractional_bits));
+}
+
+int     Fixed::toInt( void) const
+{
+    return ((_value >> _fractional_bits));
+}
+
+std::ostream& operator<<(std::ostream& os, const Fixed& obj)
+{
+    os << obj.toFloat();
+    return (os);
 }
