@@ -1,18 +1,17 @@
 NAME = fileReplacer
-COMPILE = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -g3
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g3
 
-SRC = main.cpp FileReplacer.cpp
-
+SRC = main.cpp FileReplacer_Lifecycle.cpp FileReplacer_error.cpp FileReplacer_main.cpp FileReplacer_utils.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(COMPILE) $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
 %.o: %.cpp
-	$(COMPILE) $(CFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)

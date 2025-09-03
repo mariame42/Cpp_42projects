@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 14:06:19 by meid              #+#    #+#             */
-/*   Updated: 2025/07/06 15:06:01 by meid             ###   ########.fr       */
+/*   Updated: 2025/07/20 18:15:33 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,22 @@ Weapon::Weapon()
 
 Weapon::Weapon(std::string str)
 {
-    this->type = str;
+    if (!str.empty())
+        type = str;
+    else
+        type = "default weapon";
+    type = str;
     std::cout << GREEN << "Weapon constructor 02" << RESET << std::endl;
 }
 
 const std::string& Weapon::getType()
 {
-    return (this->type);
+    return (type);
 }
 
 void Weapon::setType(const std::string& newType)
 {
-    this->type = newType;
+    type = newType;
 }
 
 Weapon::~Weapon()

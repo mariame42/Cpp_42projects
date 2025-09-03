@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 11:50:41 by meid              #+#    #+#             */
-/*   Updated: 2025/07/14 13:14:27 by meid             ###   ########.fr       */
+/*   Updated: 2025/07/20 17:58:22 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,17 @@
 
 int main(void)
 {
-    Zombie *zombiehorde = newZombie("Foo");
+    std::string name = "ZombieName";
+    std::string* nameptr = &name;
+    if (nameptr == nullptr) {
+        std::cerr << "Error: Zombie name cannot be NULL." << std::endl;
+        return 1;
+    }
+    if (nameptr->empty()) {
+        std::cerr << "Error: Zombie name cannot be empty." << std::endl;
+        return 1;
+    }
+    Zombie *zombiehorde = newZombie(*nameptr);
     zombiehorde->announce();
     delete zombiehorde;
     randomChump("randomZombie");

@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 12:16:13 by meid              #+#    #+#             */
-/*   Updated: 2025/07/14 13:05:41 by meid             ###   ########.fr       */
+/*   Updated: 2025/07/16 21:23:23 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ class Zombie {
 
     public:
         Zombie();  // default constructor
-        Zombie(std::string name);  // parameterized constructor
+        Zombie(const std::string& name);  // parameterized constructor
         ~Zombie();  // destructor
-        void announce(void);
-        void setName(std::string name);
+        void announce(void) const;
+        void setName(const std::string& name);
     };
 
-Zombie* zombieHorde( int N, std::string name );
+Zombie* zombieHorde( int N, std::string& name);
 
     
 #endif

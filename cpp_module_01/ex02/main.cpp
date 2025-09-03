@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 12:23:30 by meid              #+#    #+#             */
-/*   Updated: 2025/07/14 13:24:50 by meid             ###   ########.fr       */
+/*   Updated: 2025/07/16 13:38:21 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main() {
     std::cout << "-----------------" << std::endl;
     std::cout << BLUE;
     std::cout << "The value of the string variable:  " << str << std::endl;
-    std::cout << "The value pointed to by stringPTR: " << *strPTR << std::endl;
+    std::cout << "The value pointed to by stringPTR: " << *strPTR << std::endl; // dereferencing
     std::cout << "The value pointed to by stringREF: " << strREF << std::endl;
     std::cout << RESET << std::endl;
     return 0;

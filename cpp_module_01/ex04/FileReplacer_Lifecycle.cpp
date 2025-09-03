@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FileReplacer_Lifecycle.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/06 18:53:11 by meid              #+#    #+#             */
-/*   Updated: 2025/07/16 11:22:38 by meid             ###   ########.fr       */
+/*   Created: 2025/07/16 22:24:55 by meid              #+#    #+#             */
+/*   Updated: 2025/07/16 22:25:31 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
 
+#include "FileReplacer.hpp"
 
-int main(int ac, char *av[])
-{
-    Harl harl;
-    if (ac == 2)
-        harl.switch_cace_fun(av[1]);
-    else
-        std::cerr << RED << "Usage: ./program <level>" << RESET << std::endl
-                << BLUE << "Available levels: DEBUG, INFO, WARNING, ERROR" << RESET << std::endl;
-}
+FileReplacer::FileReplacer(std::string fileName, std::string toFind, std::string  toReplace)
+		: _fileName(fileName), _toFind(toFind), _toReplace(toReplace),  _outFile(fileName + ".replace") {}
+
+FileReplacer::~FileReplacer() {}
