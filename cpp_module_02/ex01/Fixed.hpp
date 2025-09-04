@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 19:59:02 by meid              #+#    #+#             */
-/*   Updated: 2025/09/03 22:32:58 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/04 20:28:46 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ class Fixed
         int		getRawBits( void ) const;
         void	setRawBits( int const raw );
         float   toFloat( void ) const; // ex01
-        int     toInt( void) const; // ex02
+        int     toInt( void) const; // ex01
 
         friend std::ostream& operator<<(std::ostream& os, const Fixed& obj);
         
