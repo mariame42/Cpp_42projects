@@ -14,6 +14,7 @@
 # define Fixed_hpp
 
 #include "iostream"
+#include "cmath"
 
 #define GREEN "\033[32m"
 #define YELLOW "\033[33m"
@@ -21,6 +22,8 @@
 #define RED "\033[31m"
 #define PURPLE "\033[35m"
 #define RESET "\033[0m"
+
+#define OCCF 0
 
 class Fixed
 {
@@ -56,10 +59,15 @@ class Fixed
 
         Fixed operator++();
         Fixed operator--();
-        Fixed& operator++(int); // the `int` is the dummy parameter
-        Fixed& operator--(int);
+        Fixed operator++(int); // the `int` is the dummy parameter
+        Fixed operator--(int);
         // “Dummy parameter” just means a parameter that exists
         // only to satisfy the function signature — you don’t actually use it in the function.
+
+        static Fixed& min(Fixed& a, Fixed& b);
+        static Fixed& max(Fixed& a, Fixed& b);
+        static const Fixed& min(const Fixed& a, const Fixed& b);
+        static const Fixed& max(const Fixed& a, const Fixed& b);
 };
 
 #endif

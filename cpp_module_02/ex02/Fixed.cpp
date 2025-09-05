@@ -17,12 +17,14 @@
 Fixed::Fixed()
 {
     _value = 0;
-    std::cout << GREEN << "Default constructor called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << GREEN << "Default constructor called" << RESET << std::endl;
 }
 
 Fixed::Fixed(const Fixed& other) : _value(other._value)
 {
-    std::cout << BLUE << "Copy constructor called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << BLUE << "Copy constructor called" << RESET << std::endl;
 }
 
 Fixed& Fixed::operator=(const Fixed &other)
@@ -31,26 +33,30 @@ Fixed& Fixed::operator=(const Fixed &other)
     {
         this->_value = other._value;
     }
-    std::cout << YELLOW << "Copy assignment operator called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << YELLOW << "Copy assignment operator called" << RESET << std::endl;
     return (*this);
     
 }
 
 int		Fixed::getRawBits( void ) const
 {
-    std::cout << PURPLE << "getRawBits member function called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << PURPLE << "getRawBits member function called" << RESET << std::endl;
     return(_value);
 }
 
 void	Fixed::setRawBits( int const raw )
 {
-    std::cout << PURPLE << "setRawBits member function called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << PURPLE << "setRawBits member function called" << RESET << std::endl;
     _value = raw;
 }
 
 Fixed::~Fixed()
 {
-    std::cout << RED << "Destructor called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << RED << "Destructor called" << RESET << std::endl;
 }
 
 // ---------------------------- ex01 ----------------------------
@@ -59,13 +65,15 @@ Fixed::Fixed(const int n)
 {
     // In binary, shifting left by 1 bit = multiplying by 2.
     _value = n << _fractional_bits;
-    std::cout << "Int constructor called" << std::endl;
+    if (OCCF)
+        std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(const float f)
 {
     _value = roundf(f * (1 << _fractional_bits));
-    std::cout << "Float constructor called" << std::endl;
+    if (OCCF)
+        std::cout << "Float constructor called" << std::endl;
 }
 
 float   Fixed::toFloat( void ) const
@@ -137,8 +145,9 @@ Fixed Fixed::operator-(const Fixed& other) const
 Fixed Fixed::operator*(const Fixed& other) const
 {
     Fixed res;
-    res.setRawBits(this->_value * other._value);
-    return (res);
+    long result = (long)this->_value * (long)other._value; // avoid overflow
+    res.setRawBits(result >> _fractional_bits);            // rescale
+    return res;
 }
 
 Fixed Fixed::operator/(const Fixed& other) const
@@ -166,26 +175,61 @@ Fixed Fixed::operator/(const Fixed& other) const
 // 2. Post-increment / Post-decrement (x++ / x--)
 // Return the original value first, then modify the object.
 
-// Fixed Fixed::operator++()
-// {
-//    _value++);
-//     return (*this);
-// }
+Fixed Fixed::operator++()
+{
+   _value++;
+    return (*this);
+}
 
-// Fixed Fixed::operator--()
-// {
-//     setRawBits(_value--);
-//     return (*this);
-// }
+Fixed Fixed::operator--()
+{
+    _value--;
+    return (*this);
+}
 
-// Fixed& Fixed::operator++(int)
-// {
-    
-// }
+Fixed Fixed::operator++(int)
+{
+    Fixed temp = *this; // Store the current state
+    _value++; // Increment the value
+    return (temp); // Return the old state
+}
 
-// Fixed& Fixed::operator--(int)
-// {
-    
-// }
+Fixed Fixed::operator--(int)
+{
+    Fixed temp = *this; // Store the current state
+    _value--; // Increment the value
+    return (temp); // Return the old state
+}
 
 
+// Add these four public overloaded member functions to your class:
+// • A static member function min that takes two references to fixed-point numbers as
+// parameters, and returns a reference to the smallest one.
+
+// • A static member function min that takes two references to constant fixed-point
+// numbers as parameters, and returns a reference to the smallest one.
+
+// • A static member function max that takes two references to fixed-point numbers as
+// parameters, and returns a reference to the greatest one.
+// • A static member function max that takes two references to constant fixed-point
+// numbers as parameters, and returns a reference to the greatest one.
+
+Fixed& Fixed::min(Fixed& a, Fixed& b)
+{
+    return (a < b ? a : b);
+}
+
+const Fixed& Fixed::min(const Fixed& a, const Fixed& b)
+{
+    return (a < b ? a : b);
+}
+
+Fixed& Fixed::max(Fixed& a, Fixed& b)
+{
+    return (a > b ? a : b);
+}
+
+const Fixed& Fixed::max(const Fixed& a, const Fixed& b)
+{
+    return (a > b ? a : b);
+}

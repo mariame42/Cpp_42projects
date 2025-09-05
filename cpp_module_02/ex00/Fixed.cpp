@@ -14,41 +14,48 @@
 
 // ---------------------------- ex00 ----------------------------
 
-Fixed::Fixed()
+Fixed::Fixed() : _value(0)
 {
-    _value = 0;
-    std::cout << GREEN << "Default constructor called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << GREEN << "Default constructor called" << RESET << std::endl;
 }
 
 Fixed::Fixed(const Fixed& other) : _value(other._value)
 {
-    std::cout << BLUE << "Copy constructor called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << BLUE << "Copy constructor called" << RESET << std::endl;
 }
 
 Fixed& Fixed::operator=(const Fixed &other)
 {
+    // 'this' points to the left side, object (a)
+    // 'other' is the right side, object (b)
     if (this != &other)
     {
         this->_value = other._value;
     }
-    std::cout << YELLOW << "Copy assignment operator called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << YELLOW << "Copy assignment operator called" << RESET << std::endl;
     return (*this);
     
 }
 
 int		Fixed::getRawBits( void ) const
 {
-    std::cout << PURPLE << "getRawBits member function called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << PURPLE << "getRawBits member function called" << RESET << std::endl;
     return(_value);
 }
 
 void	Fixed::setRawBits( int const raw )
 {
-    std::cout << PURPLE << "setRawBits member function called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << PURPLE << "setRawBits member function called" << RESET << std::endl;
     _value = raw;
 }
 
 Fixed::~Fixed()
 {
-    std::cout << RED << "Destructor called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << RED << "Destructor called" << RESET << std::endl;
 }

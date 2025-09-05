@@ -13,6 +13,8 @@
 #include "Fixed.hpp"
 
 #include <iostream>
+// subject : main
+
 int main( void )
 {
     Fixed a;
@@ -24,3 +26,25 @@ int main( void )
     std::cout << c.getRawBits() << std::endl;
     return 0; 
 }
+
+// my main
+// put OCCF = 0 to stop seeing the constructor and destructor messages
+// int main( void )
+// {
+//     Fixed a;
+//     Fixed b( a );
+//     Fixed c;
+//     c = b;
+//     std::cout << "a.getRawBits() = " << a.getRawBits() << std::endl;
+//     std::cout << "b.getRawBits() = " << b.getRawBits() << std::endl;
+//     std::cout << "c.getRawBits() = " << c.getRawBits() << std::endl;
+//     std::cout << "a.setRawBits(7)" << std::endl;
+//     a.setRawBits(7);
+//     std::cout << "a.getRawBits() = " << a.getRawBits() << std::endl;
+//     std::cout << "b.getRawBits() = " << b.getRawBits() << std::endl;
+//     std::cout << "b.setRawBits(10)" << std::endl;
+//     b.setRawBits(10);
+//     std::cout << "b.getRawBits() = " << b.getRawBits() << std::endl;
+//     std::cout << "c.getRawBits() = " << c.getRawBits() << std::endl;
+//     return 0;
+// }

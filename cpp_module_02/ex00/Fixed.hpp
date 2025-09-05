@@ -22,6 +22,10 @@
 #define PURPLE "\033[35m"
 #define RESET "\033[0m"
 
+// a flag to show when Orthodox Canonical class form is used
+// turn it on when we want to see the constructor and destructor messages
+#define OCCF 1
+
 class Fixed
 {
     private :
@@ -31,8 +35,10 @@ class Fixed
     public :
         Fixed();
         Fixed(const Fixed& other);
-        ~Fixed();
         Fixed&	operator=(const Fixed &other);
+        ~Fixed();
+    
+        //  that the function itself does not modify any member variables of the class. const
         int		getRawBits( void ) const;
         void	setRawBits( int const raw );
     };

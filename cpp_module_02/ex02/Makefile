@@ -16,7 +16,7 @@ CFLAGSXX = -Wall -Wextra -Werror -std=c++98
 SRC = main.cpp Fixed.cpp
 OBJ = $(SRC:.cpp=.o)
 
-all = $(NAME)
+all: $(NAME)
 
 $(NAME) : $(OBJ)
 	$(CXX) $(CFLAGSXX) $(OBJ) -o $(NAME)
@@ -32,3 +32,5 @@ fclean : clean
 	rm -rf $(NAME)
 
 re : fclean all
+
+PHONY : all clean fclean re
