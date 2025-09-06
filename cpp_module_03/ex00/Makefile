@@ -1,24 +1,35 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: meid <meid@student.42.fr>                  +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/09/06 10:23:34 by meid              #+#    #+#              #
+#    Updated: 2025/09/06 11:47:28 by meid             ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-Name = ClapTrap
+NAME = ClapTrap
 CXX = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 SEC = main.cpp ClapTrap.cpp
 OBJ = $(SEC:.cpp=.o)
 
-all : $(Name)
+all : $(NAME)
 
 $(NAME) : $(OBJ)
-	$(CXX) $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
 %.o : %.cpp
-	$(CXX) $(CFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean :
 	$(RM) $(OBJ)
 
 fclean : clean
-	$(RM) $(Name)
+	$(RM) $(NAME)
 
 re : fclean all
 
