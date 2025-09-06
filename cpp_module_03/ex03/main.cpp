@@ -11,3 +11,14 @@
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
+
+int main(void)
+{
+    DiamondTrap d;
+    DiamondTrap d2("d2");
+    d2.whoAmI();
+    d2.current_status();
+    d.whoAmI();
+    d.current_status();
+    return 0;
+}

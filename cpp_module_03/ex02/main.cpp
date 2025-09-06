@@ -16,5 +16,12 @@ int main(void)
 {
     FragTrap f;
 
+    f.current_status();
+    f.attack("a");
+    f.takeDamage(12);
+    f.current_status();
+    f.beRepaired(UINT_MAX);
+    f.current_status();
     f.highFivesGuys();
+    f.current_status();
 }

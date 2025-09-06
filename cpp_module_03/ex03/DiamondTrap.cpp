@@ -12,33 +12,37 @@
 
 #include "DiamondTrap.hpp"
 
-
-DiamondTrap::DiamondTrap() :
+DiamondTrap::DiamondTrap()
 {
-    std::string pov = " _clap_name";
-    _name = "Default" + pov;
-    _hitPoints = ;
-    _energyPoints = 50;
-    _attackDamage = 20;
+    _name = "Default";
+    ClapTrap::_name = "Default_clap_name";
+    _hitPoints = FragTrap::get_hitPoints();
+    _energyPoints = ScavTrap::get_energyPoints();
+    _attackDamage = FragTrap::get_attackDamage();
     if (OCCF)
         std::cout << GREEN << "DiamondTrap Default constructor called" << RESET << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const std::string& name) : ClapTrap(name)
+DiamondTrap::DiamondTrap(const std::string& name)
 {
-    // _hitPoints = 100;
-    // _energyPoints = 50;
-    // _attackDamage = 20;
+    _name = name;
+    ClapTrap::_name = name + "_clap_name";
+    _hitPoints = FragTrap::get_hitPoints();
+    _energyPoints = ScavTrap::get_energyPoints();
+    _attackDamage = FragTrap::get_attackDamage();
     if (OCCF)
         std::cout << GREEN << "DiamondTrap Parameterized constructor called" << RESET << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap& other)
+void DiamondTrap::whoAmI()
+{
+    std::cout << "DiamondTrap name: " << _name << std::endl;
+    std::cout << "ClapTrap name: " << ClapTrap::_name << std::endl;
+}
+
+DiamondTrap::DiamondTrap(const DiamondTrap& other) : ClapTrap(other), FragTrap(other), ScavTrap(other)
 {
     _name = other._name;
-    _hitPoints = other._hitPoints;
-    _energyPoints = other._energyPoints;
-    _attackDamage = other._attackDamage;
     if (OCCF)
         std::cout << BLUE << "DiamondTrap Copy constructor called" << RESET << std::endl;
 }
@@ -47,10 +51,10 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other)
 {
     if (this != &other)
     {
-        this->_name = other._name;
-        this->_hitPoints = other._hitPoints;
-        this->_energyPoints = other._energyPoints;
-        this->_attackDamage = other._attackDamage;
+        ClapTrap::operator=(other);
+        FragTrap::operator=(other);
+        ScavTrap::operator=(other);
+        _name = other._name;
     }
     if (OCCF)
         std::cout << YELLOW << "DiamondTrap Copy assignment operator called" << RESET << std::endl;
@@ -62,3 +66,4 @@ DiamondTrap::~DiamondTrap()
     if (OCCF)
         std::cout << RED << "DiamondTrap Destructor called" << RESET << std::endl;
 }
+

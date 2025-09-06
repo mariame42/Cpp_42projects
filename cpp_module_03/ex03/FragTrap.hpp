@@ -29,7 +29,7 @@
 
 #include "ClapTrap.hpp"
 
-class FragTrap : public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
     public :
         FragTrap();
@@ -39,6 +39,11 @@ class FragTrap : public ClapTrap
         ~FragTrap();
 
         void highFivesGuys(void);
+
+        std::string get_name();
+        unsigned int get_hitPoints();
+        unsigned int get_energyPoints();
+        unsigned int get_attackDamage();
 };
 
 #endif

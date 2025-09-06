@@ -1,3 +1,4 @@
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -109,4 +110,33 @@ void ClapTrap::current_status()
     std::cout << "Energy: " << _energyPoints << std::endl;
     std::cout << "Damage: " << _attackDamage << std::endl;
     std::cout << "------------------------" << RESET << std::endl;
+}
+
+std::string ClapTrap::get_name()
+{
+    std::cout << "getClapTrap name: " << _name << std::endl;
+    return _name;
+}
+
+unsigned int ClapTrap::get_hitPoints()
+{
+    std::cout << "get ClapTrap hit points: " << _hitPoints << std::endl;
+    return _hitPoints;
+}
+
+unsigned int ClapTrap::get_energyPoints()
+{
+    std::cout << "get ClapTrap energy points: " << _energyPoints << std::endl;
+    return _energyPoints;
+}
+
+unsigned int ClapTrap::get_attackDamage()
+{
+    std::cout << "get ClapTrap attack damage: " << _attackDamage << std::endl;
+    return _attackDamage;
+}
+
+void ClapTrap::set_name(std::string name)
+{
+    _name = name;
 }

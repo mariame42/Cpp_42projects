@@ -67,3 +67,27 @@ void ScavTrap::attack(const std::string& target)
     else
         std::cout << RED << "ScavTrap " << _name << "not able to attack or you are dead" << RED << std::endl;
 }
+
+std::string ScavTrap::get_name()
+{
+    std::cout << "get ScavTrap name: " << _name << std::endl;
+    return _name;
+}
+
+unsigned int ScavTrap::get_hitPoints()
+{
+    std::cout << "get ScavTrap hit points: " << _hitPoints << std::endl;
+    return _hitPoints;
+}
+
+unsigned int ScavTrap::get_energyPoints()
+{
+    std::cout << "get ScavTrap energy points: " << _energyPoints << std::endl;
+    return _energyPoints;
+}
+
+unsigned int ScavTrap::get_attackDamage()
+{
+    std::cout << "get ScavTrap attack damage: " << _attackDamage << std::endl;
+    return _attackDamage;
+}

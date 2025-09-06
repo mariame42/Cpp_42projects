@@ -34,10 +34,6 @@ FragTrap::FragTrap(const std::string& name)
 
 FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other)
 {
-    _name = other._name;
-    _hitPoints = other._hitPoints;
-    _energyPoints = other._energyPoints;
-    _attackDamage = other._attackDamage;
     if (OCCF)
         std::cout << BLUE << "FragTrap Copy constructor called" << RESET << std::endl;
 }
@@ -45,12 +41,7 @@ FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other)
 FragTrap& FragTrap::operator=(const FragTrap& other)
 {
     if (this != &other)
-    {
-        this->_name = other._name;
-        this->_hitPoints = other._hitPoints;
-        this->_energyPoints = other._energyPoints;
-        this->_attackDamage = other._attackDamage;
-    }
+        ClapTrap::operator=(other);
     if (OCCF)
         std::cout << YELLOW << "FragTrap Copy assignment operator called" << RESET << std::endl;
     return (*this);

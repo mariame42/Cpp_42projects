@@ -29,6 +29,7 @@
 
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
+#include "ClapTrap.hpp"
 
 class DiamondTrap : public FragTrap,  public ScavTrap
 {
@@ -40,6 +41,7 @@ class DiamondTrap : public FragTrap,  public ScavTrap
         DiamondTrap(const DiamondTrap& other);
         DiamondTrap& operator=(const DiamondTrap& other);
         ~DiamondTrap();
+        void whoAmI();
 };
 
 #endif

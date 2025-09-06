@@ -32,12 +32,8 @@ FragTrap::FragTrap(const std::string& name)
         std::cout << GREEN << "FragTrap Parameterized constructor called" << RESET << std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap& other)
+FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other)
 {
-    _name = other._name;
-    _hitPoints = other._hitPoints;
-    _energyPoints = other._energyPoints;
-    _attackDamage = other._attackDamage;
     if (OCCF)
         std::cout << BLUE << "FragTrap Copy constructor called" << RESET << std::endl;
 }
@@ -45,12 +41,7 @@ FragTrap::FragTrap(const FragTrap& other)
 FragTrap& FragTrap::operator=(const FragTrap& other)
 {
     if (this != &other)
-    {
-        this->_name = other._name;
-        this->_hitPoints = other._hitPoints;
-        this->_energyPoints = other._energyPoints;
-        this->_attackDamage = other._attackDamage;
-    }
+        ClapTrap::operator=(other);
     if (OCCF)
         std::cout << YELLOW << "FragTrap Copy assignment operator called" << RESET << std::endl;
     return (*this);
@@ -65,4 +56,29 @@ FragTrap::~FragTrap()
 {
     if (OCCF)
         std::cout << RED << "FragTrap Destructor called" << RESET << std::endl;
+}
+
+
+std::string FragTrap::get_name()
+{
+    std::cout << "get FragTrap name: " << _name << std::endl;
+    return _name;
+}
+
+unsigned int FragTrap::get_hitPoints()
+{
+    std::cout << "get FragTrap hit points: " << _hitPoints << std::endl;
+    return _hitPoints;
+}
+
+unsigned int FragTrap::get_energyPoints()
+{
+    std::cout << "get FragTrap energy points: " << _energyPoints << std::endl;
+    return _energyPoints;
+}
+
+unsigned int FragTrap::get_attackDamage()
+{
+    std::cout << "get FragTrap attack damage: " << _attackDamage << std::endl;
+    return _attackDamage;
 }
