@@ -59,7 +59,7 @@ void ClapTrap::attack(const std::string& target)
             ", causing one points of damage!"  << BLUE << std::endl;
     }
     else
-        std::cout << RED << "ClapTrap " << _name << "not able to attack or dead" << RED << std::endl;
+        std::cout << RED << "ClapTrap " << _name << "not able to attack or you are dead" << RED << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
@@ -84,12 +84,29 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
     if (_energyPoints > 0 && _hitPoints > 0)
     {
-        _hitPoints += amount;
+        unsigned int i = 0;
+        while (_hitPoints != UINT_MAX && i < amount)
+        {
+            _hitPoints++;
+            i++;
+        }
+        if (amount != i)
+            std::cout << RED << "you reach unsigned max: " << UINT_MAX << RESET << std::endl;
         _energyPoints--;
         std::cout << GREEN << "ClapTrap " << _name <<
-            " is beRepaired by " << amount << " points "<< RESET << std::endl;
+            " is beRepaired by " << i << " points from " << amount << RESET << std::endl;
     }
     else
         std::cout << RED << "ClapTrap " << _name <<
             " dead or has no energy points to repaire from his health" << RESET << std::endl; 
+}
+
+void ClapTrap::current_status()
+{
+    std::cout << Cyan << "------------------------" << std::endl;
+    std::cout << _name << ": current_status" << std::endl;
+    std::cout << "Health: " << _hitPoints << std::endl;
+    std::cout << "Energy: " << _energyPoints << std::endl;
+    std::cout << "Damage: " << _attackDamage << std::endl;
+    std::cout << "------------------------" << RESET << std::endl;
 }

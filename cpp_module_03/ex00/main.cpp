@@ -17,9 +17,13 @@ int main(void)
     ClapTrap a("a");
     ClapTrap b("b");
     
+    a.current_status();
+    b.current_status();
     a.attack("b");
-    b.takeDamage(9);
-    b.beRepaired(50);
-    b.beRepaired(5);
-    b.takeDamage(80);
+    b.takeDamage(12);
+    a.current_status();
+    b.current_status();
+    b.beRepaired(UINT_MAX);
+    a.current_status();
+    b.current_status();
 }

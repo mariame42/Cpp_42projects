@@ -22,10 +22,12 @@
 #define PURPLE "\033[35m"
 #define RESET "\033[0m"
 #define ORANGE "\033[38;2;255;165;0m"
+#define Cyan "\033[36m"
 
 // a flag to show when Orthodox Canonical class form is used
 // turn it on when we want to see the constructor and destructor messages
 #define OCCF 1
+#include <climits>
 
 class ClapTrap {
     private:
@@ -43,6 +45,7 @@ class ClapTrap {
         void attack(const std::string& target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
+        void current_status();
 };
 
 #endif

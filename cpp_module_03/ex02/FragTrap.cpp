@@ -32,7 +32,7 @@ FragTrap::FragTrap(const std::string& name)
         std::cout << GREEN << "FragTrap Parameterized constructor called" << RESET << std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap& other)
+FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other)
 {
     _name = other._name;
     _hitPoints = other._hitPoints;

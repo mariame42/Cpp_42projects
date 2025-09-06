@@ -12,7 +12,7 @@
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() : ClapTrap("Default")
+ScavTrap::ScavTrap() : ClapTrap()
 {
     _hitPoints = 100;
     _energyPoints = 50;
@@ -30,12 +30,8 @@ ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
         std::cout << GREEN << "ScavTrap Parameterized constructor called" << RESET << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& other)
+ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
 {
-    _name = other._name;
-    _hitPoints = other._hitPoints;
-    _energyPoints = other._energyPoints;
-    _attackDamage = other._attackDamage;
     if (OCCF)
         std::cout << BLUE << "ScavTrap Copy constructor called" << RESET << std::endl;
 }
@@ -43,12 +39,7 @@ ScavTrap::ScavTrap(const ScavTrap& other)
 ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 {
     if (this != &other)
-    {
-        this->_name = other._name;
-        this->_hitPoints = other._hitPoints;
-        this->_energyPoints = other._energyPoints;
-        this->_attackDamage = other._attackDamage;
-    }
+        ClapTrap::operator=(other);
     if (OCCF)
         std::cout << YELLOW << "ScavTrap Copy assignment operator called" << RESET << std::endl;
     return (*this);
@@ -74,5 +65,5 @@ void ScavTrap::attack(const std::string& target)
             ", causing one points of damage!"  << BLUE << std::endl;
     }
     else
-        std::cout << RED << "ScavTrap " << _name << "not able to attack or dead" << RED << std::endl;
+        std::cout << RED << "ScavTrap " << _name << "not able to attack or you are dead" << RED << std::endl;
 }

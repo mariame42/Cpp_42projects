@@ -15,7 +15,16 @@
 int main(void)
 {
     ScavTrap s("s");
+    ScavTrap b;
 
+    b = s;
+    std::cout << "b: " << std::endl;
+    b.current_status();
+    std::cout << "s: " << std::endl;
+    s.current_status();
     s.attack("a");
+    s.beRepaired(20);
     s.guardGate();
+    std::cout << "s: " << std::endl;
+    s.current_status();
 }
