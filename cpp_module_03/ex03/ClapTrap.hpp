@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/06 10:23:24 by meid              #+#    #+#             */
-/*   Updated: 2025/09/06 11:38:46 by meid             ###   ########.fr       */
+/*   Created: 2025/09/06 11:43:35 by meid              #+#    #+#             */
+/*   Updated: 2025/09/06 13:48:10 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 #define OCCF 1
 
 class ClapTrap {
-    private:
+    protected:
         std::string _name;
         unsigned int _hitPoints;
         unsigned int _energyPoints;
@@ -43,12 +43,6 @@ class ClapTrap {
         void attack(const std::string& target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
-        
-        std::string get_name();
-        std::string get_hitPoints();
-        std::string get_energyPoints();
-        std::string get_attackDamage();
-        
 };
 
 #endif

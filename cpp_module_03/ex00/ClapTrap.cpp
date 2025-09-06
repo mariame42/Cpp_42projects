@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 10:23:17 by meid              #+#    #+#             */
-/*   Updated: 2025/09/06 11:38:53 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/06 12:09:19 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 ClapTrap::ClapTrap() : _name("Default"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
     if (OCCF)
-        std::cout << GREEN << "Default constructor called" << RESET << std::endl;
+        std::cout << GREEN << "ClapTrap Default constructor called" << RESET << std::endl;
 }
 
 ClapTrap::ClapTrap(const std::string& name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
     if (OCCF)
-        std::cout << GREEN << "Parameterized constructor called" << RESET << std::endl;
+        std::cout << GREEN << "ClapTrap Parameterized constructor called" << RESET << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other) : _name(other._name), _hitPoints(other._hitPoints), _energyPoints(other._energyPoints), _attackDamage(other._attackDamage)
 {
     if (OCCF)
-        std::cout << BLUE << "Copy constructor called" << RESET << std::endl;
+        std::cout << BLUE << "ClapTrap Copy constructor called" << RESET << std::endl;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)
@@ -40,14 +40,14 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
         this->_attackDamage = other._attackDamage;
     }
     if (OCCF)
-        std::cout << YELLOW << "Copy assignment operator called" << RESET << std::endl;
+        std::cout << YELLOW << "ClapTrap Copy assignment operator called" << RESET << std::endl;
     return (*this);
 }
 
 ClapTrap::~ClapTrap()
 {
     if (OCCF)
-        std::cout << RED << "Destructor called" << RESET << std::endl;
+        std::cout << RED << "ClapTrap Destructor called" << RESET << std::endl;
 }
 
 void ClapTrap::attack(const std::string& target)

@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 10:23:29 by meid              #+#    #+#             */
-/*   Updated: 2025/09/06 11:34:06 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/06 11:55:17 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int main(void)
     ClapTrap b("b");
     
     a.attack("b");
-    b.takeDamage(20);
+    b.takeDamage(9);
     b.beRepaired(50);
+    b.beRepaired(5);
+    b.takeDamage(80);
 }

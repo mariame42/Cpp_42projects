@@ -6,7 +6,16 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 11:43:49 by meid              #+#    #+#             */
-/*   Updated: 2025/09/06 11:43:50 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/06 13:56:18 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ScavTrap.hpp"
+
+int main(void)
+{
+    ScavTrap s("s");
+
+    s.attack("a");
+    s.guardGate();
+}
