@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/08 09:35:06 by meid              #+#    #+#             */
-/*   Updated: 2025/09/08 09:35:07 by meid             ###   ########.fr       */
+/*   Created: 2025/09/08 09:35:00 by meid              #+#    #+#             */
+/*   Updated: 2025/09/08 09:46:37 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 
-int main()
+#ifndef Dog_hpp
+# define Dog_hpp
+
+#include "Animal.hpp"
+
+class Dog : public Animal
 {
-    std::cout << "hello" << std::endl;
-}
+    public :
+        Dog();
+        Dog(std::string);
+        Dog(const Dog& other);
+        Dog& operator=(const Dog& other);
+        ~Dog();
+        void makeSound();
+};
+
+#endif
