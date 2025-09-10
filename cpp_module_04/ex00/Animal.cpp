@@ -10,3 +10,46 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Animal.hpp"
+
+Animal::Animal()
+{
+    std::cout << "Animal constructor called" << std::endl;
+}
+
+Animal::Animal(std::string type) : _type(type)
+{
+    std::cout << "Animal constructor called" << std::endl;
+}
+
+
+Animal::Animal(const Animal& other) : _type(other._type)
+{
+    std::cout << BLUE << "Animal Copy constructor called" << RESET << std::endl;
+}
+
+Animal& Animal::operator=(const Animal& other)
+{
+    if (this != &other)
+    {
+        this->_type = other._type;
+    }
+    std::cout << YELLOW << "Animal Copy assignment operator called" << RESET << std::endl;
+    return (*this);
+}
+
+
+const std::string Animal::getType() const
+{
+    return (_type);
+}
+
+void Animal::makeSound() const
+{
+    std::cout << "Some generic animal sound" << std::endl;
+}
+
+Animal::~Animal()
+{
+    std::cout << "Animal destructor called" << std::endl;
+}

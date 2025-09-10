@@ -29,13 +29,15 @@
 class Animal
 {
     protected :
-        std::string type;
+        std::string _type;
     public :
         Animal();
         Animal(std::string);
         Animal(const Animal& other);
         Animal& operator=(const Animal& other);
         ~Animal();
+        virtual const std::string getType() const;
+        virtual void makeSound() const;
 };
 
 #endif

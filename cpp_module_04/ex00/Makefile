@@ -13,7 +13,7 @@
 NAME = Animal
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp
+SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongCat.cpp WrongAnimal.cpp
 OBJ_FILE = obj/
 OBJ = $(SRC:%.cpp=$(OBJ_FILE)/%.o)
 RM = rm -rf
