@@ -58,5 +58,10 @@ void Cat::printIdeas() const
         i++;
     }
     std::cout << std::endl;
+}
 
+Cat::~Cat()
+{
+    delete _Brain;
+    std::cout << "Cat destructor called" << std::endl;
 }

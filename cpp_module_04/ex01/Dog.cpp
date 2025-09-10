@@ -58,5 +58,10 @@ void Dog::printIdeas() const
         i++;
     }
     std::cout << std::endl;
+}
 
+Dog::~Dog()
+{
+    delete _Brain;
+    std::cout << "Dog destructor called" << std::endl;
 }
