@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                           :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/10 21:11:04 by meid              #+#    #+#             */
-/*   Updated: 2025/09/10 22:03:42 by meid             ###   ########.fr       */
+/*   Created: 2025/09/10 22:09:56 by meid              #+#    #+#             */
+/*   Updated: 2025/09/10 22:12:00 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef Cure_H
-# define Cure_H
+#ifndef ICharacter_hpp
+# define ICharacter_hpp
 
 #include "iostream"
-#include "AMateria.hpp"
 
-class Cure : public AMateria
+class ICharacter
 {
-    
+    public:
+        virtual ~ICharacter() {}
+        virtual std::string const & getName() const = 0; virtual void equip(AMateria* m) = 0;
+        virtual void unequip(int idx) = 0;
+        virtual void use(int idx, ICharacter& target) = 0;
 };
 
 #endif

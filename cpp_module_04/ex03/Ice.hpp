@@ -6,11 +6,19 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 21:10:54 by meid              #+#    #+#             */
-/*   Updated: 2025/09/10 21:10:55 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/10 22:07:16 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef Ice_H
 # define Ice_H
+
+#include "iostream"
+#include "AMateria.hpp"
+
+class Ice : public AMateria
+{
+  
+};
 
 # endif
