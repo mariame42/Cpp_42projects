@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 19:59:44 by meid              #+#    #+#             */
-/*   Updated: 2025/09/03 19:59:45 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/21 18:36:20 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,9 @@ Fixed::Fixed(const int n)
         throw std::out_of_range("Integer value out of range for Fixed point representation");
     _value = n << _fractional_bits;
     if (FUNCTIONS_CALLS)
-        std::cout << "Int constructor called" << std::endl;
+        std::cout << GREEN << "Int constructor called" << RESET<< std::endl;
 }
 
-// Floats are stored in memory using a special format (sign, exponent, mantissa),
-// so we can’t just shift their bits like integers.
-// Instead, we multiply the float by 256, which achieves the same scaling effect
-// as shifting would for integers.
 Fixed::Fixed(const float f)
 {
     if (std::isnan(f)) {
@@ -87,7 +83,7 @@ Fixed::Fixed(const float f)
     }
     _value = roundf(f * (1 << _fractional_bits));
     if (FUNCTIONS_CALLS)
-        std::cout << "Float constructor called" << std::endl;
+        std::cout << GREEN << "Float constructor called" << RESET << std::endl;
 }
 
 float   Fixed::toFloat( void ) const
@@ -200,26 +196,28 @@ Fixed Fixed::operator/(const Fixed& other) const
 
 Fixed Fixed::operator++()
 {
-    if (_value == INT_MAX) {
+    if (_value >= (8388607 << _fractional_bits)) {
         throw std::overflow_error("Increment overflow");
-    }
+    }    
     _value++;
     return (*this);
 }
 
 Fixed Fixed::operator--()
 {
-    if (_value == INT_MIN) {
+    const long FIXED_MIN = -(8388608L << _fractional_bits);
+    if ((long)_value <= FIXED_MIN)
+    {
         throw std::overflow_error("Decrement overflow");
     }
-    _value--;
-    return (*this);
+    --_value;
+    return *this;
 }
 
 Fixed Fixed::operator++(int)
 {
     Fixed temp = *this; // Store the current state
-    if (_value == INT_MAX) {
+    if (_value >= (8388607 << _fractional_bits)) {
         throw std::overflow_error("Post-increment overflow");
     }
     _value++; // Increment the value
@@ -228,12 +226,13 @@ Fixed Fixed::operator++(int)
 
 Fixed Fixed::operator--(int)
 {
-    Fixed temp = *this; // Store the current state
-    if (_value == INT_MIN) {
+    const long FIXED_MIN = -(8388608L << _fractional_bits);
+    Fixed temp = *this;
+    if ((long)_value <= FIXED_MIN) {
         throw std::overflow_error("Post-decrement overflow");
     }
-    _value--; // decrement the value
-    return (temp); // Return the old state
+    --_value;
+    return temp;
 }
 
 Fixed& Fixed::min(Fixed& a, Fixed& b)

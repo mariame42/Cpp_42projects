@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 19:59:35 by meid              #+#    #+#             */
-/*   Updated: 2025/09/21 14:57:08 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/21 21:54:19 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,29 @@
 
 int main( void )
 {
-    Fixed       a;
-    Fixed const b ( Fixed( 5.05f ) * Fixed( 2 ) );
-
-    std::cout << a << std::endl;
-    std::cout << ++a << std::endl;
-    std::cout << a << std::endl;
-    std::cout << a++ << std::endl;
-    std::cout << a << std::endl;
-    std::cout << b << std::endl;
-    std::cout << Fixed::max( a, b ) << std::endl;
+    try{
+        Fixed       a(8388607);
+        Fixed       b(1.0f);
+        // Fixed       b(8388606.99999f);
+        // Fixed d(11111111);
+        // Fixed const b ( Fixed( 5.05f ) * Fixed( 2 ) );
+    
+        // std::cout << a / d;
+        // std::cout << d.getRawBits();
+        std::cout << a / b;
+        
+        // std::cout << a << std::endl;
+        // std::cout << ++a << std::endl;
+        // std::cout << a << std::endl;
+        // std::cout << a++ << std::endl;
+        // std::cout << a << std::endl;
+        // std::cout << b << std::endl;
+        // std::cout << Fixed::max( a, b ) << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cout << RED << "ERROR: " << e.what() << RESET << std::endl;
+    }
     return 0;
 }
 

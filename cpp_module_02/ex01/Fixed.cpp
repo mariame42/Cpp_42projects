@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 19:58:59 by meid              #+#    #+#             */
-/*   Updated: 2025/09/21 14:22:14 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/21 17:41:55 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ Fixed::Fixed(const int n)
         throw std::out_of_range("Integer value out of range for Fixed point representation");
     _value = n << _fractional_bits;
     if (FUNCTIONS_CALLS)
-        std::cout << "Int constructor called" << std::endl;
+        std::cout << GREEN << "Int constructor called" << RESET << std::endl;
 }
 
 // Floats are stored in memory using a special format (sign, exponent, mantissa),
@@ -88,7 +88,7 @@ Fixed::Fixed(const float f)
     }
     _value = roundf(f * (1 << _fractional_bits));
     if (FUNCTIONS_CALLS)
-        std::cout << "Float constructor called" << std::endl;
+        std::cout << GREEN << "Float constructor called" << RESET << std::endl;
 }
 
 float   Fixed::toFloat( void ) const

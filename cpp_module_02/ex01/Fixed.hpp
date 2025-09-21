@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 19:59:02 by meid              #+#    #+#             */
-/*   Updated: 2025/09/21 14:28:44 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/21 21:35:32 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@
 #define PURPLE "\033[35m"
 #define RESET "\033[0m"
 
-#define OCCF 0
+#define OCCF 1
 #define FUNCTIONS_CALLS 1
+
 
 class Fixed
 {

@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 19:58:48 by meid              #+#    #+#             */
-/*   Updated: 2025/09/19 15:46:29 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/21 18:56:13 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 // a flag to show when Orthodox Canonical class form is used
 // turn it on when we want to see the constructor and destructor messages
-#define OCCF 1
+static const bool OCCF =  1;
 
 class Fixed
 {

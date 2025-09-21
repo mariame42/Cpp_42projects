@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 19:58:56 by meid              #+#    #+#             */
-/*   Updated: 2025/09/19 15:45:47 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/21 18:53:36 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int main( void )
     Fixed b( a );
     Fixed c;
     c = b;
+ 
     std::cout << a.getRawBits() << std::endl;
     std::cout << b.getRawBits() << std::endl;
     std::cout << c.getRawBits() << std::endl;
