@@ -6,13 +6,14 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 19:59:42 by meid              #+#    #+#             */
-/*   Updated: 2025/09/03 19:59:43 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/21 15:05:31 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 
 // How To Determine if a Point Is in a 2D Triangle
+// i used Orientation Approach
 // https://www.baeldung.com/cs/check-if-point-is-in-2d-triangle
 
 //example:

@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 19:58:59 by meid              #+#    #+#             */
-/*   Updated: 2025/09/04 20:38:33 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/21 14:22:14 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,10 @@ Fixed::Fixed(const int n)
         std::cout << "Int constructor called" << std::endl;
 }
 
+// Floats are stored in memory using a special format (sign, exponent, mantissa),
+// so we can’t just shift their bits like integers.
+// Instead, we multiply the float by 256, which achieves the same scaling effect
+// as shifting would for integers.
 Fixed::Fixed(const float f)
 {
     // roundf is a function that rounds the float to the nearest integer

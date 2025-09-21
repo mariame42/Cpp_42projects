@@ -6,14 +6,14 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 19:58:48 by meid              #+#    #+#             */
-/*   Updated: 2025/09/03 21:49:45 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/19 15:46:29 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef Fixed_hpp
 # define Fixed_hpp
 
-#include "iostream"
+#include <iostream>
 
 #define GREEN "\033[32m"
 #define YELLOW "\033[33m"
@@ -38,8 +38,9 @@ class Fixed
         Fixed&	operator=(const Fixed &other);
         ~Fixed();
     
-        //  that the function itself does not modify any member variables of the class. const
+        // the function itself does not modify any member variables of the class. const
         int		getRawBits( void ) const;
+
         void	setRawBits( int const raw );
     };
     

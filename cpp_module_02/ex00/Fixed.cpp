@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 19:58:53 by meid              #+#    #+#             */
-/*   Updated: 2025/09/04 20:38:27 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/19 15:44:12 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ Fixed& Fixed::operator=(const Fixed &other)
     if (OCCF)
         std::cout << YELLOW << "Copy assignment operator called" << RESET << std::endl;
     return (*this);
-    
 }
 
 int		Fixed::getRawBits( void ) const

@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 19:59:16 by meid              #+#    #+#             */
-/*   Updated: 2025/09/04 21:21:12 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/21 14:44:59 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,22 +197,9 @@ Fixed Fixed::operator++(int)
 Fixed Fixed::operator--(int)
 {
     Fixed temp = *this; // Store the current state
-    _value--; // Increment the value
+    _value--; // decrement the value
     return (temp); // Return the old state
 }
-
-
-// Add these four public overloaded member functions to your class:
-// • A static member function min that takes two references to fixed-point numbers as
-// parameters, and returns a reference to the smallest one.
-
-// • A static member function min that takes two references to constant fixed-point
-// numbers as parameters, and returns a reference to the smallest one.
-
-// • A static member function max that takes two references to fixed-point numbers as
-// parameters, and returns a reference to the greatest one.
-// • A static member function max that takes two references to constant fixed-point
-// numbers as parameters, and returns a reference to the greatest one.
 
 Fixed& Fixed::min(Fixed& a, Fixed& b)
 {

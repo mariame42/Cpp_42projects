@@ -6,7 +6,7 @@
 #    By: meid <meid@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/03 19:59:11 by meid              #+#    #+#              #
-#    Updated: 2025/09/03 20:12:45 by meid             ###   ########.fr        #
+#    Updated: 2025/09/21 14:12:48 by meid             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,9 @@ $(NAME) : $(OBJ)
 
 %.o : %.cpp
 	$(CXX) $(CFLAGSXX) -c $< -o $@
+
+# $< = the source file (%.cpp)
+# $@ = the target file (%.o)
 
 clean :
 	$(RM) $(OBJ)

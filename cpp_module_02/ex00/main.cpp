@@ -6,18 +6,16 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 19:58:56 by meid              #+#    #+#             */
-/*   Updated: 2025/09/03 21:27:05 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/19 15:45:47 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-#include <iostream>
-// subject : main
-
 int main( void )
 {
     Fixed a;
+    a.setRawBits(1);
     Fixed b( a );
     Fixed c;
     c = b;
