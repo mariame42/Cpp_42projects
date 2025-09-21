@@ -23,7 +23,7 @@
 #define PURPLE "\033[35m"
 #define RESET "\033[0m"
 
-#define OCCF 1
+#define OCCF 0
 #define FUNCTIONS_CALLS 1
 
 class Fixed

@@ -16,6 +16,7 @@
 
 #include "iostream"
 #include "cmath"
+#include <climits>
 
 #define GREEN "\033[32m"
 #define YELLOW "\033[33m"
@@ -26,6 +27,7 @@
 
 // Orthodox Canonical class form
 #define OCCF 0
+#define FUNCTIONS_CALLS 1
 
 class Fixed
 {
