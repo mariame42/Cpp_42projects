@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 19:59:16 by meid              #+#    #+#             */
-/*   Updated: 2025/09/21 22:05:07 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/22 07:34:07 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ Fixed::Fixed(const int n)
 // as shifting would for integers.
 Fixed::Fixed(const float f)
 {
+    // NaN = a special floating-point value defined by the IEEE-754 standard that represents
+    // "Not a Number" (like results of invalid operations, e.g., 0.0 / 0.0).
     if (std::isnan(f)) {
         throw std::invalid_argument("Cannot convert NaN to Fixed point");
     }
@@ -138,7 +140,7 @@ bool Fixed::operator==(const Fixed& other) const
 bool Fixed::operator!=(const Fixed& other) const
 {
     return (this->_value != other._value);
-}-
+}
 
 // -----     The 4 arithmetic operators: +, -, *, and /.
 

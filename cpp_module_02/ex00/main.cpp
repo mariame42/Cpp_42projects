@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 19:58:56 by meid              #+#    #+#             */
-/*   Updated: 2025/09/21 18:53:36 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/22 07:45:19 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int main( void )
 {
     Fixed a;
-    a.setRawBits(1);
     Fixed b( a );
     Fixed c;
     c = b;
@@ -28,6 +27,7 @@ int main( void )
 
 // my main
 // put OCCF = 0 to stop seeing the constructor and destructor messages
+
 // int main( void )
 // {
 //     Fixed a;

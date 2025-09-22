@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 19:58:59 by meid              #+#    #+#             */
-/*   Updated: 2025/09/21 17:41:55 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/22 07:32:49 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ Fixed::~Fixed()
 Fixed::Fixed(const int n)
 {
     // In binary, shifting left by 1 bit = multiplying by 2.
-    if (n > 8388607 || n < -8388608)
+    if (n > FIXED_MAX || n < FIXED_MIN)
         throw std::out_of_range("Integer value out of range for Fixed point representation");
     _value = n << _fractional_bits;
     if (FUNCTIONS_CALLS)
@@ -77,13 +77,15 @@ Fixed::Fixed(const int n)
 // as shifting would for integers.
 Fixed::Fixed(const float f)
 {
+    // NaN = a special floating-point value defined by the IEEE-754 standard that represents
+    // "Not a Number" (like results of invalid operations, e.g., 0.0 / 0.0).
     if (std::isnan(f)) {
         throw std::invalid_argument("Cannot convert NaN to Fixed point");
     }
     if (std::isinf(f)) {
         throw std::overflow_error("Cannot convert infinity to Fixed point");
     }
-    if (f > 8388607.0f || f < -8388608.0f) {
+    if (f > (float)FIXED_MAX || f < (float)FIXED_MIN) {
         throw std::overflow_error("Float value out of range for Fixed point representation");
     }
     _value = roundf(f * (1 << _fractional_bits));

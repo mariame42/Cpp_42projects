@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 19:59:47 by meid              #+#    #+#             */
-/*   Updated: 2025/09/03 19:59:48 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/22 07:59:54 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,10 @@
 #define RESET "\033[0m"
 
 // Orthodox Canonical class form
-#define OCCF 0
-#define FUNCTIONS_CALLS 1
+static const bool OCCF = 1;
+static const bool FUNCTIONS_CALLS = 1;
+static const int FIXED_MAX = 8388607;
+static const int FIXED_MIN = -8388608;
 
 class Fixed
 {
