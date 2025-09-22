@@ -13,6 +13,8 @@
 
 #include "ClapTrap.hpp"
 
+#include "ClapTrap.hpp"
+
 ClapTrap::ClapTrap() : _name("Default"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
     if (OCCF)
@@ -57,28 +59,29 @@ void ClapTrap::attack(const std::string& target)
     {
         _energyPoints--;
         std::cout << BLUE << "ClapTrap " << _name << " attacks " << target <<
-            ", causing one points of damage!"  << BLUE << std::endl;
+            ", causing " << _attackDamage << " points of damage!" << RESET << std::endl;
     }
     else
-        std::cout << RED << "ClapTrap " << _name << "not able to attack or you are dead" << RED << std::endl;
+        std::cout << RED << "ClapTrap " << _name << " not able to attack or you are dead" << RESET << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
+    if (_hitPoints == 0)
+    {
+        std::cout << RED << "ClapTrap " << _name <<
+            " has no hit points left to take damage!" << RESET << std::endl;
+        return;
+    }
+    
     unsigned int damage = (amount > _hitPoints) ? _hitPoints : amount;
     _hitPoints -= damage;
 
-    if (damage > 0)
-    {
-        std::cout << YELLOW << "ClapTrap " << _name << " took "
-            << damage << " points of damage!" << RESET;
-        if (_hitPoints == 0)
-            std::cout << ORANGE << " so now he is dead" << RESET;
-        std::cout << std::endl;
-    }
-    else
-        std::cout << RED << "ClapTrap " << _name <<
-            " has no hit points left to take damage!" << RESET << std::endl;
+    std::cout << YELLOW << "ClapTrap " << _name << " took "
+        << damage << " points of damage!" << RESET;
+    if (_hitPoints == 0)
+        std::cout << ORANGE << " so now he is dead" << RESET;
+    std::cout << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
@@ -99,8 +102,10 @@ void ClapTrap::beRepaired(unsigned int amount)
     }
     else
         std::cout << RED << "ClapTrap " << _name <<
-            " dead or has no energy points to repaire from his health" << RESET << std::endl; 
+            " dead or has no energy points to repair from his health" << RESET << std::endl; 
 }
+
+// my functions
 
 void ClapTrap::current_status()
 {
@@ -112,9 +117,11 @@ void ClapTrap::current_status()
     std::cout << "------------------------" << RESET << std::endl;
 }
 
+// getters and setters
+
 std::string ClapTrap::get_name()
 {
-    std::cout << "getClapTrap name: " << _name << std::endl;
+    std::cout << "get ClapTrap name: " << _name << std::endl;
     return _name;
 }
 
@@ -139,4 +146,19 @@ unsigned int ClapTrap::get_attackDamage()
 void ClapTrap::set_name(std::string name)
 {
     _name = name;
+}
+
+void ClapTrap::set_hitPoints(unsigned int hitPoints)
+{
+    _hitPoints = hitPoints;
+}
+
+void ClapTrap::set_energyPoints(unsigned int energyPoints)
+{
+    _energyPoints = energyPoints;
+}
+
+void ClapTrap::set_attackDamage(unsigned int attackDamage)
+{
+    _attackDamage = attackDamage;
 }

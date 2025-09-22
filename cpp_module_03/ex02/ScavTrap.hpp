@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 11:52:56 by meid              #+#    #+#             */
-/*   Updated: 2025/09/06 13:39:56 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/22 21:30:46 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 
 // a flag to show when Orthodox Canonical class form is used
 // turn it on when we want to see the constructor and destructor messages
-#define OCCF 1
+static const int OCCF = 1;
 
 #include "ClapTrap.hpp"
 

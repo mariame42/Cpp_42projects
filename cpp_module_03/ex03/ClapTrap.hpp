@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 11:43:35 by meid              #+#    #+#             */
-/*   Updated: 2025/09/06 13:48:10 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/22 21:34:02 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 #include <climits>
 
 class ClapTrap {
-    protected:
+    private:
         std::string _name;
         unsigned int _hitPoints;
         unsigned int _energyPoints;
@@ -45,13 +45,19 @@ class ClapTrap {
         void attack(const std::string& target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
+
+        // my functions
         void current_status();
 
-        void set_name(std::string name);
+        // getters and setters
         std::string get_name();
         unsigned int get_hitPoints();
         unsigned int get_energyPoints();
         unsigned int get_attackDamage();
+        void set_name(std::string name);
+        void set_hitPoints(unsigned int hitPoints);
+        void set_energyPoints(unsigned int energyPoints);
+        void set_attackDamage(unsigned int attackDamage);
 };
 
 #endif

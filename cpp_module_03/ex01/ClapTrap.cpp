@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 11:43:16 by meid              #+#    #+#             */
-/*   Updated: 2025/09/06 13:10:29 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/22 21:26:50 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,8 @@ void ClapTrap::beRepaired(unsigned int amount)
             " dead or has no energy points to repair from his health" << RESET << std::endl; 
 }
 
+// my functions
+
 void ClapTrap::current_status()
 {
     std::cout << Cyan << "------------------------" << std::endl;
@@ -110,4 +112,50 @@ void ClapTrap::current_status()
     std::cout << "Energy: " << _energyPoints << std::endl;
     std::cout << "Damage: " << _attackDamage << std::endl;
     std::cout << "------------------------" << RESET << std::endl;
+}
+
+// getters and setters
+
+std::string ClapTrap::get_name()
+{
+    std::cout << "get ClapTrap name: " << _name << std::endl;
+    return _name;
+}
+
+unsigned int ClapTrap::get_hitPoints()
+{
+    std::cout << "get ClapTrap hit points: " << _hitPoints << std::endl;
+    return _hitPoints;
+}
+
+unsigned int ClapTrap::get_energyPoints()
+{
+    std::cout << "get ClapTrap energy points: " << _energyPoints << std::endl;
+    return _energyPoints;
+}
+
+unsigned int ClapTrap::get_attackDamage()
+{
+    std::cout << "get ClapTrap attack damage: " << _attackDamage << std::endl;
+    return _attackDamage;
+}
+
+void ClapTrap::set_name(std::string name)
+{
+    _name = name;
+}
+
+void ClapTrap::set_hitPoints(unsigned int hitPoints)
+{
+    _hitPoints = hitPoints;
+}
+
+void ClapTrap::set_energyPoints(unsigned int energyPoints)
+{
+    _energyPoints = energyPoints;
+}
+
+void ClapTrap::set_attackDamage(unsigned int attackDamage)
+{
+    _attackDamage = attackDamage;
 }
