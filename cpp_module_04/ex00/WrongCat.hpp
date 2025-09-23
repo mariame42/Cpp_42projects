@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 21:08:41 by meid              #+#    #+#             */
-/*   Updated: 2025/09/10 21:08:42 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/23 20:16:22 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class WrongCat : public WrongAnimal
         WrongCat& operator=(const WrongCat& other);
         const std::string getType() const;
         void makeSound() const;
+        ~WrongCat();
 };
 
 #endif

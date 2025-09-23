@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 21:08:50 by meid              #+#    #+#             */
-/*   Updated: 2025/09/10 21:08:51 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/23 20:15:52 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ const std::string WrongAnimal::getType() const
 
 void WrongAnimal::makeSound() const
 {
-    std::cout << "Some generic WrongAnimal sound" << std::endl;
+    std::cout << PURPLE << "Some generic WrongAnimal sound"  << RESET << std::endl;
 }
 
 WrongAnimal::~WrongAnimal()

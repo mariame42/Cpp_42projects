@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 09:34:51 by meid              #+#    #+#             */
-/*   Updated: 2025/09/08 09:34:52 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/23 20:14:55 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 Cat::Cat() : Animal("Cat")
 {
-    std::cout << "Cat constructor called" << std::endl;
+    std::cout << GREEN << "Cat constructor called" << RESET << std::endl;
 }
 
 Cat::Cat(std::string type) : Animal(type)
 {
-    std::cout << "Cat constructor called" << std::endl;
+    std::cout << GREEN << "Cat constructor called" << RESET << std::endl;
 }
 
 Cat::Cat(const Cat& other) : Animal(other)
@@ -39,10 +39,15 @@ Cat& Cat::operator=(const Cat& other)
 
 void Cat::makeSound()  const
 {
-    std::cout << "meow" << std::endl;
+    std::cout << PURPLE << "meow" << RESET << std::endl;
 }
 
 const std::string Cat::getType() const
 {
     return (_type);
+}
+
+Cat::~Cat()
+{
+    std::cout << RED << "Cat destructor called" << RESET << std::endl;
 }
