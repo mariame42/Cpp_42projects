@@ -12,22 +12,20 @@
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap()
+FragTrap::FragTrap() : ClapTrap()
 {
-    _name = "Default";
-    _hitPoints = 100;
-    _energyPoints = 100;
-    _attackDamage = 30;
+    set_hitPoints(100);
+    set_energyPoints(100);
+    set_attackDamage(30);
     if (OCCF)
         std::cout << GREEN << "FragTrap Default constructor called" << RESET << std::endl;
 }
 
-FragTrap::FragTrap(const std::string& name)
+FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
 {
-    _name = name;
-    _hitPoints = 100;
-    _energyPoints = 100;
-    _attackDamage = 30;
+    set_hitPoints(100);
+    set_energyPoints(100);
+    set_attackDamage(30);
     if (OCCF)
         std::cout << GREEN << "FragTrap Parameterized constructor called" << RESET << std::endl;
 }
@@ -49,7 +47,7 @@ FragTrap& FragTrap::operator=(const FragTrap& other)
 
 void FragTrap::highFivesGuys(void)
 {
-    std::cout << ORANGE << _name << "FragTrap is is sending a high-fives request" << RESET << std::endl;
+    std::cout << ORANGE << "FragTrap " << get_name() << " is sending a high-fives request" << RESET << std::endl;
 }
 
 FragTrap::~FragTrap()

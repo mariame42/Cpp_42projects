@@ -25,13 +25,12 @@
 
 // a flag to show when Orthodox Canonical class form is used
 // turn it on when we want to see the constructor and destructor messages
-#define OCCF 1
 
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 #include "ClapTrap.hpp"
 
-class DiamondTrap : public FragTrap,  public ScavTrap
+class DiamondTrap : public FragTrap, public ScavTrap
 {
     private:
         std::string _name;
@@ -41,6 +40,7 @@ class DiamondTrap : public FragTrap,  public ScavTrap
         DiamondTrap(const DiamondTrap& other);
         DiamondTrap& operator=(const DiamondTrap& other);
         ~DiamondTrap();
+        void attack(const std::string& target);
         void whoAmI();
 };
 

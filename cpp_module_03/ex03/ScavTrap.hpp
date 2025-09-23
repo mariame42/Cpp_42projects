@@ -23,10 +23,6 @@
 #define RESET "\033[0m"
 #define ORANGE "\033[38;2;255;165;0m"
 
-// a flag to show when Orthodox Canonical class form is used
-// turn it on when we want to see the constructor and destructor messages
-#define OCCF 1
-
 #include "ClapTrap.hpp"
 
 class ScavTrap : virtual public ClapTrap
@@ -40,11 +36,6 @@ class ScavTrap : virtual public ClapTrap
 
         void attack(const std::string& target);
         void guardGate();
-
-        std::string get_name();
-        unsigned int get_hitPoints();
-        unsigned int get_energyPoints();
-        unsigned int get_attackDamage();
 };
 
 #endif

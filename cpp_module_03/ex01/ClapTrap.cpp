@@ -118,25 +118,29 @@ void ClapTrap::current_status()
 
 std::string ClapTrap::get_name()
 {
-    std::cout << "get ClapTrap name: " << _name << std::endl;
+    if (FUNCTIONS_CALLED)
+        std::cout << "get ClapTrap name: " << _name << std::endl;
     return _name;
 }
 
 unsigned int ClapTrap::get_hitPoints()
 {
-    std::cout << "get ClapTrap hit points: " << _hitPoints << std::endl;
+    if (FUNCTIONS_CALLED)
+        std::cout << "get ClapTrap hit points: " << _hitPoints << std::endl;
     return _hitPoints;
 }
 
 unsigned int ClapTrap::get_energyPoints()
 {
-    std::cout << "get ClapTrap energy points: " << _energyPoints << std::endl;
+    if (FUNCTIONS_CALLED)
+        std::cout << "get ClapTrap energy points: " << _energyPoints << std::endl;
     return _energyPoints;
 }
 
 unsigned int ClapTrap::get_attackDamage()
 {
-    std::cout << "get ClapTrap attack damage: " << _attackDamage << std::endl;
+    if (FUNCTIONS_CALLED)
+        std::cout << "get ClapTrap attack damage: " << _attackDamage << std::endl;
     return _attackDamage;
 }
 

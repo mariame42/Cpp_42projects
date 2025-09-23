@@ -12,22 +12,20 @@
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap()
+FragTrap::FragTrap() : ClapTrap()
 {
-    _name = "Default";
-    _hitPoints = 100;
-    _energyPoints = 100;
-    _attackDamage = 30;
+    set_hitPoints(100);
+    set_energyPoints(100);
+    set_attackDamage(30);
     if (OCCF)
         std::cout << GREEN << "FragTrap Default constructor called" << RESET << std::endl;
 }
 
-FragTrap::FragTrap(const std::string& name)
+FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
 {
-    _name = name;
-    _hitPoints = 100;
-    _energyPoints = 100;
-    _attackDamage = 30;
+    set_hitPoints(100);
+    set_energyPoints(100);
+    set_attackDamage(30);
     if (OCCF)
         std::cout << GREEN << "FragTrap Parameterized constructor called" << RESET << std::endl;
 }
@@ -49,36 +47,11 @@ FragTrap& FragTrap::operator=(const FragTrap& other)
 
 void FragTrap::highFivesGuys(void)
 {
-    std::cout << ORANGE << _name << "FragTrap is is sending a high-fives request" << RESET << std::endl;
+    std::cout << ORANGE << "FragTrap " << get_name() << " is sending a high-fives request" << RESET << std::endl;
 }
 
 FragTrap::~FragTrap()
 {
     if (OCCF)
         std::cout << RED << "FragTrap Destructor called" << RESET << std::endl;
-}
-
-
-std::string FragTrap::get_name()
-{
-    std::cout << "get FragTrap name: " << _name << std::endl;
-    return _name;
-}
-
-unsigned int FragTrap::get_hitPoints()
-{
-    std::cout << "get FragTrap hit points: " << _hitPoints << std::endl;
-    return _hitPoints;
-}
-
-unsigned int FragTrap::get_energyPoints()
-{
-    std::cout << "get FragTrap energy points: " << _energyPoints << std::endl;
-    return _energyPoints;
-}
-
-unsigned int FragTrap::get_attackDamage()
-{
-    std::cout << "get FragTrap attack damage: " << _attackDamage << std::endl;
-    return _attackDamage;
 }

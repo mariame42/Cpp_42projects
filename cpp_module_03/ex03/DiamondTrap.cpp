@@ -12,32 +12,35 @@
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap()
+DiamondTrap::DiamondTrap() : ClapTrap("Default_clap_name"), FragTrap(), ScavTrap()
 {
     _name = "Default";
-    ClapTrap::_name = "Default_clap_name";
-    _hitPoints = FragTrap::get_hitPoints();
-    _energyPoints = ScavTrap::get_energyPoints();
-    _attackDamage = FragTrap::get_attackDamage();
+    set_hitPoints(100);  // FragTrap value
+    set_energyPoints(50);  // ScavTrap value
+    set_attackDamage(30);  // FragTrap value
     if (OCCF)
         std::cout << GREEN << "DiamondTrap Default constructor called" << RESET << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const std::string& name)
+DiamondTrap::DiamondTrap(const std::string& name) : ClapTrap(name + "_clap_name"), FragTrap(), ScavTrap()
 {
     _name = name;
-    ClapTrap::_name = name + "_clap_name";
-    _hitPoints = FragTrap::get_hitPoints();
-    _energyPoints = ScavTrap::get_energyPoints();
-    _attackDamage = FragTrap::get_attackDamage();
+    set_hitPoints(100);  // FragTrap value
+    set_energyPoints(50);  // ScavTrap value
+    set_attackDamage(30);  // FragTrap value
     if (OCCF)
         std::cout << GREEN << "DiamondTrap Parameterized constructor called" << RESET << std::endl;
+}
+
+void DiamondTrap::attack(const std::string& target)
+{
+    ScavTrap::attack(target);
 }
 
 void DiamondTrap::whoAmI()
 {
     std::cout << "DiamondTrap name: " << _name << std::endl;
-    std::cout << "ClapTrap name: " << ClapTrap::_name << std::endl;
+    std::cout << "ClapTrap name: " << get_name() << std::endl;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& other) : ClapTrap(other), FragTrap(other), ScavTrap(other)

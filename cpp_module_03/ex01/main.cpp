@@ -15,6 +15,7 @@
 int main(void)
 {
     ScavTrap s("s");
+    s.set_hitPoints(110);
     ScavTrap b;
 
     b = s;

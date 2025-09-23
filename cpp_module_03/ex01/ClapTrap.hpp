@@ -27,6 +27,7 @@
 // a flag to show when Orthodox Canonical class form is used
 // turn it on when we want to see the constructor and destructor messages
 static const int OCCF = 1;
+static const int FUNCTIONS_CALLED = 0;
 #include <climits>
 
 class ClapTrap {

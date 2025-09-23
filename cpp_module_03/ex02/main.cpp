@@ -14,14 +14,26 @@
 
 int main(void)
 {
-    FragTrap f;
-
+    std::cout << "=== Creating FragTrap with name ===" << std::endl;
+    FragTrap f("FragBot");
+    
+    std::cout << "\n=== Creating FragTrap without name ===" << std::endl;
+    FragTrap g;
+    
+    std::cout << "\n=== Testing copy constructor ===" << std::endl;
+    FragTrap h(f);
+    
+    std::cout << "\n=== Testing copy assignment ===" << std::endl;
+    g = f;
+    
+    std::cout << "\n=== Testing FragTrap functionality ===" << std::endl;
     f.current_status();
-    f.attack("a");
+    f.attack("enemy");
     f.takeDamage(12);
     f.current_status();
-    f.beRepaired(UINT_MAX);
+    f.beRepaired(20);
     f.current_status();
     f.highFivesGuys();
-    f.current_status();
+    
+    std::cout << "\n=== End of main - destructors will be called ===" << std::endl;
 }
