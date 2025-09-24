@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 21:09:01 by meid              #+#    #+#             */
-/*   Updated: 2025/09/10 21:09:02 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/24 13:06:13 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Brain::Brain()
         _ideas[i] = create_idea("generic animal", i + 1);
         i++;  // Add this line!
     }
-    std::cout << "Brain constructor called" << std::endl;
+    std::cout << GREEN << "Brain constructor called" << RESET << std::endl;
 }
 
 Brain::Brain(std::string type)
@@ -39,12 +39,29 @@ Brain::Brain(std::string type)
         _ideas[i] = create_idea(type, i + 1);
         i++;  // Add this line!
     }
-    std::cout << "Brain constructor called" << std::endl;
+    std::cout << GREEN << "Brain constructor called" << RESET << std::endl;
+}
+Brain::Brain(const Brain& other)
+{
+    for (int i = 0; i < 100; i++)
+        this->_ideas[i] = other._ideas[i];
+    std::cout << BLUE << "Brain Copy constructor called" << RESET << std::endl;
+}
+
+Brain& Brain::operator=(const Brain& other)
+{
+    if (this != &other)
+    {
+        for (int i = 0; i < 100; i++)
+            this->_ideas[i] = other._ideas[i];
+    }
+    std::cout << YELLOW << "Brain Copy assignment operator called" << RESET << std::endl;
+    return (*this);
 }
 
 Brain::~Brain()
 {
-    std::cout << "Brain destructor called" << std::endl;
+    std::cout << RED << "Brain destructor called" << RESET << std::endl;
 }
 
 std::string Brain::getIdea(int index) const
@@ -53,3 +70,4 @@ std::string Brain::getIdea(int index) const
         return _ideas[index];
     return "Invalid index";
 }
+

@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 09:34:57 by meid              #+#    #+#             */
-/*   Updated: 2025/09/23 20:15:24 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/24 13:19:59 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 Dog::Dog() : Animal("Dog")
 {
-    std::cout << "Dog constructor called" << std::endl;
+    std::cout << GREEN << "Dog constructor called" << RESET << std::endl;
 }
 
 Dog::Dog(std::string type) : Animal(type)
 {
-    std::cout << "Dog constructor called" << std::endl;
+    std::cout << GREEN << "Dog constructor called" << RESET << std::endl;
 }
 
 Dog::Dog(const Dog& other) : Animal(other)

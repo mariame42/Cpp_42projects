@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 09:34:49 by meid              #+#    #+#             */
-/*   Updated: 2025/09/08 09:34:50 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/24 13:10:47 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 Animal::Animal()
 {
-    std::cout << "Animal constructor called" << std::endl;
+    std::cout << GREEN << "Animal constructor called" << RESET << std::endl;
 }
 
 Animal::Animal(std::string type) : _type(type)
 {
-    std::cout << "Animal constructor called" << std::endl;
+    std::cout << GREEN << "Animal constructor called" << RESET << std::endl;
 }
 
 
@@ -44,7 +44,17 @@ const std::string Animal::getType() const
     return (_type);
 }
 
+void Animal::makeSound() const
+{
+    std::cout << PURPLE << "Some generic animal sound" << RESET << std::endl;
+}
+
 Animal::~Animal()
 {
-    std::cout << "Animal destructor called" << std::endl;
+    std::cout << RED << "Animal destructor called" << RESET << std::endl;
+}
+
+void Animal::printIdeas() const
+{
+    std::cout << "Animal has no idea" << std::endl;
 }

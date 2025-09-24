@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 09:34:57 by meid              #+#    #+#             */
-/*   Updated: 2025/09/08 09:34:58 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/24 13:12:00 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 Dog::Dog() : Animal("Dog")
 {
     _Brain = new Brain("Dog");
-    std::cout << "Dog constructor called" << std::endl;
+    std::cout << GREEN << "Dog constructor called" << RESET << std::endl;
 }
 
 // Dog::Dog(std::string type) : Animal(type)
 // {
 //     _Brain = new Brain();
-//     std::cout << "Dog constructor called" << std::endl;
+//     std::cout << GREEN << "Dog constructor called" << RESET << std::endl;
 // }
 
 Dog::Dog(const Dog& other) : Animal(other)
@@ -41,7 +41,7 @@ Dog& Dog::operator=(const Dog& other)
 
 void Dog::makeSound()  const
 {
-    std::cout << "bark" << std::endl;
+    std::cout << PURPLE << "bark" << RESET << std::endl;
 }
 
 const std::string Dog::getType() const
@@ -63,5 +63,5 @@ void Dog::printIdeas() const
 Dog::~Dog()
 {
     delete _Brain;
-    std::cout << "Dog destructor called" << std::endl;
+    std::cout << RED << "Dog destructor called" << RESET << std::endl;
 }

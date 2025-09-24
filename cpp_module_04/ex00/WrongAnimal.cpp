@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 21:08:50 by meid              #+#    #+#             */
-/*   Updated: 2025/09/23 20:15:52 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/24 13:21:29 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 WrongAnimal::WrongAnimal()
 {
-    std::cout << "WrongAnimal constructor called" << std::endl;
+    std::cout << GREEN << "WrongAnimal constructor called" << RESET << std::endl;
 }
 
 WrongAnimal::WrongAnimal(std::string type) : _type(type)
 {
-    std::cout << "WrongAnimal constructor called" << std::endl;   
+    std::cout << GREEN << "WrongAnimal constructor called" << RESET << std::endl;   
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal& other) : _type(other._type)
 {
-    std::cout << "WrongAnimal Copy constructor called" << std::endl;
+    std::cout << BLUE << "WrongAnimal Copy constructor called" << RESET << std::endl;
 }
 
 WrongAnimal& WrongAnimal::operator=(const WrongAnimal& other)
@@ -33,7 +33,7 @@ WrongAnimal& WrongAnimal::operator=(const WrongAnimal& other)
     {
         this->_type = other._type;
     }
-    std::cout << "WrongAnimal Copy assignment operator called" << std::endl;
+    std::cout << YELLOW << "WrongAnimal Copy assignment operator called" << RESET << std::endl;
     return (*this);
 }
 
@@ -50,5 +50,5 @@ void WrongAnimal::makeSound() const
 
 WrongAnimal::~WrongAnimal()
 {
-    std::cout << "WrongAnimal destructor called" << std::endl;
+    std::cout << RED << "WrongAnimal destructor called" << RESET << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 21:09:06 by meid              #+#    #+#             */
-/*   Updated: 2025/09/10 21:09:07 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/24 12:58:53 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,14 @@
 
 #include "iostream"
 
+#define GREEN "\033[32m"
+#define YELLOW "\033[33m"
+#define BLUE "\033[34m"
+#define RED "\033[31m"
+#define PURPLE "\033[35m"
+#define RESET "\033[0m"
+#define ORANGE "\033[38;2;255;165;0m"
+
 class Brain
 {
     private :
@@ -22,6 +30,8 @@ class Brain
     public :
         Brain();
         Brain(std::string type);
+        Brain(const Brain& other);
+        Brain& operator=(const Brain& other);
         ~Brain();
         std::string getIdea(int index) const;
 };
