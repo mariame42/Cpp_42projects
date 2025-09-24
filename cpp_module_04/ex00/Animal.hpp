@@ -35,7 +35,7 @@ class Animal
         Animal(std::string);
         Animal(const Animal& other);
         Animal& operator=(const Animal& other);
-        ~Animal();
+        virtual ~Animal();
         virtual const std::string getType() const;
         virtual void makeSound() const;
 };

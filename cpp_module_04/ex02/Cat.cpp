@@ -60,6 +60,11 @@ void Cat::printIdeas() const
     std::cout << std::endl;
 }
 
+std::string Cat::getIdea(int index) const
+{
+    return _Brain->getIdea(index);
+}
+
 Cat::~Cat()
 {
     delete _Brain;

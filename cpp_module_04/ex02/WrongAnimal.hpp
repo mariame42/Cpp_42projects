@@ -32,9 +32,9 @@ class WrongAnimal
         WrongAnimal(std::string type);
         WrongAnimal(const WrongAnimal& other);
         WrongAnimal& operator=(const WrongAnimal& other);
-        ~WrongAnimal();
+        virtual ~WrongAnimal();
         virtual const std::string getType() const;
-        virtual void makeSound() const;
+        void makeSound() const;
 };
 
 #endif

@@ -26,6 +26,7 @@ Dog::Dog() : Animal("Dog")
 
 Dog::Dog(const Dog& other) : Animal(other)
 {
+    _Brain = new Brain(*other._Brain); // Deep copy of Brain
     std::cout << BLUE << "Dog Copy constructor called" << RESET << std::endl;
 }
 
@@ -34,6 +35,8 @@ Dog& Dog::operator=(const Dog& other)
     if (this != &other)
     {
         Animal::operator=(other);
+        delete _Brain; // Delete existing Brain
+        _Brain = new Brain(*other._Brain); // Deep copy of Brain
     }
     std::cout << YELLOW << "Dog Copy assignment operator called" << RESET << std::endl;
     return (*this);
@@ -58,6 +61,11 @@ void Dog::printIdeas() const
         i++;
     }
     std::cout << std::endl;
+}
+
+std::string Dog::getIdea(int index) const
+{
+    return _Brain->getIdea(index);
 }
 
 Dog::~Dog()

@@ -29,6 +29,7 @@ class Cat : public Animal
         const std::string getType() const;
         void makeSound() const;
         void printIdeas() const;
+        std::string getIdea(int index) const;
 };
 
 #endif

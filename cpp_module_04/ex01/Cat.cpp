@@ -26,6 +26,7 @@ Cat::Cat() : Animal("Cat")
 
 Cat::Cat(const Cat& other) : Animal(other)
 {
+    _Brain = new Brain(*other._Brain); // Deep copy of Brain
     std::cout << BLUE << "Cat Copy constructor called" << RESET << std::endl;
 }
 
@@ -34,6 +35,8 @@ Cat& Cat::operator=(const Cat& other)
     if (this != &other)
     {
         Animal::operator=(other);
+        delete _Brain; // Delete existing Brain
+        _Brain = new Brain(*other._Brain); // Deep copy of Brain
     }
     std::cout << YELLOW << "Cat Copy assignment operator called" << RESET << std::endl;
     return (*this);
@@ -58,6 +61,11 @@ void Cat::printIdeas() const
         i++;
     }
     std::cout << std::endl;
+}
+
+std::string Cat::getIdea(int index) const
+{
+    return _Brain->getIdea(index);
 }
 
 Cat::~Cat()

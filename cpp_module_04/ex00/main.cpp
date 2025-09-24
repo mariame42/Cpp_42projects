@@ -19,17 +19,31 @@
 
 int main()
 {
+    // Basic polymorphism test as specified in the subject
     const Animal* meta = new Animal();
-    const WrongAnimal * wrong = new WrongAnimal();
     const Animal* j = new Dog();
     const Animal* i = new Cat();
-    const WrongAnimal * k = new WrongCat();
+    
     std::cout << j->getType() << " " << std::endl;
     std::cout << i->getType() << " " << std::endl;
-    std::cout << k->getType() << " " << std::endl;
     i->makeSound(); //will output the cat sound!
     j->makeSound();
-    k->makeSound();
     meta->makeSound();
+    
+    // WrongAnimal/WrongCat test to show non-virtual behavior
+    std::cout << "\n--- WrongAnimal/WrongCat test ---" << std::endl;
+    const WrongAnimal* wrong = new WrongAnimal();
+    const WrongAnimal* k = new WrongCat();
+    
+    std::cout << wrong->getType() << " " << std::endl;
+    std::cout << k->getType() << " " << std::endl;
     wrong->makeSound();
+    k->makeSound(); // This calls WrongAnimal's makeSound, not WrongCat's
+    
+    // Clean up memory
+    delete meta;
+    delete j;
+    delete i;
+    delete wrong;
+    delete k;
 }

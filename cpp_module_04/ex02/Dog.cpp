@@ -60,6 +60,11 @@ void Dog::printIdeas() const
     std::cout << std::endl;
 }
 
+std::string Dog::getIdea(int index) const
+{
+    return _Brain->getIdea(index);
+}
+
 Dog::~Dog()
 {
     delete _Brain;
