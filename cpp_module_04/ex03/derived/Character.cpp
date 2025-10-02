@@ -6,11 +6,13 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 22:09:56 by meid              #+#    #+#             */
-/*   Updated: 2025/09/10 22:12:00 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/02 20:39:27 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
+#include "../main.hpp"
+
 
 Character::Character() : _name("Default")
 {

@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 21:10:46 by meid              #+#    #+#             */
-/*   Updated: 2025/09/10 21:10:47 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/02 20:47:55 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,18 @@
 #include "Interface/ICharacter.hpp"
 #include "derived/Character.hpp"
 #include "Interface/IMateriaSource.hpp"
+
+int main(void)
+{
+    ICharacter *lola = new Character("lola");
+    AMateria *cure_por = new Cure();
+    cure_por->use(*lola );
+
+    ICharacter *Bob = new Character("Bob");
+    AMateria *ice_cube = new Ice();
+    ice_cube->use(*Bob);
+}
+
 
 // int main(void)
 // {

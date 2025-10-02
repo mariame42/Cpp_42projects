@@ -6,12 +6,14 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 21:11:16 by meid              #+#    #+#             */
-/*   Updated: 2025/09/10 22:00:28 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/02 20:39:31 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 #include "../Interface/ICharacter.hpp"
+#include "../main.hpp"
+
 
 AMateria::AMateria()
 {

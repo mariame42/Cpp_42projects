@@ -6,7 +6,7 @@
 #    By: meid <meid@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/10 21:10:50 by meid              #+#    #+#              #
-#    Updated: 2025/09/10 22:08:07 by meid             ###   ########.fr        #
+#    Updated: 2025/10/02 20:37:26 by meid             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ D = derived/
 I = Interface/
 
 SRC = $(A)AMateria.cpp \
-	$(D)Ice.cpp $(D)Cure.cpp \
+	$(D)Ice.cpp $(D)Cure.cpp $(D)Character.cpp \
 	main.cpp
 # $(I)ICharacter.cpp $(I)IMateriaSource.cpp
 
