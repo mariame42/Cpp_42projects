@@ -15,6 +15,8 @@
 
 #include <iostream>
 
+class ICharacter; // Forward declaration
+
 // An interface is a type of class-like structure (in some programming languages) that:
 // Contains only method declarations (no method implementations).
 // Cannot hold instance fields (except constants in some languages).
@@ -33,14 +35,13 @@ class AMateria
     public:
         AMateria();
         AMateria(std::string const &type);
-
-        std::string const & getType() const;//Returns the materia type
-        virtual AMateria* clone() const = 0;
-        // virtual void use(ICharacter& target);
-
         AMateria(const AMateria& other);
         AMateria& operator=(const AMateria& other);
-        ~AMateria();
+        virtual ~AMateria();
+
+        std::string const & getType() const; //Returns the materia type
+        virtual AMateria* clone() const = 0;
+        virtual void use(ICharacter& target) = 0;
 };
 
 #endif

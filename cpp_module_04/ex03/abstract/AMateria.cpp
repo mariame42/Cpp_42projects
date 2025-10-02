@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
+#include "../Interface/ICharacter.hpp"
 
 AMateria::AMateria()
 {

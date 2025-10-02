@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/10 21:10:54 by meid              #+#    #+#             */
-/*   Updated: 2025/09/10 22:07:16 by meid             ###   ########.fr       */
+/*   Created: 2025/09/10 21:11:04 by meid              #+#    #+#             */
+/*   Updated: 2025/09/10 22:03:42 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef Ice_H
-# define Ice_H
+#ifndef Cure_H
+# define Cure_H
 
 #include "iostream"
-#include "AMateria.hpp"
+#include "../abstract/AMateria.hpp"
+#include "../Interface/ICharacter.hpp"
 
-class Ice : public AMateria
+class Cure : public AMateria
 {
-  
+  public:
+    Cure();
+    Cure(const Cure& other);
+    Cure& operator=(const Cure& other);
+    ~Cure();
+
+    AMateria* clone() const;
+    void use(ICharacter& target);
 };
 
-# endif
+#endif

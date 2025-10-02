@@ -13,7 +13,16 @@
 NAME = MATERIA
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = AMateria.cpp Ice.cpp Cure.cpp main.cpp
+
+A = abstract/
+D = derived/
+I = Interface/
+
+SRC = $(A)AMateria.cpp \
+	$(D)Ice.cpp $(D)Cure.cpp \
+	main.cpp
+# $(I)ICharacter.cpp $(I)IMateriaSource.cpp
+
 OBJ_FILE = obj
 OBJ = $(SRC:%.cpp=$(OBJ_FILE)/%.o)
 RM = rm -rf
@@ -24,7 +33,9 @@ $(NAME) : $(OBJ)
 	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
 $(OBJ_FILE) :
-	mkdir -p $(OBJ_FILE)
+	mkdir -p $(OBJ_FILE)/$(A)
+	mkdir -p $(OBJ_FILE)/$(D)
+	mkdir -p $(OBJ_FILE)/Interface/
 
 $(OBJ_FILE)/%.o : %.cpp | $(OBJ_FILE)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
