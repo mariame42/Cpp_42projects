@@ -6,25 +6,27 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 21:09:18 by meid              #+#    #+#             */
-/*   Updated: 2025/09/24 13:08:54 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/06 11:28:47 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongAnimal.hpp"
-
 WrongAnimal::WrongAnimal()
 {
-    std::cout << GREEN << "WrongAnimal constructor called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << GREEN << "WrongAnimal constructor called" << RESET << std::endl;
 }
 
 WrongAnimal::WrongAnimal(std::string type) : _type(type)
 {
-    std::cout << GREEN << "WrongAnimal constructor called" << RESET << std::endl;   
+    if (OCCF)
+        std::cout << GREEN << "WrongAnimal constructor called" << RESET << std::endl;   
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal& other) : _type(other._type)
 {
-    std::cout << BLUE << "WrongAnimal Copy constructor called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << BLUE << "WrongAnimal Copy constructor called" << RESET << std::endl;
 }
 
 WrongAnimal& WrongAnimal::operator=(const WrongAnimal& other)
@@ -33,7 +35,8 @@ WrongAnimal& WrongAnimal::operator=(const WrongAnimal& other)
     {
         this->_type = other._type;
     }
-    std::cout << YELLOW << "WrongAnimal Copy assignment operator called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << YELLOW << "WrongAnimal Copy assignment operator called" << RESET << std::endl;
     return (*this);
 }
 
@@ -45,10 +48,11 @@ const std::string WrongAnimal::getType() const
 
 void WrongAnimal::makeSound() const
 {
-    std::cout << PURPLE << "Some generic WrongAnimal sound" << RESET<< std::endl;
+    std::cout << PURPLE << "Some generic WrongAnimal sound"  << RESET << std::endl;
 }
 
 WrongAnimal::~WrongAnimal()
 {
-    std::cout << RED << "WrongAnimal destructor called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << RED << "WrongAnimal destructor called" << RESET << std::endl;
 }
