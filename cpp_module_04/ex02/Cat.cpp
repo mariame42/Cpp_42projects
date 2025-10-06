@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 09:34:51 by meid              #+#    #+#             */
-/*   Updated: 2025/09/24 13:11:42 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/06 11:32:27 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,15 @@
 Cat::Cat() : Animal("Cat")
 {
     _Brain = new Brain("Cat");
-    std::cout << GREEN << "Cat constructor called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << GREEN << "Cat constructor called" << RESET << std::endl;
 }
-
-// Cat::Cat(std::string type) : Animal(type)
-// {
-//     _Brain = new Brain();
-//     std::cout << "Cat constructor called" << std::endl;
-// }
 
 Cat::Cat(const Cat& other) : Animal(other)
 {
-    std::cout << BLUE << "Cat Copy constructor called" << RESET << std::endl;
+    _Brain = new Brain(*other._Brain); // Deep copy of Brain
+    if (OCCF)
+        std::cout << BLUE << "Cat Copy constructor called" << RESET << std::endl;
 }
 
 Cat& Cat::operator=(const Cat& other)
@@ -34,8 +31,11 @@ Cat& Cat::operator=(const Cat& other)
     if (this != &other)
     {
         Animal::operator=(other);
+        delete _Brain; // Delete existing Brain
+        _Brain = new Brain(*other._Brain); // Deep copy of Brain
     }
-    std::cout << YELLOW << "Cat Copy assignment operator called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << YELLOW << "Cat Copy assignment operator called" << RESET << std::endl;
     return (*this);
 }
 
@@ -68,5 +68,6 @@ std::string Cat::getIdea(int index) const
 Cat::~Cat()
 {
     delete _Brain;
-    std::cout << RED << "Cat destructor called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << RED << "Cat destructor called" << RESET << std::endl;
 }

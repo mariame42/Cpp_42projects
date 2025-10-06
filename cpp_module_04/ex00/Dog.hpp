@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 09:35:00 by meid              #+#    #+#             */
-/*   Updated: 2025/09/08 09:46:37 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/06 11:15:12 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ class Dog : public Animal
 {
     public :
         Dog();
-        Dog(std::string);
         Dog(const Dog& other);
         Dog& operator=(const Dog& other);
         ~Dog();

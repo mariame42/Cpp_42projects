@@ -6,20 +6,13 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 21:08:37 by meid              #+#    #+#             */
-/*   Updated: 2025/10/06 11:05:53 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/06 11:21:53 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
 
 WrongCat::WrongCat() : WrongAnimal("WrongCat")
-{
-    if (OCCF)
-        std::cout << GREEN << "WrongCat constructor called" << RESET << std::endl;
-}
-
-
-WrongCat::WrongCat(std::string type) : WrongAnimal(type)
 {
     if (OCCF)
         std::cout << GREEN << "WrongCat constructor called" << RESET << std::endl;

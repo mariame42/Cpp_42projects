@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 09:34:57 by meid              #+#    #+#             */
-/*   Updated: 2025/09/24 13:12:00 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/06 11:32:45 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,15 @@
 Dog::Dog() : Animal("Dog")
 {
     _Brain = new Brain("Dog");
-    std::cout << GREEN << "Dog constructor called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << GREEN << "Dog constructor called" << RESET << std::endl;
 }
-
-// Dog::Dog(std::string type) : Animal(type)
-// {
-//     _Brain = new Brain();
-//     std::cout << GREEN << "Dog constructor called" << RESET << std::endl;
-// }
 
 Dog::Dog(const Dog& other) : Animal(other)
 {
-    std::cout << BLUE << "Dog Copy constructor called" << RESET << std::endl;
+    _Brain = new Brain(*other._Brain); // Deep copy of Brain
+    if (OCCF)
+        std::cout << BLUE << "Dog Copy constructor called" << RESET << std::endl;
 }
 
 Dog& Dog::operator=(const Dog& other)
@@ -34,8 +31,11 @@ Dog& Dog::operator=(const Dog& other)
     if (this != &other)
     {
         Animal::operator=(other);
+        delete _Brain; // Delete existing Brain
+        _Brain = new Brain(*other._Brain); // Deep copy of Brain
     }
-    std::cout << YELLOW << "Dog Copy assignment operator called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << YELLOW << "Dog Copy assignment operator called" << RESET << std::endl;
     return (*this);
 }
 
@@ -68,5 +68,6 @@ std::string Dog::getIdea(int index) const
 Dog::~Dog()
 {
     delete _Brain;
-    std::cout << RED << "Dog destructor called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << RED << "Dog destructor called" << RESET << std::endl;
 }

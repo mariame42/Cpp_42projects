@@ -6,11 +6,12 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 21:09:18 by meid              #+#    #+#             */
-/*   Updated: 2025/10/06 11:28:47 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/06 11:33:01 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongAnimal.hpp"
+
 WrongAnimal::WrongAnimal()
 {
     if (OCCF)

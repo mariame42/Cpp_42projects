@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 09:34:46 by meid              #+#    #+#             */
-/*   Updated: 2025/10/06 11:06:13 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/06 11:16:45 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Animal
         std::string _type;
     public :
         Animal();
-        Animal(std::string);
+        Animal(std::string type);
         Animal(const Animal& other);
         Animal& operator=(const Animal& other);
         virtual ~Animal();

@@ -6,26 +6,28 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 09:34:49 by meid              #+#    #+#             */
-/*   Updated: 2025/09/24 13:10:47 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/06 11:31:53 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
-
 Animal::Animal()
 {
-    std::cout << GREEN << "Animal constructor called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << GREEN << "Animal constructor called" << RESET << std::endl;
 }
 
 Animal::Animal(std::string type) : _type(type)
 {
-    std::cout << GREEN << "Animal constructor called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << GREEN << "Animal constructor called" << RESET << std::endl;
 }
 
 
 Animal::Animal(const Animal& other) : _type(other._type)
 {
-    std::cout << BLUE << "Animal Copy constructor called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << BLUE << "Animal Copy constructor called" << RESET << std::endl;
 }
 
 Animal& Animal::operator=(const Animal& other)
@@ -34,7 +36,8 @@ Animal& Animal::operator=(const Animal& other)
     {
         this->_type = other._type;
     }
-    std::cout << YELLOW << "Animal Copy assignment operator called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << YELLOW << "Animal Copy assignment operator called" << RESET << std::endl;
     return (*this);
 }
 
@@ -51,7 +54,8 @@ void Animal::makeSound() const
 
 Animal::~Animal()
 {
-    std::cout << RED << "Animal destructor called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << RED << "Animal destructor called" << RESET << std::endl;
 }
 
 void Animal::printIdeas() const

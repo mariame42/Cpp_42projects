@@ -6,19 +6,13 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 09:34:51 by meid              #+#    #+#             */
-/*   Updated: 2025/10/06 11:04:19 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/06 11:14:31 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
 Cat::Cat() : Animal("Cat")
-{
-    if (OCCF)
-        std::cout << GREEN << "Cat constructor called" << RESET << std::endl;
-}
-
-Cat::Cat(std::string type) : Animal(type)
 {
     if (OCCF)
         std::cout << GREEN << "Cat constructor called" << RESET << std::endl;
