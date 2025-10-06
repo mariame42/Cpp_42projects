@@ -17,23 +17,27 @@
 
 AMateria::AMateria()
 {
-    std::cout << "AMateria default constructor called" << std::endl;
+    if (OCCF)
+        std::cout << "AMateria default constructor called" << std::endl;
 }
 
 AMateria::AMateria(std::string const &type) : _type(type)
 {
-    std::cout << "AMateria Parameterized constructor called" << std::endl;
+    if (OCCF)
+        std::cout << "AMateria Parameterized constructor called" << std::endl;
 }
 
 AMateria::~AMateria()
 {
-    std::cout << "AMateria default destructor" << std::endl;
+    if (OCCF)
+        std::cout << "AMateria default destructor" << std::endl;
 }
 
 
 AMateria::AMateria(const AMateria& other) : _type(other._type)
 {
-    std::cout << "AMateria Copy constructor called" << std::endl;
+    if (OCCF)
+        std::cout << "AMateria Copy constructor called" << std::endl;
 }
 
 AMateria& AMateria::operator=(const AMateria& other)
@@ -42,7 +46,8 @@ AMateria& AMateria::operator=(const AMateria& other)
     {
         this->_type = other._type;
     }
-    std::cout<< "AMateria Copy assignment operator called" << std::endl;
+    if (OCCF)
+        std::cout<< "AMateria Copy assignment operator called" << std::endl;
     return (*this);
 }
 

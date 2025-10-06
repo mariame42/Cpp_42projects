@@ -4,11 +4,13 @@
 
 Ice::Ice() : AMateria("ice")
 {
+    if (OCCF)
     std::cout << "Ice constructor called" << std::endl;
 }
 
 Ice::Ice(const Ice& other) : AMateria(other)
 {
+    if (OCCF)
     std::cout << "Ice copy constructor called" << std::endl;
 }
 
@@ -18,13 +20,15 @@ Ice& Ice::operator=(const Ice& other)
     {
         AMateria::operator=(other);
     }
-    std::cout << "Ice copy assignment operator called" << std::endl;
+    if (OCCF)
+        std::cout << "Ice copy assignment operator called" << std::endl;
     return (*this);
 }
 
 Ice::~Ice()
 {
-    std::cout << "Ice destructor called" << std::endl;
+    if (OCCF)
+        std::cout << "Ice destructor called" << std::endl;
 }
 
 AMateria* Ice::clone() const

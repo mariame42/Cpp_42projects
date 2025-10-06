@@ -10,4 +10,7 @@
 #define ORANGE "\033[38;2;255;165;0m"
 #define Cyan "\033[36m"
 
+static const int OCCF = 0;
+static const int FUNCTION_CALL = 0;
+
 #endif

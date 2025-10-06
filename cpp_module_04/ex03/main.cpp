@@ -11,12 +11,12 @@
 /* ************************************************************************** */
 
 #include "abstract/AMateria.hpp"
-#include "derived/Cure.hpp"
-#include "derived/Ice.hpp"
+#include "derived_concrete_classes/Cure.hpp"
+#include "derived_concrete_classes/Ice.hpp"
 #include "Interface/ICharacter.hpp"
-#include "derived/Character.hpp"
+#include "derived_concrete_classes/Character.hpp"
 #include "Interface/IMateriaSource.hpp"
-#include "concrete/MateriaSource.hpp"
+#include "derived_concrete_classes/MateriaSource.hpp"
 
 // int main(void)
 // {

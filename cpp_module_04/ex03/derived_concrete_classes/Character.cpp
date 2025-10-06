@@ -18,14 +18,16 @@ Character::Character() : _name("Default")
 {
     for (int i = 0; i < _maxSlots; i++)
         _backpack_slot[i] = NULL;
-    std::cout << "Character default constructor called" << std::endl;
+    if (OCCF)
+        std::cout << "Character default constructor called" << std::endl;
 }
 
 Character::Character(std::string const &name) : _name(name)
 {
     for (int i = 0; i < _maxSlots; i++)
         _backpack_slot[i] = NULL;
-    std::cout << "Character constructor called for " << _name << std::endl;
+    if (OCCF)
+        std::cout << "Character constructor called for " << _name << std::endl;
 }
 
 Character::Character(const Character& other) : _name(other._name)
@@ -37,7 +39,8 @@ Character::Character(const Character& other) : _name(other._name)
         else
             _backpack_slot[i] = NULL;
     }
-    std::cout << "Character copy constructor called for " << _name << std::endl;
+    if (OCCF)
+        std::cout << "Character copy constructor called for " << _name << std::endl;
 }
 
 Character& Character::operator=(const Character& other)
@@ -63,7 +66,8 @@ Character& Character::operator=(const Character& other)
                 _backpack_slot[i] = NULL;
         }
     }
-    std::cout << "Character copy assignment operator called for " << _name << std::endl;
+    if (OCCF)
+        std::cout << "Character copy assignment operator called for " << _name << std::endl;
     return (*this);
 }
 
@@ -77,7 +81,8 @@ Character::~Character()
             _backpack_slot[i] = NULL;
         }
     }
-    std::cout << "Character destructor called for " << _name << std::endl;
+    if (OCCF)
+        std::cout << "Character destructor called for " << _name << std::endl;
 }
 
 std::string const & Character::getName() const
@@ -95,29 +100,34 @@ void Character::equip(AMateria* m)
         if (!_backpack_slot[i])
         {
             _backpack_slot[i] = m;
-            std::cout << _name << " equips " << m->getType() << " in slot " << i << std::endl;
+            if (FUNCTION_CALL)
+                std::cout << _name << " equips " << m->getType() << " in slot " << i << std::endl;
             return;
         }
     }
-    std::cout << _name << " cannot equip " << m->getType() << " - backpack_slot is full!" << std::endl;
+    if (FUNCTION_CALL)
+        std::cout << _name << " cannot equip " << m->getType() << " - backpack_slot is full!" << std::endl;
 }
 
 void Character::unequip(int idx)
 {
     if (idx < 0 || idx >= _maxSlots)
     {
-        std::cout << _name << " cannot unequip slot " << idx << " - invalid index!" << std::endl;
+        if (FUNCTION_CALL)
+            std::cout << _name << " cannot unequip slot " << idx << " - invalid index!" << std::endl;
         return;
     }
     
     if (_backpack_slot[idx])
     {
-        std::cout << _name << " unequips " << _backpack_slot[idx]->getType() << " from slot " << idx << std::endl;
+        if (FUNCTION_CALL)
+            std::cout << _name << " unequips " << _backpack_slot[idx]->getType() << " from slot " << idx << std::endl;
         _backpack_slot[idx] = NULL; // Don't delete - just set to NULL
     }
     else
     {
-        std::cout << _name << " cannot unequip slot " << idx << " - slot is empty!" << std::endl;
+        if (FUNCTION_CALL)
+            std::cout << _name << " cannot unequip slot " << idx << " - slot is empty!" << std::endl;
     }
 }
 
@@ -125,17 +135,20 @@ void Character::use(int idx, ICharacter& target)
 {
     if (idx < 0 || idx >= _maxSlots)
     {
-        std::cout << _name << " cannot use slot " << idx << " - invalid index!" << std::endl;
+        if (FUNCTION_CALL)
+            std::cout << _name << " cannot use slot " << idx << " - invalid index!" << std::endl;
         return;
     }
     
     if (_backpack_slot[idx])
     {
-        std::cout << _name << " uses " << _backpack_slot[idx]->getType() << " on " << target.getName() << std::endl;
+        if (FUNCTION_CALL)
+            std::cout << _name << " uses " << _backpack_slot[idx]->getType() << " on " << target.getName() << std::endl;
         _backpack_slot[idx]->use(target);
     }
     else
     {
-        std::cout << _name << " cannot use slot " << idx << " - slot is empty!" << std::endl;
+        if (FUNCTION_CALL)
+            std::cout << _name << " cannot use slot " << idx << " - slot is empty!" << std::endl;
     }
 }

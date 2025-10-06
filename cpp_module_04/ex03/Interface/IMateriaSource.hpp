@@ -3,7 +3,7 @@
 
 #include "iostream"
 #include "../abstract/AMateria.hpp"
-#include "../derived/Character.hpp"
+#include "../derived_concrete_classes/Character.hpp"
 
 class IMateriaSource
 {

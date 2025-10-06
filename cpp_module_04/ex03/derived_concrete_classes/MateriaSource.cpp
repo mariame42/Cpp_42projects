@@ -3,12 +3,24 @@
 
 MateriaSource::MateriaSource(/* args */)
 {
-    std::cout << "MateriaSource default constructor" << std::endl; 
+    for (int i = 0; i < _maxSlots; i++)
+        _Source_slot[i] = NULL;
+    if (OCCF)
+        std::cout << "MateriaSource default constructor" << std::endl; 
 }
 
 MateriaSource::~MateriaSource()
 {
-    std::cout << "MateriaSource default destructor" << std::endl;
+    for (int i = 0; i < _maxSlots; i++)
+    {
+        if (_Source_slot[i])
+        {
+            delete _Source_slot[i];
+            _Source_slot[i] = NULL;
+        }
+    }
+    if (OCCF)
+        std::cout << "MateriaSource default destructor" << std::endl;
 }
 
 
@@ -21,14 +33,15 @@ MateriaSource::MateriaSource(const MateriaSource& other)
         else
             _Source_slot[i] = NULL;
     }
-    std::cout << "MateriaSource copy constructor" << std::endl;
+    if (OCCF)
+        std::cout << "MateriaSource copy constructor" << std::endl;
 }
 
 MateriaSource& MateriaSource::operator=(const MateriaSource& other)
 {
     if (this != &other)
     {
-        // Clean up existing backpack_slot
+        // Clean up existing _Source_slot
         for (int i = 0; i < _maxSlots; i++)
         {
             if (_Source_slot[i])
@@ -37,7 +50,7 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& other)
                 _Source_slot[i] = NULL;
             }
         }
-        // Copy backpack_slot
+        // Copy _Source_slot
         for (int i = 0; i < _maxSlots; i++)
         {
             if (other._Source_slot[i])
@@ -46,8 +59,9 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& other)
                 _Source_slot[i] = NULL;
         }
     }
-    std::cout << "MateriaSource copy assignment operator called" << std::endl;
-    return (*this);
+    if (OCCF)
+        std::cout << "MateriaSource copy assignment operator called" << std::endl;
+    return *this;
 }
 
 void MateriaSource::learnMateria(AMateria *matria)
@@ -60,11 +74,13 @@ void MateriaSource::learnMateria(AMateria *matria)
         if (!_Source_slot[i])
         {
             _Source_slot[i] = matria;
-            std::cout << "done in slot " << i << std::endl;
+            if (FUNCTION_CALL)
+                std::cout << "done in slot " << i << std::endl;
             return;
         }
     }
-    std::cout << " cannot save it is full!" << std::endl;
+    if (FUNCTION_CALL)
+        std::cout << " cannot save it is full!" << std::endl;
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)
