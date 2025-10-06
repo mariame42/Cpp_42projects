@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 09:34:57 by meid              #+#    #+#             */
-/*   Updated: 2025/09/24 13:19:59 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/06 11:04:49 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,20 @@
 
 Dog::Dog() : Animal("Dog")
 {
-    std::cout << GREEN << "Dog constructor called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << GREEN << "Dog constructor called" << RESET << std::endl;
 }
 
 Dog::Dog(std::string type) : Animal(type)
 {
-    std::cout << GREEN << "Dog constructor called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << GREEN << "Dog constructor called" << RESET << std::endl;
 }
 
 Dog::Dog(const Dog& other) : Animal(other)
 {
-    std::cout << BLUE << "Dog Copy constructor called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << BLUE << "Dog Copy constructor called" << RESET << std::endl;
 }
 
 Dog& Dog::operator=(const Dog& other)
@@ -33,7 +36,8 @@ Dog& Dog::operator=(const Dog& other)
     {
         Animal::operator=(other);
     }
-    std::cout << YELLOW << "Dog Copy assignment operator called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << YELLOW << "Dog Copy assignment operator called" << RESET << std::endl;
     return (*this);
 }
 
@@ -49,5 +53,6 @@ const std::string Dog::getType() const
 
 Dog::~Dog()
 {
-    std::cout << RED << "Dog destructor called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << RED << "Dog destructor called" << RESET << std::endl;
 }

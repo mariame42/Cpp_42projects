@@ -6,7 +6,7 @@
 #    By: meid <meid@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/08 09:19:58 by meid              #+#    #+#              #
-#    Updated: 2025/09/24 13:23:02 by meid             ###   ########.fr        #
+#    Updated: 2025/10/06 11:07:16 by meid             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = Animal
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongCat.cpp WrongAnimal.cpp
-OBJ_FILE = obj/
+OBJ_FILE = obj
 OBJ = $(SRC:%.cpp=$(OBJ_FILE)/%.o)
 RM = rm -rf
 

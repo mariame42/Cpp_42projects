@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 21:08:37 by meid              #+#    #+#             */
-/*   Updated: 2025/09/23 20:14:29 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/06 11:05:53 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,21 @@
 
 WrongCat::WrongCat() : WrongAnimal("WrongCat")
 {
-    std::cout << GREEN << "WrongCat constructor called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << GREEN << "WrongCat constructor called" << RESET << std::endl;
 }
 
 
 WrongCat::WrongCat(std::string type) : WrongAnimal(type)
 {
-    std::cout << GREEN << "WrongCat constructor called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << GREEN << "WrongCat constructor called" << RESET << std::endl;
 }
 
 WrongCat::WrongCat(const WrongCat& other) : WrongAnimal(other)
 {
-    std::cout << BLUE << "WrongCat Copy constructor called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << BLUE << "WrongCat Copy constructor called" << RESET << std::endl;
 }
 
 WrongCat& WrongCat::operator=(const WrongCat& other)
@@ -34,7 +37,8 @@ WrongCat& WrongCat::operator=(const WrongCat& other)
     {
         WrongAnimal::operator=(other);
     }
-    std::cout << YELLOW << "WrongCat Copy assignment operator called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << YELLOW << "WrongCat Copy assignment operator called" << RESET << std::endl;
     return (*this);
 }
 
@@ -50,5 +54,6 @@ const std::string WrongCat::getType() const
 
 WrongCat::~WrongCat()
 {
-    std::cout << RED << "WrongCat destructor called" << RESET << std::endl;
+    if (OCCF)
+        std::cout << RED << "WrongCat destructor called" << RESET << std::endl;
 }
