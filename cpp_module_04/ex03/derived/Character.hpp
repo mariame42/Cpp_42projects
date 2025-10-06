@@ -22,7 +22,7 @@ class Character : public ICharacter
 {
     private:
         std::string _name;
-        AMateria* _inventory[4];
+        AMateria* _backpack_slot[4];
         static const int _maxSlots = 4;
 
     public:

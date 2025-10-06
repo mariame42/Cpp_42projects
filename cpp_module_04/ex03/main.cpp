@@ -16,17 +16,18 @@
 #include "Interface/ICharacter.hpp"
 #include "derived/Character.hpp"
 #include "Interface/IMateriaSource.hpp"
+#include "concrete/MateriaSource.hpp"
 
-int main(void)
-{
-    ICharacter *lola = new Character("lola");
-    AMateria *cure_por = new Cure();
-    cure_por->use(*lola );
+// int main(void)
+// {
+//     ICharacter *lola = new Character("lola");
+//     AMateria *cure_por = new Cure();
+//     cure_por->use(*lola );
 
-    ICharacter *Bob = new Character("Bob");
-    AMateria *ice_cube = new Ice();
-    ice_cube->use(*Bob);
-}
+//     ICharacter *Bob = new Character("Bob");
+//     AMateria *ice_cube = new Ice();
+//     ice_cube->use(*Bob);
+// }
 
 
 // int main(void)
@@ -34,22 +35,22 @@ int main(void)
 //     std::cout << "makefile works" << std::endl;
 // }
 
-// int main()
-// {
-//     IMateriaSource* src = new MateriaSource();
-//     src->learnMateria(new Ice());
-//     src->learnMateria(new Cure());
-//     ICharacter* me = new Character("me");
-//     AMateria* tmp;
-//     tmp = src->createMateria("ice");
-//     me->equip(tmp);
-//     tmp = src->createMateria("cure");
-//     me->equip(tmp);
-//     ICharacter* bob = new Character("bob");
-//     me->use(0, *bob);
-//     me->use(1, *bob);
-//     delete bob;
-//     delete me;
-//     delete src;
-//     return 0;
-// }
+int main()
+{
+    IMateriaSource* src = new MateriaSource();
+    src->learnMateria(new Ice());
+    src->learnMateria(new Cure());
+    ICharacter* me = new Character("me");
+    AMateria* tmp;
+    tmp = src->createMateria("ice");
+    me->equip(tmp);
+    tmp = src->createMateria("cure");
+    me->equip(tmp);
+    ICharacter* bob = new Character("bob");
+    me->use(0, *bob);
+    me->use(1, *bob);
+    delete bob;
+    delete me;
+    delete src;
+    return 0;
+}

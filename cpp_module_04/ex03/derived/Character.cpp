@@ -17,14 +17,14 @@
 Character::Character() : _name("Default")
 {
     for (int i = 0; i < _maxSlots; i++)
-        _inventory[i] = NULL;
+        _backpack_slot[i] = NULL;
     std::cout << "Character default constructor called" << std::endl;
 }
 
 Character::Character(std::string const &name) : _name(name)
 {
     for (int i = 0; i < _maxSlots; i++)
-        _inventory[i] = NULL;
+        _backpack_slot[i] = NULL;
     std::cout << "Character constructor called for " << _name << std::endl;
 }
 
@@ -32,10 +32,10 @@ Character::Character(const Character& other) : _name(other._name)
 {
     for (int i = 0; i < _maxSlots; i++)
     {
-        if (other._inventory[i])
-            _inventory[i] = other._inventory[i]->clone();
+        if (other._backpack_slot[i])
+            _backpack_slot[i] = other._backpack_slot[i]->clone();
         else
-            _inventory[i] = NULL;
+            _backpack_slot[i] = NULL;
     }
     std::cout << "Character copy constructor called for " << _name << std::endl;
 }
@@ -45,22 +45,22 @@ Character& Character::operator=(const Character& other)
     if (this != &other)
     {
         _name = other._name;
-        // Clean up existing inventory
+        // Clean up existing backpack_slot
         for (int i = 0; i < _maxSlots; i++)
         {
-            if (_inventory[i])
+            if (_backpack_slot[i])
             {
-                delete _inventory[i];
-                _inventory[i] = NULL;
+                delete _backpack_slot[i];
+                _backpack_slot[i] = NULL;
             }
         }
-        // Copy inventory
+        // Copy backpack_slot
         for (int i = 0; i < _maxSlots; i++)
         {
-            if (other._inventory[i])
-                _inventory[i] = other._inventory[i]->clone();
+            if (other._backpack_slot[i])
+                _backpack_slot[i] = other._backpack_slot[i]->clone();
             else
-                _inventory[i] = NULL;
+                _backpack_slot[i] = NULL;
         }
     }
     std::cout << "Character copy assignment operator called for " << _name << std::endl;
@@ -71,10 +71,10 @@ Character::~Character()
 {
     for (int i = 0; i < _maxSlots; i++)
     {
-        if (_inventory[i])
+        if (_backpack_slot[i])
         {
-            delete _inventory[i];
-            _inventory[i] = NULL;
+            delete _backpack_slot[i];
+            _backpack_slot[i] = NULL;
         }
     }
     std::cout << "Character destructor called for " << _name << std::endl;
@@ -92,14 +92,14 @@ void Character::equip(AMateria* m)
     
     for (int i = 0; i < _maxSlots; i++)
     {
-        if (!_inventory[i])
+        if (!_backpack_slot[i])
         {
-            _inventory[i] = m;
+            _backpack_slot[i] = m;
             std::cout << _name << " equips " << m->getType() << " in slot " << i << std::endl;
             return;
         }
     }
-    std::cout << _name << " cannot equip " << m->getType() << " - inventory is full!" << std::endl;
+    std::cout << _name << " cannot equip " << m->getType() << " - backpack_slot is full!" << std::endl;
 }
 
 void Character::unequip(int idx)
@@ -110,10 +110,10 @@ void Character::unequip(int idx)
         return;
     }
     
-    if (_inventory[idx])
+    if (_backpack_slot[idx])
     {
-        std::cout << _name << " unequips " << _inventory[idx]->getType() << " from slot " << idx << std::endl;
-        _inventory[idx] = NULL; // Don't delete - just set to NULL
+        std::cout << _name << " unequips " << _backpack_slot[idx]->getType() << " from slot " << idx << std::endl;
+        _backpack_slot[idx] = NULL; // Don't delete - just set to NULL
     }
     else
     {
@@ -129,10 +129,10 @@ void Character::use(int idx, ICharacter& target)
         return;
     }
     
-    if (_inventory[idx])
+    if (_backpack_slot[idx])
     {
-        std::cout << _name << " uses " << _inventory[idx]->getType() << " on " << target.getName() << std::endl;
-        _inventory[idx]->use(target);
+        std::cout << _name << " uses " << _backpack_slot[idx]->getType() << " on " << target.getName() << std::endl;
+        _backpack_slot[idx]->use(target);
     }
     else
     {

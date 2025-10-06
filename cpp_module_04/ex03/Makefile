@@ -17,10 +17,9 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 A = abstract/
 D = derived/
 I = Interface/
+C = concrete/
 
-SRC = $(A)AMateria.cpp \
-	$(D)Ice.cpp $(D)Cure.cpp $(D)Character.cpp \
-	main.cpp
+SRC = $(A)AMateria.cpp $(D)Ice.cpp $(D)Cure.cpp $(D)Character.cpp $(C)MateriaSource.cpp main.cpp 
 # $(I)ICharacter.cpp $(I)IMateriaSource.cpp
 
 OBJ_FILE = obj
@@ -36,6 +35,7 @@ $(OBJ_FILE) :
 	mkdir -p $(OBJ_FILE)/$(A)
 	mkdir -p $(OBJ_FILE)/$(D)
 	mkdir -p $(OBJ_FILE)/Interface/
+	mkdir -p $(OBJ_FILE)/$(C)
 
 $(OBJ_FILE)/%.o : %.cpp | $(OBJ_FILE)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
