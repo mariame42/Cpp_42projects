@@ -1,24 +1,40 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: meid <meid@student.42.fr>                  +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/10/17 11:04:24 by meid              #+#    #+#              #
+#    Updated: 2025/10/17 14:20:59 by meid             ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = fileReplacer
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g3
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+SRC = main.cpp FileReplacer_Lifecycle.cpp FileReplacer_error.cpp FileReplacer_main.cpp
+OBJ_FILE = obj
+OBJ = $(SRC:%.cpp=$(OBJ_FILE)/%.o)
+RM = rm -rf
 
-SRC = main.cpp FileReplacer_Lifecycle.cpp FileReplacer_error.cpp FileReplacer_main.cpp FileReplacer_utils.cpp
-OBJ = $(SRC:.cpp=.o)
+all : $(NAME)
 
-all: $(NAME)
-
-$(NAME): $(OBJ)
+$(NAME) : $(OBJ)
 	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp
+$(OBJ_FILE)/%.o : %.cpp | $(OBJ_FILE)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-clean:
-	rm -f $(OBJ)
+$(OBJ_FILE) :
+	mkdir -p $(OBJ_FILE) 
 
-fclean: clean
-	rm -f $(NAME)
+clean :
+	$(RM) $(OBJ_FILE)
 
-re: fclean all
+fclean : clean
+	$(RM) $(NAME)
 
-.PHONY: all clean fclean re test
+re : fclean all
+
+.PHONY : all fclean clean re

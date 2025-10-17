@@ -6,17 +6,18 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 22:26:44 by meid              #+#    #+#             */
-/*   Updated: 2025/07/16 22:27:52 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/17 15:17:06 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FileReplacer.hpp"
 
-bool FileReplacer::openFiles(std::ifstream& in, std::ofstream& out)
+
+bool FileReplacer::checkinfile(std::ifstream& in)
 {
-	if (!in.is_open() || !out.is_open())
+	if (!in.is_open())
 	{
-		std::cerr << "Error: could not open input or output file." << std::endl;
+		std::cerr << "Error: could not open input file." << std::endl;
 		return false;
 	}
 	else if (in.peek() == std::ifstream::traits_type::eof())
@@ -27,6 +28,16 @@ bool FileReplacer::openFiles(std::ifstream& in, std::ofstream& out)
 	else if (isTooLarge(_fileName))
 	{
 		std::cerr << RED << "Error: File is too large to process." << RESET << std::endl;
+		return false;
+	}
+	return true;
+}
+
+bool FileReplacer::checkoutfile(std::ofstream& out)
+{
+	if (!out.is_open())
+	{
+		std::cerr << "Error: could not open output file." << std::endl;
 		return false;
 	}
 	return true;

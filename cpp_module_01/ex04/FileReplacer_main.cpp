@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 22:24:59 by meid              #+#    #+#             */
-/*   Updated: 2025/07/17 23:04:34 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/17 15:27:01 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,12 @@ bool FileReplacer::replacerBotton()
 		if (!emptytofind())
 			return false;
 	}
-	std::ifstream file(_fileName.c_str());  // C++98: pass C-style string //  O_NOFOLLOW
-	std::ofstream out(_outFile.c_str(), std::ios::out | std::ios::trunc);
+	std::ifstream file(_fileName.c_str()); 
+	if (!checkinfile(file))
+		return false;
 
-	if (!openFiles(file, out))
+	std::ofstream out(_outFile.c_str(), std::ios::out | std::ios::trunc);
+	if (!checkoutfile(out))
 		return false;
 
 	std::string line;

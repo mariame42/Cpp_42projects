@@ -6,14 +6,26 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 14:02:44 by meid              #+#    #+#             */
-/*   Updated: 2025/07/20 18:15:52 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/17 14:18:00 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 
 
-HumanB::HumanB(std::string name) : _name(name), _weaponB(NULL) {}
+HumanB::HumanB(std::string name) : _weaponB(NULL) {
+    if (name.empty() || name.find_first_not_of(' ') == std::string::npos)
+        _name = "default humanB";
+    else
+        _name = name;
+}
+
+HumanB::HumanB(std::string *name) : _weaponB(NULL) {
+    if (!name)
+        _name = "default humanB";
+    else
+        _name = *name;
+}
 
 void HumanB::setWeapon(Weapon& Weapon)
 {

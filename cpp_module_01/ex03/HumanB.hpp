@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 13:40:56 by meid              #+#    #+#             */
-/*   Updated: 2025/07/20 18:06:50 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/17 13:30:28 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class HumanB{
         Weapon *_weaponB;
     public:
         HumanB(std::string name);
+        HumanB(std::string *name);
         void setWeapon(Weapon& Weapon);
         void attack();
 };
