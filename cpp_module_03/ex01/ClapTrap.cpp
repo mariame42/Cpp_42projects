@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 11:43:16 by meid              #+#    #+#             */
-/*   Updated: 2025/09/22 21:26:50 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/23 11:19:00 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,29 +118,21 @@ void ClapTrap::current_status()
 
 std::string ClapTrap::get_name()
 {
-    if (FUNCTIONS_CALLED)
-        std::cout << "get ClapTrap name: " << _name << std::endl;
     return _name;
 }
 
 unsigned int ClapTrap::get_hitPoints()
 {
-    if (FUNCTIONS_CALLED)
-        std::cout << "get ClapTrap hit points: " << _hitPoints << std::endl;
     return _hitPoints;
 }
 
 unsigned int ClapTrap::get_energyPoints()
 {
-    if (FUNCTIONS_CALLED)
-        std::cout << "get ClapTrap energy points: " << _energyPoints << std::endl;
     return _energyPoints;
 }
 
 unsigned int ClapTrap::get_attackDamage()
 {
-    if (FUNCTIONS_CALLED)
-        std::cout << "get ClapTrap attack damage: " << _attackDamage << std::endl;
     return _attackDamage;
 }
 

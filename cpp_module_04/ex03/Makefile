@@ -6,7 +6,7 @@
 #    By: meid <meid@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/10 21:10:50 by meid              #+#    #+#              #
-#    Updated: 2025/10/02 20:37:26 by meid             ###   ########.fr        #
+#    Updated: 2025/10/06 12:55:05 by meid             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,9 @@ A = abstract/
 D = derived_concrete_classes/
 I = Interface/
 
-SRC = $(A)AMateria.cpp $(D)Ice.cpp $(D)Cure.cpp $(D)Character.cpp $(D)MateriaSource.cpp main.cpp 
-# $(I)ICharacter.cpp $(I)IMateriaSource.cpp
-
+SRC = $(A)AMateria.cpp \
+	$(D)Ice.cpp $(D)Cure.cpp $(D)Character.cpp $(D)MateriaSource.cpp main.cpp \
+	$(I)/ICharacter.cpp $(I)/IMateriaSource.cpp
 OBJ_FILE = obj
 OBJ = $(SRC:%.cpp=$(OBJ_FILE)/%.o)
 RM = rm -rf
@@ -33,7 +33,7 @@ $(NAME) : $(OBJ)
 $(OBJ_FILE) :
 	mkdir -p $(OBJ_FILE)/$(A)
 	mkdir -p $(OBJ_FILE)/$(D)
-	mkdir -p $(OBJ_FILE)/Interface/
+	mkdir -p $(OBJ_FILE)/$(I)
 
 $(OBJ_FILE)/%.o : %.cpp | $(OBJ_FILE)
 	$(CXX) $(CXXFLAGS) -c $< -o $@

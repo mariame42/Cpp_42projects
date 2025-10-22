@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 09:34:49 by meid              #+#    #+#             */
-/*   Updated: 2025/10/06 11:31:53 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/06 11:46:06 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,6 @@ Animal& Animal::operator=(const Animal& other)
 const std::string Animal::getType() const
 {
     return (_type);
-}
-
-void Animal::makeSound() const
-{
-    std::cout << PURPLE << "Some generic animal sound" << RESET << std::endl;
 }
 
 Animal::~Animal()

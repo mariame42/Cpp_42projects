@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 09:34:57 by meid              #+#    #+#             */
-/*   Updated: 2025/10/06 11:32:45 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/06 18:11:26 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Dog::Dog() : Animal("Dog")
 
 Dog::Dog(const Dog& other) : Animal(other)
 {
-    _Brain = new Brain(*other._Brain); // Deep copy of Brain
+    _Brain = new Brain(*other._Brain);
     if (OCCF)
         std::cout << BLUE << "Dog Copy constructor called" << RESET << std::endl;
 }
@@ -31,8 +31,8 @@ Dog& Dog::operator=(const Dog& other)
     if (this != &other)
     {
         Animal::operator=(other);
-        delete _Brain; // Delete existing Brain
-        _Brain = new Brain(*other._Brain); // Deep copy of Brain
+        delete _Brain;
+        _Brain = new Brain(*other._Brain);
     }
     if (OCCF)
         std::cout << YELLOW << "Dog Copy assignment operator called" << RESET << std::endl;

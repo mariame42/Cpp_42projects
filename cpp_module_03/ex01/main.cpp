@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 11:43:49 by meid              #+#    #+#             */
-/*   Updated: 2025/09/06 13:56:18 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/23 11:22:05 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int main(void)
 {
     ScavTrap s("s");
-    s.set_hitPoints(110);
     ScavTrap b;
 
     b = s;
@@ -25,6 +24,7 @@ int main(void)
     s.current_status();
     s.attack("a");
     s.beRepaired(20);
+    s.takeDamage(50);
     s.guardGate();
     std::cout << "s: " << std::endl;
     s.current_status();

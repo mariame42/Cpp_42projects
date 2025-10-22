@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 12:10:07 by meid              #+#    #+#             */
-/*   Updated: 2025/09/06 14:23:54 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/23 10:43:37 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,10 @@ ScavTrap::~ScavTrap()
 
 void ScavTrap::guardGate()
 {
-    std::cout << ORANGE << "ScavTrap is now in Gate keeper mode." << RESET << std::endl;
+    if (get_hitPoints() > 0)
+        std::cout << ORANGE << "ScavTrap is now in Gate keeper mode." << RESET << std::endl;
+    else
+        std::cout << RED << "ScavTrap can not be in Gate keeper mode, he is dead" << RESET << std::endl;
 }
 
 void ScavTrap::attack(const std::string& target)

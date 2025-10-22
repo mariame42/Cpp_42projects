@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 13:58:01 by meid              #+#    #+#             */
-/*   Updated: 2025/09/06 14:27:54 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/23 10:44:36 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,10 @@ FragTrap& FragTrap::operator=(const FragTrap& other)
 
 void FragTrap::highFivesGuys(void)
 {
-    std::cout << ORANGE << "FragTrap " << get_name() << " is sending a high-fives request" << RESET << std::endl;
+    if (get_hitPoints() > 0)
+        std::cout << ORANGE << "FragTrap " << get_name() << " is sending a high fives request" << RESET << std::endl;
+    else
+        std::cout << RED << "FragTrap can not send a high five request, he is dead" << RESET << std::endl;
 }
 
 FragTrap::~FragTrap()

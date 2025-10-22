@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 22:09:56 by meid              #+#    #+#             */
-/*   Updated: 2025/10/02 20:39:27 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/06 18:34:48 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Character::Character(std::string const &name) : _name(name)
         std::cout << "Character constructor called for " << _name << std::endl;
 }
 
-Character::Character(const Character& other) : _name(other._name)
+Character::Character(const Character& other) : ICharacter(other), _name(other._name)
 {
     for (int i = 0; i < _maxSlots; i++)
     {
@@ -122,7 +122,7 @@ void Character::unequip(int idx)
     {
         if (FUNCTION_CALL)
             std::cout << _name << " unequips " << _backpack_slot[idx]->getType() << " from slot " << idx << std::endl;
-        _backpack_slot[idx] = NULL; // Don't delete - just set to NULL
+        _backpack_slot[idx] = NULL;
     }
     else
     {

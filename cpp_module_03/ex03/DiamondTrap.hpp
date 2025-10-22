@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 14:32:20 by meid              #+#    #+#             */
-/*   Updated: 2025/09/22 21:32:31 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/23 10:28:09 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,8 @@ class DiamondTrap : public FragTrap, public ScavTrap
         void attack(const std::string& target);
         void whoAmI();
 };
+
+// Diamond Problem In C++
+// https://youtu.be/NxTyUifYJ74?si=-NIkFuC6GKjx0SeE
 
 #endif

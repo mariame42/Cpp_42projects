@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 09:34:51 by meid              #+#    #+#             */
-/*   Updated: 2025/10/06 11:23:57 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/06 18:10:31 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Cat::Cat() : Animal("Cat")
 
 Cat::Cat(const Cat& other) : Animal(other)
 {
-    _Brain = new Brain(*other._Brain); // Deep copy of Brain
+    _Brain = new Brain(*other._Brain);
     if (OCCF)
         std::cout << BLUE << "Cat Copy constructor called" << RESET << std::endl;
 }
@@ -31,8 +31,8 @@ Cat& Cat::operator=(const Cat& other)
     if (this != &other)
     {
         Animal::operator=(other);
-        delete _Brain; // Delete existing Brain
-        _Brain = new Brain(*other._Brain); // Deep copy of Brain
+        delete _Brain;
+        _Brain = new Brain(*other._Brain);
     }
     if (OCCF)
         std::cout << YELLOW << "Cat Copy assignment operator called" << RESET << std::endl;

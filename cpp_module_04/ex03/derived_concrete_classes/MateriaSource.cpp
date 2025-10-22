@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/06 12:10:38 by meid              #+#    #+#             */
+/*   Updated: 2025/10/06 18:35:22 by meid             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "MateriaSource.hpp"
 #include "../main.hpp"
 
-MateriaSource::MateriaSource(/* args */)
+MateriaSource::MateriaSource()
 {
     for (int i = 0; i < _maxSlots; i++)
         _Source_slot[i] = NULL;
@@ -24,7 +36,7 @@ MateriaSource::~MateriaSource()
 }
 
 
-MateriaSource::MateriaSource(const MateriaSource& other) 
+MateriaSource::MateriaSource(const MateriaSource& other) : IMateriaSource(other)
 {
     for (int i = 0; i < _maxSlots; i++)
     {

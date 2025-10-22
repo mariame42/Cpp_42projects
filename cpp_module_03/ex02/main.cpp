@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 14:26:19 by meid              #+#    #+#             */
-/*   Updated: 2025/09/06 14:28:20 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/23 10:47:33 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int main(void)
     f.takeDamage(12);
     f.current_status();
     f.beRepaired(20);
+    f.current_status();
+    f.takeDamage(12);
     f.current_status();
     f.highFivesGuys();
     

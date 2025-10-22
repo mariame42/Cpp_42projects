@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ICharacter.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/06 10:23:29 by meid              #+#    #+#             */
-/*   Updated: 2025/09/23 10:54:15 by meid             ###   ########.fr       */
+/*   Created: 2025/09/10 22:09:56 by meid              #+#    #+#             */
+/*   Updated: 2025/10/06 18:07:40 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ICharacter.hpp"
+#include <cstdlib>
 
-int main(void)
+ICharacter::ICharacter()
 {
-    ClapTrap a("a");
-    ClapTrap b("b");
-    
-    a.current_status();
-    b.current_status();
-    a.attack("b");
-    b.takeDamage(9);
-    a.current_status();
-    b.current_status();
-    b.beRepaired(UINT_MAX);
-    a.current_status();
-    b.current_status();
+    ;
+}
+
+ICharacter::ICharacter(const ICharacter& other)
+{
+    (void)other;
+}
+
+ICharacter& ICharacter::operator=(const ICharacter& other)
+{
+    (void)other;
+    return *this;
 }

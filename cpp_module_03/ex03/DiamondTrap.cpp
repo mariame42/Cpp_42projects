@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 14:37:54 by meid              #+#    #+#             */
-/*   Updated: 2025/09/06 14:58:18 by meid             ###   ########.fr       */
+/*   Updated: 2025/09/23 11:13:09 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,13 @@
 DiamondTrap::DiamondTrap() : ClapTrap("Default_clap_name"), FragTrap(), ScavTrap()
 {
     _name = "Default";
-    set_hitPoints(100);  // FragTrap value
-    set_energyPoints(50);  // ScavTrap value
-    set_attackDamage(30);  // FragTrap value
+
+    FragTrap tempFrag;
+    ScavTrap temoScav;
+    
+    set_hitPoints(tempFrag.get_hitPoints());  // FragTrap value
+    set_energyPoints(temoScav.get_energyPoints());  // ScavTrap value
+    set_attackDamage(tempFrag.get_attackDamage());  // FragTrap value
     if (OCCF)
         std::cout << GREEN << "DiamondTrap Default constructor called" << RESET << std::endl;
 }
@@ -25,9 +29,13 @@ DiamondTrap::DiamondTrap() : ClapTrap("Default_clap_name"), FragTrap(), ScavTrap
 DiamondTrap::DiamondTrap(const std::string& name) : ClapTrap(name + "_clap_name"), FragTrap(), ScavTrap()
 {
     _name = name;
-    set_hitPoints(100);  // FragTrap value
-    set_energyPoints(50);  // ScavTrap value
-    set_attackDamage(30);  // FragTrap value
+
+    FragTrap tempFrag;
+    ScavTrap temoScav;
+
+    set_hitPoints(tempFrag.get_hitPoints());  // FragTrap value
+    set_energyPoints(temoScav.get_energyPoints());  // ScavTrap value
+    set_attackDamage(tempFrag.get_attackDamage());  // FragTrap value
     if (OCCF)
         std::cout << GREEN << "DiamondTrap Parameterized constructor called" << RESET << std::endl;
 }
@@ -39,8 +47,8 @@ void DiamondTrap::attack(const std::string& target)
 
 void DiamondTrap::whoAmI()
 {
-    std::cout << "DiamondTrap name: " << _name << std::endl;
-    std::cout << "ClapTrap name: " << get_name() << std::endl;
+    std::cout << ORANGE <<"DiamondTrap name: " << _name << RESET << std::endl;
+    std::cout << ORANGE << "ClapTrap name: " << get_name() << RESET << std::endl;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& other) : ClapTrap(other), FragTrap(other), ScavTrap(other)
