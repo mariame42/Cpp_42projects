@@ -2,6 +2,7 @@
 # define Form_hpp
 
 #include "Bureaucrat.hpp"
+class Bureaucrat;
 
 class Form
 {
