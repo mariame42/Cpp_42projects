@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Form.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/25 15:56:05 by meid              #+#    #+#             */
+/*   Updated: 2025/10/25 15:56:06 by meid             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Form.hpp"
 
 Form::Form(std::string name,
@@ -16,45 +28,71 @@ Form::Form(std::string name,
 }
 
 
-Form::~Form()
+Form::Form(const Form& other) : _name(other._name), _is_signed(other._is_signed),
+    _sign_required(other._sign_required), _execute_required(other._execute_required)
 {
-    std::cout << "Form destructor" << std::endl;
+    std::cout << PURPLE << "Form copy constructor" << RESET << std::endl;
 }
 
+Form& Form::operator=(const Form& other)
+{
+    if (this != &other)
+    {
+        // _name is const, so it cannot be assigned after construction
+        this->_is_signed = other._is_signed;
+        this->_sign_required = other._sign_required;
+        this->_execute_required = other._execute_required;
+    } 
+    std::cout << YELLOW << "Form copy assignment operator" << RESET << std::endl;
+    return (*this);
+}
 
+Form::~Form()
+{
+    std::cout << ORANGE << "Form destructor" << RESET << std::endl;
+}
 
-// std::ostream& operator<<(std::ostream& out, const Formt& obj)
-// {
-//     // <name>, Formt grade <grade>
-//     out << Magenta << obj.get_name() << ", Formt sign status: " << obj.get_is_signed()() << RESET << std::endl;   // 👈 print extra text every time
-//     return out;               // allow chaining
-// }
-
-
-
-std::string Form::get_name(){
+std::string Form::get_name() const{
     return (_name);
 }
 
-bool Form::get_is_signed(){
+bool Form::get_is_signed() const{
     return (_is_signed);
 }
 
-size_t Form::get_sign_required(){
+size_t Form::get_sign_required() const{
     return (_sign_required);
 }
 
-size_t Form::get_execute_required(){
+size_t Form::get_execute_required() const{
     return (_execute_required);
 }
 
 void Form::beSigned(Bureaucrat bureaucrat)
 {
+    std::cout << "Current function: " << __func__ << std::endl;
+
     size_t grade = bureaucrat.get_grade();
     if (grade > _sign_required || grade > _execute_required)
-        throw GradeTooLowException();
+    throw GradeTooLowException();
     _is_signed = true;
     std::cout << GREEN << bureaucrat.get_name()
-        << " signed " << get_name() << RESET << std::endl;
+    << " signed " << get_name() << RESET << std::endl;
 }
 
+std::ostream& operator<<(std::ostream& out, const Form& obj)
+{
+    out << Magenta << obj.get_name() << ", Formt sign status: " << obj.get_is_signed() << RESET << std::endl;
+    return out;
+}
+
+
+const char* Form::GradeTooHighException::what() const throw()
+{
+    return "Grade is too high";
+}
+
+const char* Form::GradeTooLowException::what() const throw()
+{
+    return "Grade is too low";
+}

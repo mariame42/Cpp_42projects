@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/25 15:56:16 by meid              #+#    #+#             */
+/*   Updated: 2025/10/25 15:57:03 by meid             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Form.hpp"
 
 int main()
@@ -5,9 +17,10 @@ int main()
     std::cout << Cyan << "\n=== safe testing ===" << RESET << std::endl;
     try
     {
-        Form form("first form", 75, 75);
-        Bureaucrat bureaucrat0("Mariam", 76);
+        Form form("first form", 1, 75);
+        Bureaucrat bureaucrat0("Mariam", 22);
         bureaucrat0.signForm(form);
+        std::cout << form;
     }
     catch(const Bureaucrat::GradeTooHighException& e)
     {

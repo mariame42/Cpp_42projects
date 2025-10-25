@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/25 15:56:01 by meid              #+#    #+#             */
+/*   Updated: 2025/10/25 15:56:02 by meid             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef Bureaucrat_hpp
 # define Bureaucrat_hpp
 
@@ -44,19 +56,13 @@ class Bureaucrat
         class GradeTooHighException : public std::exception
         {
             public:
-            virtual const char* what() const throw()
-            {
-                return "Grade is too high";
-            }
+            virtual const char* what() const throw();
         };
         
         class GradeTooLowException : public std::exception
         {
             public:
-            virtual const char* what() const throw()
-            {
-                return "Grade is too low";
-            }
+            virtual const char* what() const throw();
         };
     };
     
