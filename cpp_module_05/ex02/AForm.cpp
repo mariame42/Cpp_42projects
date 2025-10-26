@@ -6,31 +6,31 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 17:21:33 by meid              #+#    #+#             */
-/*   Updated: 2025/10/26 18:55:59 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/26 20:12:08 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "AForm.hpp"
 
-AForm::AForm() : _name("defualt_name")
-{
-    if (OCCF)
-        std::cout << "AForm constructor" << std::endl;
-}
+// AForm::AForm() : _name("defualt_name")
+// {
+//     if (OCCF)
+//         std::cout << "AForm constructor" << std::endl;
+// }
 
 AForm::AForm(std::string name,
     size_t sign_required,
     size_t execute_required)
-    : _name(name), _is_signed(false)
+    : _name(name), _is_signed(false),
+    _sign_required(sign_required),
+    _execute_required(execute_required)
 {
     if (sign_required < 1 || execute_required < 1)
         throw GradeTooHighException();
     if (sign_required > 150 || execute_required > 150)
         throw GradeTooLowException();
 
-    _sign_required = sign_required;
-    _execute_required = execute_required;
     if (OCCF)
         std::cout << "AForm constructor" << std::endl;
 }
@@ -38,7 +38,9 @@ AForm::AForm(std::string name,
 AForm::AForm(std::string *name,
     size_t sign_required,
     size_t execute_required)
-    : _name("defualt_name"), _is_signed(false)
+    : _name("defualt_name"), _is_signed(false),
+    _sign_required(sign_required),
+    _execute_required(execute_required)
 {
     name += 0;
     if (sign_required < 1 || execute_required < 1)
@@ -46,8 +48,6 @@ AForm::AForm(std::string *name,
     if (sign_required > 150 || execute_required > 150)
         throw GradeTooLowException();
 
-    _sign_required = sign_required;
-    _execute_required = execute_required;
     if (OCCF)
         std::cout << "AForm constructor" << std::endl;
 }
@@ -66,8 +66,8 @@ AForm& AForm::operator=(const AForm& other)
     {
         // _name is const, so it cannot be assigned after construction
         this->_is_signed = other._is_signed;
-        this->_sign_required = other._sign_required;
-        this->_execute_required = other._execute_required;
+        // this->_sign_required = other._sign_required;
+        // this->_execute_required = other._execute_required;
     } 
     if (OCCF)
         std::cout << YELLOW << "AForm copy assignment operator" << RESET << std::endl;
@@ -131,14 +131,4 @@ const char* AForm::GradeTooHighException::what() const throw()
 const char* AForm::GradeTooLowException::what() const throw()
 {
     return "Grade is too low";
-}
-
-void AForm::set_sign_required(size_t sign_required)
-{
-    _sign_required = sign_required;
-}
-
-void AForm::set_execute_required(size_t execute_required)
-{
-    _execute_required = execute_required;
 }

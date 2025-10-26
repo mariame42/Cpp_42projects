@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 17:26:27 by meid              #+#    #+#             */
-/*   Updated: 2025/10/26 18:49:28 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/26 20:24:56 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,10 @@ class AForm
     private :
         const std::string _name;
         bool _is_signed;
-        size_t _sign_required;
-        size_t _execute_required;
+        const size_t _sign_required;
+        const size_t _execute_required;
 
     public :
-        AForm();
         AForm(std::string name, 
             size_t sign_required,
             size_t execute_required);
@@ -41,9 +40,6 @@ class AForm
         size_t get_sign_required() const;
         size_t get_execute_required() const;
 
-        void set_sign_required(size_t _sign_required);
-        void set_execute_required(size_t _execute_required);
-
         class GradeTooHighException : public std::exception
         {
             public:
@@ -57,6 +53,7 @@ class AForm
         };
 
         virtual void beSigned(Bureaucrat bureaucrat) = 0;
+        virtual void execute(Bureaucrat const & executor) = 0;
 
 };
 

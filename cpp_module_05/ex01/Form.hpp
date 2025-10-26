@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 15:56:09 by meid              #+#    #+#             */
-/*   Updated: 2025/10/26 18:49:14 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/26 20:02:27 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class Form
     private :
         const std::string _name;
         bool _is_signed;
-        size_t _sign_required;
-        size_t _execute_required;
+        const size_t _sign_required;
+        const size_t _execute_required;
 
     public :
         Form(std::string name, 

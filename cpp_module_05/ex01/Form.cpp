@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 15:56:05 by meid              #+#    #+#             */
-/*   Updated: 2025/10/26 17:01:53 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/26 20:07:07 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 Form::Form(std::string name,
     size_t sign_required,
     size_t execute_required)
-    : _name(name), _is_signed(false)
+    : _name(name), _is_signed(false),
+    _sign_required(sign_required),
+    _execute_required(execute_required)
 {
     if (sign_required < 1 || execute_required < 1)
         throw GradeTooHighException();
     if (sign_required > 150 || execute_required > 150)
         throw GradeTooLowException();
 
-    _sign_required = sign_required;
-    _execute_required = execute_required;
     if (OCCF)
         std::cout << "Form constructor" << std::endl;
 }
@@ -31,7 +31,9 @@ Form::Form(std::string name,
 Form::Form(std::string *name,
     size_t sign_required,
     size_t execute_required)
-    : _name("defualt_name"), _is_signed(false)
+    : _name("defualt_name"), _is_signed(false),
+    _sign_required(sign_required),
+    _execute_required(execute_required)
 {
     name += 0;
     if (sign_required < 1 || execute_required < 1)
@@ -39,8 +41,6 @@ Form::Form(std::string *name,
     if (sign_required > 150 || execute_required > 150)
         throw GradeTooLowException();
 
-    _sign_required = sign_required;
-    _execute_required = execute_required;
     if (OCCF)
         std::cout << "Form constructor" << std::endl;
 }
@@ -59,8 +59,8 @@ Form& Form::operator=(const Form& other)
     {
         // _name is const, so it cannot be assigned after construction
         this->_is_signed = other._is_signed;
-        this->_sign_required = other._sign_required;
-        this->_execute_required = other._execute_required;
+        // this->_sign_required = other._sign_required;
+        // this->_execute_required = other._execute_required;
     } 
     if (OCCF)
         std::cout << YELLOW << "Form copy assignment operator" << RESET << std::endl;
