@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 18:08:23 by meid              #+#    #+#             */
-/*   Updated: 2025/10/26 21:58:32 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/26 22:06:50 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,5 @@ void PresidentialPardonForm::execute(Bureaucrat const & executor)
         std::cout << get_name() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
     }
     else
-        std::cout << RED << "PresidentialPardonForm error" << RESET << std::endl;
+        throw NotEnoughToBeExecuted();
 }

@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 17:21:33 by meid              #+#    #+#             */
-/*   Updated: 2025/10/26 20:12:08 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/26 22:05:58 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,4 +131,9 @@ const char* AForm::GradeTooHighException::what() const throw()
 const char* AForm::GradeTooLowException::what() const throw()
 {
     return "Grade is too low";
+}
+
+const char* AForm::NotEnoughToBeExecuted::what() const throw()
+{
+    return "not enough to be executed";
 }

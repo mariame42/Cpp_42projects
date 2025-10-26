@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 17:26:27 by meid              #+#    #+#             */
-/*   Updated: 2025/10/26 20:24:56 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/26 22:04:57 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,11 @@ class AForm
                 const char* what() const throw();
         };
 
+        class NotEnoughToBeExecuted : public std::exception
+        {
+            public:
+                const char* what() const throw();
+        };
         virtual void beSigned(Bureaucrat bureaucrat) = 0;
         virtual void execute(Bureaucrat const & executor) = 0;
 

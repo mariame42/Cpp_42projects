@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 18:08:12 by meid              #+#    #+#             */
-/*   Updated: 2025/10/26 21:58:20 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/26 22:06:38 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,5 +99,5 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor)
         
     }
     else
-        std::cout << RED << "ShrubberyCreationForm error" << RESET << std::endl;
+        throw NotEnoughToBeExecuted();
 }

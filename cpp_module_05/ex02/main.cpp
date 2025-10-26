@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 17:29:11 by meid              #+#    #+#             */
-/*   Updated: 2025/10/26 21:53:17 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/26 22:07:48 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,25 @@ int main()
     AForm *form02 = new PresidentialPardonForm("hello");
     
     Bureaucrat bureaucrat0("lol", 140);
-    form->execute(bureaucrat0);
-    form01->execute(bureaucrat0);
-    form02->execute(bureaucrat0);
     
     
-    // try {
-    //     std::cout << bureaucrat0;
-    // }
-    // catch(const std::exception& e) {
-    //     std::cerr << RED << "CATCHED: " << e.what() << RESET << '\n';
-    // }
+    
+    try {
+        form->execute(bureaucrat0);
+    }
+    catch(const std::exception& e) {
+        std::cerr << RED << "CATCHED: " << e.what() << RESET << '\n';
+    }
+    try {
+        form01->execute(bureaucrat0);
+    }
+    catch(const std::exception& e) {
+        std::cerr << RED << "CATCHED: " << e.what() << RESET << '\n';
+    }
+    try {
+        form02->execute(bureaucrat0);
+    }
+    catch(const std::exception& e) {
+        std::cerr << RED << "CATCHED: " << e.what() << RESET << '\n';
+    }
 }

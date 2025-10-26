@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 18:08:17 by meid              #+#    #+#             */
-/*   Updated: 2025/10/26 21:58:06 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/26 22:06:45 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,5 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor)
         std::cout << get_name() << " has been robotomized successfully 50% of the time." << std::endl;
     }
     else
-        std::cout << RED << "RobotomyRequestForm error" << RESET << std::endl;
+        throw NotEnoughToBeExecuted();
 }
