@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 15:55:55 by meid              #+#    #+#             */
-/*   Updated: 2025/10/25 16:00:27 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/26 16:52:54 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name), _max_gride(1), _min_gride(150)
 {
-    std::cout << GREEN << "Bureaucrat constructor is here" << RESET << std::endl;
+    if (OCCF)
+        std::cout << GREEN << "Bureaucrat constructor is here" << RESET << std::endl;
     if (grade < 1)
         throw GradeTooHighException();
     if (grade > 150)
@@ -25,7 +26,8 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name), _max_gr
 Bureaucrat::Bureaucrat(const std::string *name, int grade) : _name ("defult name"), _max_gride(1), _min_gride(150)
 {
     name += 0; 
-    std::cout << GREEN << "Bureaucrat constructor for the null" << RESET << std::endl;
+    if (OCCF)
+        std::cout << GREEN << "Bureaucrat constructor for the null" << RESET << std::endl;
     if (grade < 1)
         throw GradeTooHighException();
     if (grade > 150)
@@ -36,7 +38,8 @@ Bureaucrat::Bureaucrat(const std::string *name, int grade) : _name ("defult name
 Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(other._grade),
     _max_gride(other._max_gride), _min_gride(other._min_gride)
 {
-    std::cout << PURPLE << "Bureaucrat copy constructor" << RESET << std::endl;
+    if (OCCF)
+        std::cout << PURPLE << "Bureaucrat copy constructor" << RESET << std::endl;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
@@ -48,7 +51,8 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
         this->_max_gride = other._max_gride;
         this->_min_gride = other._min_gride;
     } 
-    std::cout << YELLOW << "Bureaucrat copy assignment operator" << RESET << std::endl;
+    if (OCCF)
+        std::cout << YELLOW << "Bureaucrat copy assignment operator" << RESET << std::endl;
     return (*this);
 }
 
@@ -61,7 +65,8 @@ std::ostream& operator<<(std::ostream& out, const Bureaucrat& obj)
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout << ORANGE << "Bureaucrat destructor is here" << RESET << std::endl;
+    if (OCCF)
+        std::cout << ORANGE << "Bureaucrat destructor is here" << RESET << std::endl;
 }
 
 const std::string   Bureaucrat::get_name() const{
@@ -90,7 +95,7 @@ void Bureaucrat::signForm(Form &form)
     try
     {
         form.beSigned(*this);
-        std::cout << get_name() << " signed " << form.get_name() << std::endl;
+        std::cout << GREEN << get_name() << " signed " << form.get_name() << RESET << std::endl;
     }
     catch(const Form::GradeTooLowException& e)
     {

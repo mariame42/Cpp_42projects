@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 15:56:01 by meid              #+#    #+#             */
-/*   Updated: 2025/10/25 15:56:02 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/26 17:08:45 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,11 @@
 #define RESET "\033[0m"
 #define ORANGE "\033[38;2;255;165;0m"
 #define Cyan "\033[36m"
-
 #define Magenta "\033[35m"
+
+
+static const bool OCCF =  0;
+
 
 #include <iostream>
 #include <string>
@@ -56,13 +59,13 @@ class Bureaucrat
         class GradeTooHighException : public std::exception
         {
             public:
-            virtual const char* what() const throw();
+                const char* what() const throw();
         };
         
         class GradeTooLowException : public std::exception
         {
             public:
-            virtual const char* what() const throw();
+                const char* what() const throw();
         };
     };
     

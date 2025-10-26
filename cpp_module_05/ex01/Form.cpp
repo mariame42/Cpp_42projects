@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 15:56:05 by meid              #+#    #+#             */
-/*   Updated: 2025/10/25 15:56:06 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/26 17:01:53 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,33 @@ Form::Form(std::string name,
 
     _sign_required = sign_required;
     _execute_required = execute_required;
-    std::cout << "Form constructor" << std::endl;
+    if (OCCF)
+        std::cout << "Form constructor" << std::endl;
+}
+
+Form::Form(std::string *name,
+    size_t sign_required,
+    size_t execute_required)
+    : _name("defualt_name"), _is_signed(false)
+{
+    name += 0;
+    if (sign_required < 1 || execute_required < 1)
+        throw GradeTooHighException();
+    if (sign_required > 150 || execute_required > 150)
+        throw GradeTooLowException();
+
+    _sign_required = sign_required;
+    _execute_required = execute_required;
+    if (OCCF)
+        std::cout << "Form constructor" << std::endl;
 }
 
 
 Form::Form(const Form& other) : _name(other._name), _is_signed(other._is_signed),
     _sign_required(other._sign_required), _execute_required(other._execute_required)
 {
-    std::cout << PURPLE << "Form copy constructor" << RESET << std::endl;
+    if (OCCF)
+        std::cout << PURPLE << "Form copy constructor" << RESET << std::endl;
 }
 
 Form& Form::operator=(const Form& other)
@@ -43,13 +62,15 @@ Form& Form::operator=(const Form& other)
         this->_sign_required = other._sign_required;
         this->_execute_required = other._execute_required;
     } 
-    std::cout << YELLOW << "Form copy assignment operator" << RESET << std::endl;
+    if (OCCF)
+        std::cout << YELLOW << "Form copy assignment operator" << RESET << std::endl;
     return (*this);
 }
 
 Form::~Form()
 {
-    std::cout << ORANGE << "Form destructor" << RESET << std::endl;
+    if (OCCF)
+        std::cout << ORANGE << "Form destructor" << RESET << std::endl;
 }
 
 std::string Form::get_name() const{
@@ -70,19 +91,27 @@ size_t Form::get_execute_required() const{
 
 void Form::beSigned(Bureaucrat bureaucrat)
 {
-    std::cout << "Current function: " << __func__ << std::endl;
 
     size_t grade = bureaucrat.get_grade();
     if (grade > _sign_required || grade > _execute_required)
     throw GradeTooLowException();
     _is_signed = true;
-    std::cout << GREEN << bureaucrat.get_name()
-    << " signed " << get_name() << RESET << std::endl;
+    // std::cout << GREEN << bureaucrat.get_name()
+    // << " signed " << get_name() << RESET << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& out, const Form& obj)
 {
-    out << Magenta << obj.get_name() << ", Formt sign status: " << obj.get_is_signed() << RESET << std::endl;
+    out << Magenta
+        << "------------------------\n"
+            << "form name: " << obj.get_name()
+                << "\ngrade required to be signed: " << obj.get_sign_required()
+                    << "\ngrade required to be executed: " << obj.get_execute_required() << "\nand the form is currantly: ";
+    if (obj.get_is_signed())
+        out << "is signed";
+    else
+        out << "is not signed";
+    out << "\n------------------------"<< RESET << std::endl;
     return out;
 }
 
