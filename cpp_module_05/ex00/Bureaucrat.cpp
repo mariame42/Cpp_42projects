@@ -14,7 +14,8 @@
 
 Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name), _max_gride(1), _min_gride(150)
 {
-    std::cout << GREEN << "constructor is here" << RESET << std::endl;
+    if (OCCF)
+        std::cout << GREEN << "constructor is here" << RESET << std::endl;
     if (grade < 1)
         throw GradeTooHighException();
     if (grade > 150)
@@ -25,7 +26,8 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name), _max_gr
 Bureaucrat::Bureaucrat(const std::string *name, int grade) : _name ("defult name"), _max_gride(1), _min_gride(150)
 {
     name += 0; 
-    std::cout << GREEN <<"constructor for the null" << RESET << std::endl;
+    if (OCCF)
+        std::cout << GREEN <<"constructor for the null" << RESET << std::endl;
     if (grade < 1)
         throw GradeTooHighException();
     if (grade > 150)
@@ -36,7 +38,8 @@ Bureaucrat::Bureaucrat(const std::string *name, int grade) : _name ("defult name
 Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(other._grade),
     _max_gride(other._max_gride), _min_gride(other._min_gride)
 {
-    std::cout << PURPLE << "copy constructor" << RESET << std::endl;
+    if (OCCF)
+        std::cout << PURPLE << "copy constructor" << RESET << std::endl;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
@@ -47,21 +50,22 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
         this->_grade = other._grade;
         this->_max_gride = other._max_gride;
         this->_min_gride = other._min_gride;
-    } 
-    std::cout << YELLOW << "copy assignment operator" << RESET << std::endl;
+    }
+    if (OCCF)
+        std::cout << YELLOW << "copy assignment operator" << RESET << std::endl;
     return (*this);
 }
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& obj)
 {
-    // <name>, bureaucrat grade <grade>
-    out << Magenta << obj.get_name() << ", bureaucrat grade " << obj.get_grade() << RESET << std::endl;   // 👈 print extra text every time
-    return out;               // allow chaining
+    out << Magenta << obj.get_name() << ", bureaucrat grade " << obj.get_grade() << "." << RESET << std::endl;
+    return out;
 }
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout << ORANGE << "destructor is here" << RESET << std::endl;
+    if (OCCF)
+        std::cout << ORANGE << "destructor is here" << RESET << std::endl;
 }
 
 const std::string   Bureaucrat::get_name() const{

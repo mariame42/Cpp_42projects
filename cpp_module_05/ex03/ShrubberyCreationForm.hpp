@@ -11,14 +11,16 @@
 /* ************************************************************************** */
 
 #include "AForm.hpp"
+#include <filesystem>
+#include <fstream>
 
 class ShrubberyCreationForm : public AForm
 {
-    // private:
-    //     /* data */
     public:
         ShrubberyCreationForm(std::string target);
         ~ShrubberyCreationForm();
+        ShrubberyCreationForm(const ShrubberyCreationForm& other);
+        ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other);
         void beSigned(Bureaucrat bureaucrat);
         void execute(Bureaucrat const & executor) const;
 };

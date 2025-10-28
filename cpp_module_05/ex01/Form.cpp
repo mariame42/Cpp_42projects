@@ -13,15 +13,15 @@
 #include "Form.hpp"
 
 Form::Form(std::string name,
-    size_t sign_required,
-    size_t execute_required)
+    size_t gradeToSign,
+    size_t gradeToExecute)
     : _name(name), _is_signed(false),
-    _sign_required(sign_required),
-    _execute_required(execute_required)
+    _gradeToSign(gradeToSign),
+    _gradeToExecute(gradeToExecute)
 {
-    if (sign_required < 1 || execute_required < 1)
+    if (gradeToSign < 1 || gradeToExecute < 1)
         throw GradeTooHighException();
-    if (sign_required > 150 || execute_required > 150)
+    if (gradeToSign > 150 || gradeToExecute > 150)
         throw GradeTooLowException();
 
     if (OCCF)
@@ -29,16 +29,16 @@ Form::Form(std::string name,
 }
 
 Form::Form(std::string *name,
-    size_t sign_required,
-    size_t execute_required)
+    size_t gradeToSign,
+    size_t gradeToExecute)
     : _name("defualt_name"), _is_signed(false),
-    _sign_required(sign_required),
-    _execute_required(execute_required)
+    _gradeToSign(gradeToSign),
+    _gradeToExecute(gradeToExecute)
 {
     name += 0;
-    if (sign_required < 1 || execute_required < 1)
+    if (gradeToSign < 1 || gradeToExecute < 1)
         throw GradeTooHighException();
-    if (sign_required > 150 || execute_required > 150)
+    if (gradeToSign > 150 || gradeToExecute > 150)
         throw GradeTooLowException();
 
     if (OCCF)
@@ -47,7 +47,7 @@ Form::Form(std::string *name,
 
 
 Form::Form(const Form& other) : _name(other._name), _is_signed(other._is_signed),
-    _sign_required(other._sign_required), _execute_required(other._execute_required)
+    _gradeToSign(other._gradeToSign), _gradeToExecute(other._gradeToExecute)
 {
     if (OCCF)
         std::cout << PURPLE << "Form copy constructor" << RESET << std::endl;
@@ -57,10 +57,7 @@ Form& Form::operator=(const Form& other)
 {
     if (this != &other)
     {
-        // _name is const, so it cannot be assigned after construction
         this->_is_signed = other._is_signed;
-        // this->_sign_required = other._sign_required;
-        // this->_execute_required = other._execute_required;
     } 
     if (OCCF)
         std::cout << YELLOW << "Form copy assignment operator" << RESET << std::endl;
@@ -81,23 +78,21 @@ bool Form::get_is_signed() const{
     return (_is_signed);
 }
 
-size_t Form::get_sign_required() const{
-    return (_sign_required);
+size_t Form::get_gradeToSign() const{
+    return (_gradeToSign);
 }
 
-size_t Form::get_execute_required() const{
-    return (_execute_required);
+size_t Form::get_gradeToExecute() const{
+    return (_gradeToExecute);
 }
 
 void Form::beSigned(Bureaucrat bureaucrat)
 {
 
     size_t grade = bureaucrat.get_grade();
-    if (grade > _sign_required)
+    if (grade > _gradeToSign)
         throw GradeTooLowException();
     _is_signed = true;
-    // std::cout << GREEN << bureaucrat.get_name()
-    // << " signed " << get_name() << RESET << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& out, const Form& obj)
@@ -105,8 +100,8 @@ std::ostream& operator<<(std::ostream& out, const Form& obj)
     out << Magenta
         << "------------------------\n"
             << "form name: " << obj.get_name()
-                << "\ngrade required to be signed: " << obj.get_sign_required()
-                    << "\ngrade required to be executed: " << obj.get_execute_required() << "\nand the form is currantly: ";
+                << "\ngrade required to be signed: " << obj.get_gradeToSign()
+                    << "\ngrade required to be executed: " << obj.get_gradeToExecute() << "\nand the form is currantly: ";
     if (obj.get_is_signed())
         out << "is signed";
     else

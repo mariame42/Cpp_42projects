@@ -21,24 +21,24 @@ class Form
     private :
         const std::string _name;
         bool _is_signed;
-        const size_t _sign_required;
-        const size_t _execute_required;
+        const size_t _gradeToSign;
+        const size_t _gradeToExecute;
 
     public :
         Form(std::string name, 
-            size_t sign_required,
-            size_t execute_required);
+            size_t gradeToSign,
+            size_t gradeToExecute);
         Form(std::string *name, 
-            size_t sign_required,
-            size_t execute_required);
+            size_t gradeToSign,
+            size_t gradeToExecute);
         ~Form();
         Form(const Form& other);
         Form& operator=(const Form& other);
 
         std::string get_name() const;
         bool get_is_signed() const;
-        size_t get_sign_required() const;
-        size_t get_execute_required() const;
+        size_t get_gradeToSign() const;
+        size_t get_gradeToExecute() const;
 
         class GradeTooHighException : public std::exception
         {

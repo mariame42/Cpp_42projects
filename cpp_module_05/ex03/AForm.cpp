@@ -14,15 +14,15 @@
 #include "AForm.hpp"
 
 AForm::AForm(std::string name,
-    size_t sign_required,
-    size_t execute_required)
+    size_t gradeToSign,
+    size_t gradeToExecute)
     : _name(name), _is_signed(false),
-    _sign_required(sign_required),
-    _execute_required(execute_required)
+    _gradeToSign(gradeToSign),
+    _gradeToExecute(gradeToExecute)
 {
-    if (sign_required < 1 || execute_required < 1)
+    if (gradeToSign < 1 || gradeToExecute < 1)
         throw GradeTooHighException();
-    if (sign_required > 150 || execute_required > 150)
+    if (gradeToSign > 150 || gradeToExecute > 150)
         throw GradeTooLowException();
 
     if (OCCF)
@@ -30,16 +30,16 @@ AForm::AForm(std::string name,
 }
 
 AForm::AForm(std::string *name,
-    size_t sign_required,
-    size_t execute_required)
+    size_t gradeToSign,
+    size_t gradeToExecute)
     : _name("defualt_name"), _is_signed(false),
-    _sign_required(sign_required),
-    _execute_required(execute_required)
+    _gradeToSign(gradeToSign),
+    _gradeToExecute(gradeToExecute)
 {
     name += 0;
-    if (sign_required < 1 || execute_required < 1)
+    if (gradeToSign < 1 || gradeToExecute < 1)
         throw GradeTooHighException();
-    if (sign_required > 150 || execute_required > 150)
+    if (gradeToSign > 150 || gradeToExecute > 150)
         throw GradeTooLowException();
 
     if (OCCF)
@@ -48,7 +48,7 @@ AForm::AForm(std::string *name,
 
 
 AForm::AForm(const AForm& other) : _name(other._name), _is_signed(other._is_signed),
-    _sign_required(other._sign_required), _execute_required(other._execute_required)
+    _gradeToSign(other._gradeToSign), _gradeToExecute(other._gradeToExecute)
 {
     if (OCCF)
         std::cout << PURPLE << "AForm copy constructor" << RESET << std::endl;
@@ -77,12 +77,12 @@ bool AForm::get_is_signed() const{
     return (_is_signed);
 }
 
-size_t AForm::get_sign_required() const{
-    return (_sign_required);
+size_t AForm::get_gradeToSign() const{
+    return (_gradeToSign);
 }
 
-size_t AForm::get_execute_required() const{
-    return (_execute_required);
+size_t AForm::get_gradeToExecute() const{
+    return (_gradeToExecute);
 }
 
 std::ostream& operator<<(std::ostream& out, const AForm& obj)
@@ -90,8 +90,8 @@ std::ostream& operator<<(std::ostream& out, const AForm& obj)
     out << Magenta
         << "------------------------\n"
             << "Aform name: " << obj.get_name()
-                << "\ngrade required to be signed: " << obj.get_sign_required()
-                    << "\ngrade required to be executed: " << obj.get_execute_required() << "\nand the Aform is currantly: ";
+                << "\ngrade required to be signed: " << obj.get_gradeToSign()
+                    << "\ngrade required to be executed: " << obj.get_gradeToExecute() << "\nand the Aform is currantly: ";
     if (obj.get_is_signed())
         out << "is signed";
     else

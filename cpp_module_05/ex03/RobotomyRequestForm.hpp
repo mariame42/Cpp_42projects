@@ -14,11 +14,11 @@
 
 class RobotomyRequestForm : public AForm
 {
-    // private:
-    //     /* data */
     public:
         RobotomyRequestForm(std::string target);
         ~RobotomyRequestForm();
+        RobotomyRequestForm(const RobotomyRequestForm& other);
+        RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
         void beSigned(Bureaucrat bureaucrat);
         void execute(Bureaucrat const & executor) const;
 };

@@ -14,11 +14,11 @@
 
 class PresidentialPardonForm : public AForm
 {
-    // private:
-    //     /* data */
     public:
         PresidentialPardonForm(std::string target);
         ~PresidentialPardonForm();
+        PresidentialPardonForm(const PresidentialPardonForm& other);
+        PresidentialPardonForm& operator=(const PresidentialPardonForm& other);
         void beSigned(Bureaucrat bureaucrat);
         void execute(Bureaucrat const & executor) const;
 };

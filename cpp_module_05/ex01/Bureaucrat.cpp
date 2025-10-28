@@ -58,9 +58,8 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& obj)
 {
-    // <name>, bureaucrat grade <grade>
-    out << Magenta << obj.get_name() << ", bureaucrat grade " << obj.get_grade() << RESET << std::endl;   // 👈 print extra text every time
-    return out;               // allow chaining
+    out << Magenta << obj.get_name() << ", bureaucrat grade " << obj.get_grade() << "." << RESET << std::endl;
+    return (out);
 }
 
 Bureaucrat::~Bureaucrat()

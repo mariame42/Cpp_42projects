@@ -24,6 +24,8 @@
 
 #define Magenta "\033[35m"
 
+static const bool OCCF =  0;
+
 #include <iostream>
 #include <string>
 

@@ -15,7 +15,6 @@
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm(target, 145, 137)
 {
     std::cout << "ShrubberyCreationForm constructor" << std::endl;
-    std::cout << get_sign_required() << " " << get_execute_required() << std::endl;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
@@ -26,11 +25,9 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 void ShrubberyCreationForm::beSigned(Bureaucrat bureaucrat)
 {
     size_t grade = bureaucrat.get_grade();
-    if (grade > get_sign_required())
+    if (grade > get_gradeToSign())
         throw GradeTooLowException();
     set_is_signed(true);
-    std::cout << GREEN << bureaucrat.get_name()
-    << " signed " << get_name() << RESET << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& out, const ShrubberyCreationForm& obj)
@@ -38,8 +35,8 @@ std::ostream& operator<<(std::ostream& out, const ShrubberyCreationForm& obj)
     out << Magenta
         << "------------------------\n"
             << "Aform name: " << obj.get_name()
-                << "\ngrade required to be signed: " << obj.get_sign_required()
-                    << "\ngrade required to be executed: " << obj.get_execute_required() << "\nand the Aform is currantly: ";
+                << "\ngrade required to be signed: " << obj.get_gradeToSign()
+                    << "\ngrade required to be executed: " << obj.get_gradeToExecute() << "\nand the Aform is currantly: ";
     if (obj.get_is_signed())
         out << "is signed";
     else
@@ -48,14 +45,9 @@ std::ostream& operator<<(std::ostream& out, const ShrubberyCreationForm& obj)
     return out;
 }
 
-#include <filesystem>
-#include <fstream>
-
-
-
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-    if (get_is_signed() && executor.get_grade() < get_execute_required())
+    if (get_is_signed() && executor.get_grade() < get_gradeToExecute())
     {
         std::string file_name =  get_name() + "_shrubbery";
         std::ofstream out(file_name.c_str(), std::ios::out | std::ios::trunc);    
@@ -99,4 +91,22 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
     }
     else
         throw NotEnoughToBeExecuted();
+}
+
+
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other) :
+    AForm(other)
+{
+    if (OCCF)
+        std::cout << PURPLE << "ShrubberyCreationForm copy constructor" << RESET << std::endl;
+
+}
+
+ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& other)
+{
+    if (this != &other)
+        AForm::operator=(other);
+    if (OCCF)
+        std::cout << YELLOW << "ShrubberyCreationForm copy assignment operator" << RESET << std::endl;
+    return (*this);
 }
