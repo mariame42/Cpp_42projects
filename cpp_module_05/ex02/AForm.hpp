@@ -39,6 +39,7 @@ class AForm
         bool get_is_signed() const;
         size_t get_sign_required() const;
         size_t get_execute_required() const;
+        void set_is_signed(bool is_signed);
 
         class GradeTooHighException : public std::exception
         {
@@ -58,7 +59,7 @@ class AForm
                 const char* what() const throw();
         };
         virtual void beSigned(Bureaucrat bureaucrat) = 0;
-        virtual void execute(Bureaucrat const & executor) = 0;
+        virtual void execute(Bureaucrat const & executor) const = 0;
 
 };
 

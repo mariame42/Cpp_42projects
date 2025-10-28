@@ -20,7 +20,7 @@ class ShrubberyCreationForm : public AForm
         ShrubberyCreationForm(std::string target);
         ~ShrubberyCreationForm();
         void beSigned(Bureaucrat bureaucrat);
-        void execute(Bureaucrat const & executor);
+        void execute(Bureaucrat const & executor) const;
 };
 
 std::ostream& operator<<(std::ostream& out, const ShrubberyCreationForm& obj);

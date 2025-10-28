@@ -93,8 +93,8 @@ void Form::beSigned(Bureaucrat bureaucrat)
 {
 
     size_t grade = bureaucrat.get_grade();
-    if (grade > _sign_required || grade > _execute_required)
-    throw GradeTooLowException();
+    if (grade > _sign_required)
+        throw GradeTooLowException();
     _is_signed = true;
     // std::cout << GREEN << bureaucrat.get_name()
     // << " signed " << get_name() << RESET << std::endl;

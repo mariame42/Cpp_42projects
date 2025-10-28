@@ -137,3 +137,8 @@ const char* AForm::NotEnoughToBeExecuted::what() const throw()
 {
     return "not enough to be executed";
 }
+
+void AForm::set_is_signed(bool is_signed)
+{
+    _is_signed = is_signed;
+}

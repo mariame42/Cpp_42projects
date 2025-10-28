@@ -26,15 +26,12 @@ PresidentialPardonForm::~PresidentialPardonForm()
 
 void PresidentialPardonForm::beSigned(Bureaucrat bureaucrat)
 {
-    
-    std::cout << bureaucrat << std::endl;
-
-    // size_t grade = bureaucrat.get_grade();
-    // if (grade > _sign_required || grade > _execute_required)
-    // throw GradeTooLowException();
-    // _is_signed = true;
-    // std::cout << GREEN << bureaucrat.get_name()
-    // << " signed " << get_name() << RESET << std::endl;
+    size_t grade = bureaucrat.get_grade();
+    if (grade > get_sign_required())
+        throw GradeTooLowException();
+    set_is_signed(true);
+    std::cout << GREEN << bureaucrat.get_name()
+    << " signed " << get_name() << RESET << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& out, const PresidentialPardonForm& obj)
@@ -57,7 +54,7 @@ std::ostream& operator<<(std::ostream& out, const PresidentialPardonForm& obj)
 
 
 
-void PresidentialPardonForm::execute(Bureaucrat const & executor)
+void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
     if (get_is_signed() && executor.get_grade() < get_execute_required())
     {

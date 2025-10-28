@@ -20,7 +20,7 @@ class RobotomyRequestForm : public AForm
         RobotomyRequestForm(std::string target);
         ~RobotomyRequestForm();
         void beSigned(Bureaucrat bureaucrat);
-        void execute(Bureaucrat const & executor);
+        void execute(Bureaucrat const & executor) const;
 };
 
 std::ostream& operator<<(std::ostream& out, const RobotomyRequestForm& obj);
