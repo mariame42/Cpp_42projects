@@ -23,7 +23,7 @@ int main()
     AForm *form01 = new RobotomyRequestForm("hello");
     AForm *form02 = new PresidentialPardonForm("hello");
     
-    Bureaucrat bureaucrat0("lol", 140);
+    Bureaucrat bureaucrat0("lol", 122);
     Bureaucrat bureaucrat1("lol", 1);
 
     
