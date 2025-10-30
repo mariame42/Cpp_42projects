@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 17:29:11 by meid              #+#    #+#             */
-/*   Updated: 2025/10/26 22:07:48 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/30 07:54:17 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 int main()
 {
-    AForm *form = new ShrubberyCreationForm("hello");
+    AForm *form = new ShrubberyCreationForm(NULL);
     AForm *form01 = new RobotomyRequestForm("hello");
     AForm *form02 = new PresidentialPardonForm("hello");
     

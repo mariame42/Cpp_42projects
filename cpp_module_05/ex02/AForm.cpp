@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 17:21:33 by meid              #+#    #+#             */
-/*   Updated: 2025/10/26 22:05:58 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/30 07:34:36 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ AForm::~AForm()
         std::cout << ORANGE << "AForm destructor" << RESET << std::endl;
 }
 
-std::string AForm::get_name() const{
+std::string AForm::getName() const{
     return (_name);
 }
 
@@ -77,11 +77,11 @@ bool AForm::get_is_signed() const{
     return (_is_signed);
 }
 
-size_t AForm::get_gradeToSign() const{
+size_t AForm::getGradeToSign() const{
     return (_gradeToSign);
 }
 
-size_t AForm::get_gradeToExecute() const{
+size_t AForm::getGradeToExecute() const{
     return (_gradeToExecute);
 }
 
@@ -89,9 +89,9 @@ std::ostream& operator<<(std::ostream& out, const AForm& obj)
 {
     out << Magenta
         << "------------------------\n"
-            << "Aform name: " << obj.get_name()
-                << "\ngrade required to be signed: " << obj.get_gradeToSign()
-                    << "\ngrade required to be executed: " << obj.get_gradeToExecute() << "\nand the Aform is currantly: ";
+            << "Aform name: " << obj.getName()
+                << "\ngrade required to be signed: " << obj.getGradeToSign()
+                    << "\ngrade required to be executed: " << obj.getGradeToExecute() << "\nand the Aform is currantly: ";
     if (obj.get_is_signed())
         out << "is signed";
     else

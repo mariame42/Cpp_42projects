@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 15:55:42 by meid              #+#    #+#             */
-/*   Updated: 2025/10/26 17:08:58 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/30 07:42:58 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static const bool OCCF =  0;
 class Bureaucrat
 {
     private:
-        const std::string   _name;
+        const std::string  _name;
         size_t              _grade;
         size_t              _max_gride;
         size_t              _min_gride;
@@ -44,27 +44,21 @@ class Bureaucrat
         Bureaucrat& operator=(const Bureaucrat& other);
         ~Bureaucrat();
         
-        const std::string   get_name() const;
-        size_t              get_grade() const;
+        const std::string   getName() const;
+        size_t              getGrade() const;
         void                increment_grade();
         void                decrement_grade();
         
         class GradeTooHighException : public std::exception
         {
             public:
-            const char* what() const throw()
-            {
-                return "Grade is too high";
-            }
+            const char* what() const throw();
         };
         
         class GradeTooLowException : public std::exception
         {
             public:
-            const char* what() const throw()
-            {
-                return "Grade is too low";
-            }
+            const char* what() const throw();
         };
     };
     

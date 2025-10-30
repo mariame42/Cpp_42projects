@@ -6,22 +6,22 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 18:08:08 by meid              #+#    #+#             */
-/*   Updated: 2025/10/26 20:25:47 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/30 08:17:43 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
-#include <filesystem>
 #include <fstream>
 
 class ShrubberyCreationForm : public AForm
 {
     public:
         ShrubberyCreationForm(std::string target);
+        ShrubberyCreationForm(std::string *target);
         ShrubberyCreationForm(const ShrubberyCreationForm& other);
         ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other);
         ~ShrubberyCreationForm();
-        void beSigned(Bureaucrat bureaucrat);
+        void beSigned(const Bureaucrat& bureaucrat);
         void execute(Bureaucrat const & executor) const;
 };
 

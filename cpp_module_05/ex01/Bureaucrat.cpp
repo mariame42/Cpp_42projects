@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 15:55:55 by meid              #+#    #+#             */
-/*   Updated: 2025/10/26 16:52:54 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/30 07:49:58 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name), _max_gr
     _grade = grade;
 }
 
-Bureaucrat::Bureaucrat(const std::string *name, int grade) : _name ("defult name"), _max_gride(1), _min_gride(150)
+Bureaucrat::Bureaucrat(const std::string *name, int grade) : _name("defult name"), _max_gride(1), _min_gride(150)
 {
     name += 0; 
     if (OCCF)
@@ -58,7 +58,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& obj)
 {
-    out << Magenta << obj.get_name() << ", bureaucrat grade " << obj.get_grade() << "." << RESET << std::endl;
+    out << Magenta << obj.getName() << ", bureaucrat grade " << obj.getGrade() << "." << RESET << std::endl;
     return (out);
 }
 
@@ -68,11 +68,11 @@ Bureaucrat::~Bureaucrat()
         std::cout << ORANGE << "Bureaucrat destructor is here" << RESET << std::endl;
 }
 
-const std::string   Bureaucrat::get_name() const{
+const std::string   Bureaucrat::getName() const{
     return (_name);
 }
 
-size_t              Bureaucrat::get_grade() const{
+size_t              Bureaucrat::getGrade() const{
     return (_grade);
 }
 
@@ -94,11 +94,11 @@ void Bureaucrat::signForm(Form &form)
     try
     {
         form.beSigned(*this);
-        std::cout << GREEN << get_name() << " signed " << form.get_name() << RESET << std::endl;
+        std::cout << GREEN << getName() << " signed " << form.getName() << RESET << std::endl;
     }
     catch(const Form::GradeTooLowException& e)
     {
-        std::cerr << RED << get_name() << " couldn’t sign " << form.get_name() << " because " << e.what() << RESET << std::endl;
+        std::cerr << RED << getName() << " couldn’t sign " << form.getName() << " because " << e.what() << RESET << std::endl;
     }
 }
 

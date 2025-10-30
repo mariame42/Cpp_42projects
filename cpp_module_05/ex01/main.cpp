@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 15:56:16 by meid              #+#    #+#             */
-/*   Updated: 2025/10/26 17:29:05 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/28 19:23:19 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,22 @@ int main()
             test_form_program("low grade while constructing ",
                 "Mariam", 76,
                 "seventh form", 0, 75);
+        }
+        catch(const std::exception& e) {
+            std::cerr << RED << "CATCHED: " << e.what() << RESET << '\n';
+        }
+    }
+    {
+        try {
+            std::cout << Cyan << "\n=== " << "NULL test" << " ===" << RESET << std::endl;
+            Form form(NULL , 10, 12);
+            Bureaucrat bureaucrat0("bureaucrat_name", 55);
+            bureaucrat0.signForm(form);
+            if (info)
+            {
+                std::cout << form;
+                std::cout << bureaucrat0;   
+            }
         }
         catch(const std::exception& e) {
             std::cerr << RED << "CATCHED: " << e.what() << RESET << '\n';

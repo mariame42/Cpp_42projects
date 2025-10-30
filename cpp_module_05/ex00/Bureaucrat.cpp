@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 15:55:38 by meid              #+#    #+#             */
-/*   Updated: 2025/10/25 15:55:39 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/30 07:42:48 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name), _max_gr
     _grade = grade;
 }
 
-Bureaucrat::Bureaucrat(const std::string *name, int grade) : _name ("defult name"), _max_gride(1), _min_gride(150)
+Bureaucrat::Bureaucrat(const std::string* name, int grade) : _name("default_name"), _max_gride(1), _min_gride(150)
 {
-    name += 0; 
+    (void)name;
     if (OCCF)
-        std::cout << GREEN <<"constructor for the null" << RESET << std::endl;
+        std::cout << GREEN << "constructor is here" << RESET << std::endl;
     if (grade < 1)
         throw GradeTooHighException();
     if (grade > 150)
@@ -58,7 +58,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& obj)
 {
-    out << Magenta << obj.get_name() << ", bureaucrat grade " << obj.get_grade() << "." << RESET << std::endl;
+    out << Magenta << obj.getName() << ", bureaucrat grade " << obj.getGrade() << "." << RESET << std::endl;
     return out;
 }
 
@@ -68,11 +68,11 @@ Bureaucrat::~Bureaucrat()
         std::cout << ORANGE << "destructor is here" << RESET << std::endl;
 }
 
-const std::string   Bureaucrat::get_name() const{
+const std::string   Bureaucrat::getName() const{
     return (_name);
 }
 
-size_t              Bureaucrat::get_grade() const{
+size_t              Bureaucrat::getGrade() const{
     return (_grade);
 }
 
@@ -87,4 +87,14 @@ void                Bureaucrat::decrement_grade()
     if (_grade == 150)
         throw GradeTooLowException();
     _grade++;
+}
+
+const char* Bureaucrat::GradeTooHighException::what() const throw()
+{
+    return "Grade is too high";
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw()
+{
+    return "Grade is too low";
 }

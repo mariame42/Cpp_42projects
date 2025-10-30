@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 15:56:01 by meid              #+#    #+#             */
-/*   Updated: 2025/10/26 17:44:24 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/30 08:31:23 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@
 
 
 static const bool OCCF =  0;
-
 
 #include <iostream>
 #include <string>
@@ -49,8 +48,8 @@ class Bureaucrat
         Bureaucrat& operator=(const Bureaucrat& other);
         ~Bureaucrat();
         
-        const std::string   get_name() const;
-        size_t              get_grade() const;
+        const std::string   getName() const;
+        size_t              getGrade() const;
         void                increment_grade();
         void                decrement_grade();
 

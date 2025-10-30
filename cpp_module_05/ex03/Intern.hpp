@@ -12,7 +12,10 @@ class Intern
     public :
         Intern();
         ~Intern();
-        AForm *makeForm(std::string form_name, std::string target);
+        AForm *makeForm(std::string const & form_name, std::string const & target);
+        AForm *makeForm(std::string const * form_name, std::string const * target);
+        AForm *makeForm(std::string const * form_name, std::string const & target);
+        AForm *makeForm(std::string const & form_name, std::string const * target);
         Intern(const Intern& other);
         Intern& operator=(const Intern& other);
 };

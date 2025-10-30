@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 15:55:55 by meid              #+#    #+#             */
-/*   Updated: 2025/10/26 17:44:44 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/30 09:40:56 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& obj)
 {
     // <name>, bureaucrat grade <grade>
-    out << Magenta << obj.get_name() << ", bureaucrat grade " << obj.get_grade() << RESET << std::endl;   // 👈 print extra text every time
+    out << Magenta << obj.getName() << ", bureaucrat grade " << obj.getGrade() << RESET << std::endl;   // 👈 print extra text every time
     return out;               // allow chaining
 }
 
@@ -69,11 +69,11 @@ Bureaucrat::~Bureaucrat()
         std::cout << ORANGE << "Bureaucrat destructor is here" << RESET << std::endl;
 }
 
-const std::string   Bureaucrat::get_name() const{
+const std::string   Bureaucrat::getName() const{
     return (_name);
 }
 
-size_t              Bureaucrat::get_grade() const{
+size_t              Bureaucrat::getGrade() const{
     return (_grade);
 }
 
@@ -95,11 +95,11 @@ void Bureaucrat::signForm(AForm &form)
     try
     {
         form.beSigned(*this);
-        std::cout << GREEN << get_name() << " signed " << form.get_name() << RESET << std::endl;
+        std::cout << GREEN << getName() << " signed " << form.getName() << RESET << std::endl;
     }
     catch(const AForm::GradeTooLowException& e)
     {
-        std::cerr << RED << get_name() << " couldn’t sign " << form.get_name() << " because " << e.what() << RESET << std::endl;
+        std::cerr << RED << getName() << " couldn’t sign " << form.getName() << " because " << e.what() << RESET << std::endl;
     }
 }
 
@@ -108,7 +108,7 @@ void Bureaucrat::executeForm(AForm const & form) const
     try
     {
         form.execute(*this);
-        std::cerr << GREEN << this->get_name() << "execute" << form.get_name() << RESET << std::endl;
+        std::cerr << GREEN << this->getName() << " execute " << form.getName() << RESET << std::endl;
     }
     catch (const AForm::NotEnoughToBeExecuted &e)
     {

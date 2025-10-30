@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 18:08:17 by meid              #+#    #+#             */
-/*   Updated: 2025/10/26 22:06:45 by meid             ###   ########.fr       */
+/*   Updated: 2025/10/30 08:16:49 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,20 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm(target, 72,
     std::cout << "RobotomyRequestForm constructor" << std::endl;
 }
 
+RobotomyRequestForm::RobotomyRequestForm(std::string *target) : AForm(target, 72, 45)
+{
+    std::cout << "RobotomyRequestForm constructor" << std::endl;
+}
+
 RobotomyRequestForm::~RobotomyRequestForm()
 {
     std::cout << "RobotomyRequestForm destructor" << std::endl;
 }
 
-void RobotomyRequestForm::beSigned(Bureaucrat bureaucrat)
+void RobotomyRequestForm::beSigned(const Bureaucrat& bureaucrat)
 {
-    size_t grade = bureaucrat.get_grade();
-    if (grade > get_gradeToSign())
+    size_t grade = bureaucrat.getGrade();
+    if (grade > getGradeToSign())
         throw GradeTooLowException();
     set_is_signed(true);
 }
@@ -34,9 +39,9 @@ std::ostream& operator<<(std::ostream& out, const RobotomyRequestForm& obj)
 {
     out << Magenta
         << "------------------------\n"
-            << "Aform name: " << obj.get_name()
-                << "\ngrade required to be signed: " << obj.get_gradeToSign()
-                    << "\ngrade required to be executed: " << obj.get_gradeToExecute() << "\nand the Aform is currantly: ";
+            << "Aform name: " << obj.getName()
+                << "\ngrade required to be signed: " << obj.getGradeToSign()
+                    << "\ngrade required to be executed: " << obj.getGradeToExecute() << "\nand the Aform is currantly: ";
     if (obj.get_is_signed())
         out << "is signed";
     else
@@ -47,11 +52,16 @@ std::ostream& operator<<(std::ostream& out, const RobotomyRequestForm& obj)
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
-    if (get_is_signed() && executor.get_grade() < get_gradeToExecute())
+    if (get_is_signed() && executor.getGrade() <= getGradeToExecute())
     {
         std::cout << "BZZZZZZZZZZZZZZZZZZZZZZ..." << std::endl;
         std::cout << "* drilling noises *" << std::endl;
-        std::cout << get_name() << " has been robotomized successfully 50% of the time." << std::endl;
+        static bool seeded = false;
+        if (!seeded) { std::srand(static_cast<unsigned int>(std::time(NULL))); seeded = true; }
+        if (std::rand() % 2 == 0)
+            std::cout << getName() << " has been robotomized successfully." << std::endl;
+        else
+            std::cout << getName() << " robotomy failed." << std::endl;
     }
     else
         throw NotEnoughToBeExecuted();
