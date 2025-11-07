@@ -13,12 +13,41 @@
 #define Cyan "\033[36m"
 #define Magenta "\033[35m"
 
-#include "ParsedSource.hpp"
 #include <iostream>
 #include <cstdlib>
 #include <sstream>
 
+
+#include <string>
+
+// Use enum for internal logic (type-safe, fast comparisons)
+// String defines only if you need them for output/display
+enum InputType{
+    Char,
+    Int,
+    Float,
+    Double,
+    PseudoLiterals,
+    Null
+};
+
+// Helper: convert enum to string for display/debugging (optional)
+inline std::string inputTypeToString(InputType type)
+{
+    switch (type) {
+        case Char:              return "char";
+        case Int:               return "int";
+        case Float:             return "float";
+        case Double:            return "double";
+        case PseudoLiterals:    return "pseudo literals";
+        case Null:              return "null";
+        default:                return "unknown";
+    }
+}
+
 static const bool OCCF =  0;
+static const bool INFO =  1;
+
 
 class ScalarConverter
 {

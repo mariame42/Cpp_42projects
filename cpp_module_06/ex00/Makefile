@@ -1,7 +1,7 @@
 NAME = ScalarConverter
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp ScalarConverter.cpp ParsedSource.cpp input_type.cpp
+SRC = main.cpp ScalarConverter.cpp input_type.cpp
 RM = rm -rf
 OBJ_DIR = obj
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
