@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/07 17:25:31 by meid              #+#    #+#             */
+/*   Updated: 2025/11/07 17:37:23 by meid             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SCALARCONVERTER_HPP
 # define SCALARCONVERTER_HPP
 
@@ -16,9 +28,11 @@
 #include <iostream>
 #include <cstdlib>
 #include <sstream>
-
-
-#include <string>
+#include <iostream>
+#include <cctype>
+#include <iomanip>
+#include <climits>
+#include <cfloat>
 
 // Use enum for internal logic (type-safe, fast comparisons)
 // String defines only if you need them for output/display
@@ -60,6 +74,12 @@ class ScalarConverter
 };
 
 InputType   input_type(std::string input);
+
+
+int string_to_int(std::string input);
+float string_to_float(std::string input);
+double string_to_double(std::string input);
+
 
 void        convert_from_char(char c);
 void        convert_from_int(int i);
