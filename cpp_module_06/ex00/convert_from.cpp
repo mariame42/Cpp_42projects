@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 17:33:38 by meid              #+#    #+#             */
-/*   Updated: 2025/11/07 17:33:58 by meid             ###   ########.fr       */
+/*   Updated: 2025/11/07 19:42:56 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void        convert_from_char(char c)
     std::cout << "int: " << i << std::endl;
 
     float f = static_cast<float>(i);
+    // print floating-point numbers in fixed-point notation
+    // without std::fixed  ->  might print: 1.23457e+06
     std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
 
     double d = static_cast<float>(i);

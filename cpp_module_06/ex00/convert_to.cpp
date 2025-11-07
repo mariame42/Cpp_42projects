@@ -6,11 +6,14 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 17:30:44 by meid              #+#    #+#             */
-/*   Updated: 2025/11/07 17:30:45 by meid             ###   ########.fr       */
+/*   Updated: 2025/11/07 19:40:19 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
+
+// you’re converting the string into a data flow that behaves like an input source,
+// and the stream automatically handles success or failure through these internal flags.
 
 int string_to_int(std::string input)
 {
@@ -19,8 +22,16 @@ int string_to_int(std::string input)
         long long temp;
         iss >> temp;
         // Check if read was successful and value is within int range
+    
+        // i = input
+        // ss = string stream
+    
         if (iss.fail() || !iss.eof())
+        {
+            // errors that can only be detected at runtime
             throw std::runtime_error("Invalid integer format");
+        }
+            
         if (temp > INT_MAX || temp < INT_MIN)
             throw std::overflow_error("Integer value out of range");
         int intValue = temp;  // Store as long long (validated to be within int range)

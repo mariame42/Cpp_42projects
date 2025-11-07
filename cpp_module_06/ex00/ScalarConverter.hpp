@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 17:25:31 by meid              #+#    #+#             */
-/*   Updated: 2025/11/07 17:37:23 by meid             ###   ########.fr       */
+/*   Updated: 2025/11/07 19:47:27 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ class ScalarConverter
     private:
         ScalarConverter();
         ~ScalarConverter();
+        ScalarConverter(const ScalarConverter &);
+        ScalarConverter &operator=(const ScalarConverter &);
 
     public:
         static void convert(std::string input);

@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 17:25:12 by meid              #+#    #+#             */
-/*   Updated: 2025/11/07 17:25:13 by meid             ###   ########.fr       */
+/*   Updated: 2025/11/07 19:21:26 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ InputType  input_type(std::string input)
         {
             return (type);
         }
-        else if (input == "nan" || input == "+inf" || input == "-inf" ||
-                 input == "nanf" || input == "+inff" || input == "-inff")
+        else if (input == "nan" || input == "-nan" || input == "inf"  || input == "+inf" || input == "-inf" ||
+                 input == "nanf" || input == "-nanf" || input == "inff" || input == "+inff" || input == "-inff")
             return (PseudoLiterals);
         else
             return (Null);
