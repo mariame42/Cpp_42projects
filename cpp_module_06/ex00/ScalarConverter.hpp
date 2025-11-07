@@ -13,17 +13,13 @@
 #define Cyan "\033[36m"
 #define Magenta "\033[35m"
 
-#define INT "int"
-#define CHAR "char"
-#define FLOAT "float"
-#define DOUBLE "double"
-#define NULL_TYPE "null"
-
+#include "ParsedSource.hpp"
+#include <iostream>
+#include <cstdlib>
+#include <sstream>
 
 static const bool OCCF =  0;
 
-// All useful functionality is static, so the class
-// behaves like a namespace — a container for tools, not an object
 class ScalarConverter
 {
     private:
@@ -33,5 +29,12 @@ class ScalarConverter
     public:
         static void convert(std::string input);
 };
+
+InputType   input_type(std::string input);
+
+void        convert_from_char(char c);
+void        convert_from_int(int i);
+void        convert_from_float(float f);
+void        convert_from_double(double d);
 
 #endif

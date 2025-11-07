@@ -1,48 +1,39 @@
 #include "ScalarConverter.hpp"
 #include <iostream>
 
+
 int main(int ac, char **av)
 {
-    (void) ac;
-    (void) av;
-    std::cout << "lol" << std::endl;
-    ScalarConverter::convert("2");
-    std::cout << "------------------------" << std::endl;
-    ScalarConverter::convert("2.0");
-    std::cout << "------------------------" << std::endl;
-    ScalarConverter::convert("2.");
-    std::cout << "------------------------" << std::endl;
-    ScalarConverter::convert(".2");
-    std::cout << "------------------------" << std::endl;
-    ScalarConverter::convert("-.2");
-    std::cout << "------------------------" << std::endl;
-    ScalarConverter::convert("-4.2");
-    std::cout << "------------------------" << std::endl;
-    ScalarConverter::convert("5.2f");
-    std::cout << "------------------------" << std::endl;
-    ScalarConverter::convert("-0.2f5");
-    std::cout << "------------------------" << std::endl;
-    ScalarConverter::convert("-4.2ff");
-    std::cout << "------------------------" << std::endl;
-    // if (ac == 2)
-    // {
-    //     std::string input = av[0];
-    //     std::string type = ScalarConverter::is_valid_type(av[0]);
-    //     if (type != "null")
-    //     {
-    //         ScalarConverter::is_valid_type(av[0]);
-    //         ScalarConverter::is_valid_type(av[0]);
-    //         ScalarConverter::is_valid_type(av[0]);        
-    //     }
-    //     else
-    //     {
-
-    //     }
-    // }
-    // else
-    //     std::cout << RED << "the format is ./convert any_valid_string" << std::endl;
-    // return 0;
+    if (ac == 2)
+    {
+        std::string input = av[1];
+        ScalarConverter::convert(input);
+    }
+    return 0;
 }
+// int main(int ac, char **av)
+// {
+//     (void) ac;
+//     (void) av;
+//     ScalarConverter::convert("c");
+//     ScalarConverter::convert("a");
+//     ScalarConverter::convert("82");
+//     ScalarConverter::convert("62.0");
+//     ScalarConverter::convert("62.");
+//     ScalarConverter::convert(".62");
+//     ScalarConverter::convert("-.62");
+//     ScalarConverter::convert("-4.62");
+//     ScalarConverter::convert("5.62f");
+//     ScalarConverter::convert("-40.62f5");
+//     ScalarConverter::convert("-4.62ff");
+
+//     ScalarConverter::convert("0");
+//     ScalarConverter::convert("42.0f");
+//     ScalarConverter::convert("nan");
+//     ScalarConverter::convert("2147483647222222");
+//     ScalarConverter::convert("nan");
+//     ScalarConverter::convert("nan");
+// }
 
 // #include <cmath>
 // #include <iostream>

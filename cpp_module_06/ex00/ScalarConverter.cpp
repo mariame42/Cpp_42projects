@@ -1,90 +1,150 @@
 #include "ScalarConverter.hpp"
 #include <iostream>
 #include <cctype>
+#include <iomanip>
+#include <climits>
+#include <cfloat>
 
-// Decimal int: only digits + optional +/-
-
-// Hex int: digits + a–f/A–F
-
-// Float/double: digits, ., e/E, optional +/-, optional f/F/l/L
-
-bool ft_isdigit(int c)
+std::string numric_to_char(double d)
 {
-    return (c >= '0' && c <= '9');
+    int i = static_cast<int>(d);
+
+    if (i < 32 || i > 126)
+        return ("Non displayable");
+    char c = static_cast<char>(i);
+    return ("char: '" + std::string(1, c) + "'");
+
 }
 
-char valid_num(std::string input)
+void        convert_from_char(char c)
 {
-    bool flag_point = false;
-    char type = 'n'; // c -> char , i -> int , f -> float , d -> double , n -> error
-    for (size_t i = 0; i < input.length(); i++)
+    std::cout << "char: " << c << std::endl;
+
+    // numeric values
+    int i = static_cast<int>(c);
+    std::cout << "int: " << i << std::endl;
+
+    float f = static_cast<float>(i);
+    std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
+
+    double d = static_cast<float>(i);
+    std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
+}
+void        convert_from_int(int i)
+{
+    std::cout << "char: " << numric_to_char(static_cast<double>(i)) << std::endl;
+
+    std::cout << "int: " << i << std::endl;
+
+    // Note: float has only ~6-7 decimal digits of precision
+    // Large integers like INT_MAX (2147483647) cannot be exactly represented
+    // and will round to the nearest representable float value (2147483648.0f)
+    float f = static_cast<float>(i);
+    std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
+
+    // double has ~15 decimal digits, so it can exactly represent all int values
+    std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(i) << std::endl;
+}
+void        convert_from_float(float f)
+{
+    std::cout << "char: " << numric_to_char(static_cast<double>(f)) << std::endl;
+
+    // float can be out of int range
+    if (f < static_cast<float>(INT_MIN) || f > static_cast<float>(INT_MAX))
+        std::cout << "int: impossible" << std::endl;
+    else
+        std::cout << "int: " << static_cast<int>(f) << std::endl;
+
+
+
+    std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
+
+    // safe because float is in the range of double
+    std::cout << "double: " << static_cast<double>(f) << std::endl;
+
+}
+void        convert_from_double(double d)
+{
+    std::cout << "char: " << numric_to_char(d) << std::endl;
+
+    if (d < static_cast<double>(INT_MIN) || d > static_cast<double>(INT_MAX))
+        std::cout << "int: impossible" << std::endl;
+    else
+        std::cout << "int: " << static_cast<int>(d) << std::endl;
+
+    if (d < FLT_MIN || d > FLT_MAX)
+        std::cout << "float: impossible" << std::endl;
+    else
+        std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(d) << "f" << std::endl;
+
+    std::cout << "double: " << d << std::endl;
+}
+
+#include <string>
+
+bool endsWithChar(const std::string& str, char c) {
+    if (str.empty()) return false;        // empty string cannot match
+    return str[str.size() - 1] == c;      // check last character
+}
+
+
+void handle_PseudoLiterals(std::string input)
+{
+    std::cout << "char: impossible" << std::endl;
+    std::cout << "int: impossible" << std::endl;
+
+    if (endsWithChar(input, 'f'))
     {
-        std::cout << "parss: " << input[i] << std::endl;
-
-        if (i == 0 && (input[i] == '+' || input[i] == '-'))
-        {
-            std::cout << "pov01" << std::endl;
-            continue;
-        } 
-        else if (ft_isdigit(input[i]))
-        {
-            std::cout << "pov02" << std::endl;
-            continue;
-        } 
-        else if (input[i] == '.') {
-            if (!flag_point 
-                && ((i+1 < input.length() &&  ft_isdigit(input[i+1])) 
-                && (i > 0 &&  ft_isdigit(input[i-1])))) 
-            {
-                std::cout << "pov03" << std::endl;
-                flag_point = true;
-                type = 'd';
-                continue;
-            } else {
-                std::cout << "here" << std::endl;
-                return 'n';
-            }
-        }
-        else if (i == (input.length() - 1))
-        {
-            if (input[i] == 'f')
-            {
-                type = 'f';
-                std::cout << "pov04" << std::endl;
-                continue;
-            }
-            else
-                return 'n';
-        }
-        else {
-            return 'n';
+        std::cout <<  "float: " + input << std::endl;
+        std::cout << "double: " + input.substr(0, input.length() - 1) << std::endl;
     }
-}
-if (type != 'f' && type != 'd')
-    type = 'i';
-return type;
-}
-
-static std::string parss_the_input(std::string input)
-{
-    for (size_t i = 0; i < input.length(); i++)
+    else
     {
-        if (input.length() == 1 && isalpha(input[0]))
-            return ("char");
-        else if (valid_num(input) != 'n')
-        {
-            std::cout << valid_num(input) << std::endl;
-            return ("num");
-        }
-        else
-            return ("else");
-
+        std::cout << "float: " + input + "f" << std::endl;
+        std::cout << "double: " + input << std::endl;
     }
-    return ("s");
 }
 
 void ScalarConverter::convert(std::string input)
 {
-    std::cout << input << std::endl;
-    std::cout << parss_the_input(input) << std::endl;
+    std::cout << "------------------------" << std::endl;
+    std::cout << "input: " << input << std::endl;
+
+    InputType type = input_type(input);
+
+    if (type == Null)
+    {
+        std::cout << RED << "Invalid input" << RESET<< std::endl;
+        std::cout << "------------------------" << std::endl;
+        return;
+    }
+    else
+    {
+        std::cout << "Valid input of type: " << inputTypeToString(type) << std::endl;
+        // Parse once here - this is where you do the single parse
+        try {
+            ParsedSource parsed(input, type);  // Constructor does the parsing
+            if (type == PseudoLiterals)
+            {
+                handle_PseudoLiterals(input);
+            }
+            if (parsed.gethasChar())
+                convert_from_char(parsed.getcharValue());
+            else if (parsed.gethasInt())
+                convert_from_int(parsed.getintValue());
+            else if (parsed.gethasFloat())
+                convert_from_float(parsed.getfloatValue());
+            else if (parsed.gethasDouble())
+                convert_from_double(parsed.getdoubleValue());
+        }
+        catch (const std::exception& e)
+        {
+            std::cout << RED << e.what() << RESET << std::endl;
+            std::cout << "------------------------" << std::endl;
+            return;
+        }
+    }
+    std::cout << "------------------------" << std::endl;
+
+
 }
