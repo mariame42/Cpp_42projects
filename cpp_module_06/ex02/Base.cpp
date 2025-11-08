@@ -6,7 +6,7 @@
 /*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 17:26:05 by meid              #+#    #+#             */
-/*   Updated: 2025/11/07 17:26:06 by meid             ###   ########.fr       */
+/*   Updated: 2025/11/08 13:51:47 by meid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,22 @@ Base::~Base()
     // Destructor body (if needed)
 }
 
+
+// Base *generate(void)
+// {
+//     static bool seeded = false;
+//     if (!seeded) { std::srand(static_cast<unsigned int>
+//         (std::chrono::high_resolution_clock::now().time_since_epoch().count()));
+//         seeded = true; }
+
+//     int r = static_cast<int>(std::rand() / (RAND_MAX + 1.0) * 3);
+//     if (r == 0)
+//         return new A();
+//     else if (r == 1)
+//         return new B();
+//     else
+//         return new C();
+// }
 Base *generate(void)
 {
     static bool seeded = false;
