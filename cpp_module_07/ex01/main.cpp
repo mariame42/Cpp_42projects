@@ -5,6 +5,7 @@
 
 #define ORENGE "\033[0;33m"
 #define RESET "\033[0m"
+#define GREEN "\033[32m"
 
 template <typename T>
 void function(T& c)
@@ -14,17 +15,20 @@ void function(T& c)
 
 int main(void)
 {
-	int i[3];
-	i[0] = 1;
-	i[1] = 2;
-	i[2] = 3;
+	std::cout << GREEN << "Array of ints: " << RESET << std::endl;
+	int i[3] = {1, 2, 3};
 	iter(i, 3, function);
+	std::cout << std::endl;
 
-	char str[8] = "loooool";
+	std::cout << GREEN << "Array of chars: " << RESET << std::endl;
+	char str[8] = "ABC,def";
 	iter(str, strlen(str), function);
+	std::cout << std::endl;
 
+	std::cout << GREEN << "Array of const ints: " << RESET << std::endl;
 	const int arr[5] = {10, 20, 30, 40, 50};
 	iter(arr, 5, function);
+	std::cout << std::endl;
 
 	return 0;
 }
