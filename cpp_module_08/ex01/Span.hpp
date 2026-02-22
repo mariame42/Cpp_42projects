@@ -5,6 +5,7 @@
 
 #define PRINTING_LIMIT 20
 
+// -------------------------- COLOR MACROS --------------------------
 #define GREEN "\033[32m"
 #define YELLOW "\033[33m"
 #define BLUE "\033[34m"
@@ -13,6 +14,7 @@
 #define RESET "\033[0m"
 #define ORANGE "\033[38;2;255;165;0m"
 
+// -------------------------- INCLUDES --------------------------
 #include <iostream>
 #include <stdexcept>
 #include <vector>
@@ -21,37 +23,36 @@
 
 class Span
 {
-private:
+    private:
+        unsigned int        _capacity;
+        std::vector<int>    _data;
 
-    unsigned int        _capacity;
-    std::vector<int>    _data;
+    public:
 
-public:
+        Span();
+        Span(unsigned int n);
+        Span(const Span& other);
+        Span& operator=(const Span& other);
+        ~Span();
 
-    Span();
-    Span(unsigned int n);
-    Span(const Span& other);
-    Span& operator=(const Span& other);
-    ~Span();
+        void addNumber(int number);
 
-    void addNumber(int number);
+        template <typename Iterator>
+        void addRange(Iterator begin, Iterator end)
+        {
+            unsigned int dist = std::distance(begin, end);
 
-    template <typename Iterator>
-    void addRange(Iterator begin, Iterator end)
-    {
-        unsigned int dist = std::distance(begin, end);
+            if (_data.size() + dist > _capacity)
+                throw std::runtime_error("Span is already full");
 
-        if (_data.size() + dist > _capacity)
-            throw std::runtime_error("Span is already full");
+            _data.insert(_data.end(), begin, end);
+        }
 
-        _data.insert(_data.end(), begin, end);
-    }
+        int shortestSpan();
+        int longestSpan();
 
-    int shortestSpan();
-    int longestSpan();
-
-    unsigned int size() const;
-    int at(unsigned int i) const;
+        unsigned int size() const;
+        int at(unsigned int i) const;
 };
 
 std::ostream& operator<<(std::ostream& os, const Span& obj);
