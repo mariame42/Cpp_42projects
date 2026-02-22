@@ -1,7 +1,28 @@
 #include "easyfind.hpp"
-#include <algorithm>
 
+// testing includes
 #include <vector>
+#include <list>
+#include <deque>
+
+// testing functions
+void vector_test();
+void vector_const_test();
+void list_test();
+void deque_test();
+void explain_output();
+
+int main()
+{
+    vector_test();
+    vector_const_test();
+    list_test();
+    deque_test();
+
+    explain_output(); // Function to explain the output format
+    return 0;
+}
+
 void vector_test()
 {
     std::cout << MAGENTA << "=== Vector Test ===" << RESET << std::endl;
@@ -150,15 +171,4 @@ void explain_output()
     std::cout << YELLOW << "The easyfind function works with all these containers by iterating through their elements to find the specified value. It returns an iterator pointing to the found element, or throws an exception if the value is not found." << RESET << std::endl;
     std::cout << YELLOW << "4. Const case: When the container is const, easyfind returns a const_iterator so you can read the found element but not modify it through the iterator." << RESET << std::endl;
 
-}
-
-int main()
-{
-    vector_test();
-    vector_const_test();
-    list_test();
-    deque_test();
-
-    explain_output(); // Function to explain the output format
-    return 0;
 }

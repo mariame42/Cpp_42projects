@@ -2,11 +2,6 @@
 # define SPAN_HPP
 
 // span mean "a range or interval between two points"
-#include <iostream>
-#include <stdexcept>
-#include <climits>
-#include <algorithm>
-#include <vector>
 
 #define PRINTING_LIMIT 20
 
@@ -18,23 +13,45 @@
 #define RESET "\033[0m"
 #define ORANGE "\033[38;2;255;165;0m"
 
+#include <iostream>
+#include <stdexcept>
+#include <vector>
+#include <algorithm>
+#include <climits>
+
 class Span
 {
-    private:
-        unsigned int    _n;
-        std::vector<int>  _data;
-        unsigned int    _currentSize;
+private:
 
-        friend std::ostream& operator<<(std::ostream& os, const Span& obj);
-    
-    public:
-        Span();
-        Span(unsigned int n);
-        void addNumber(int number);
-        void addRangeOfNumbers(int start, int end);
-        int shortestSpan();;
-        int longestSpan();
-        ~Span();
+    unsigned int        _capacity;
+    std::vector<int>    _data;
+
+public:
+
+    Span();
+    Span(unsigned int n);
+    Span(const Span& other);
+    Span& operator=(const Span& other);
+    ~Span();
+
+    void addNumber(int number);
+
+    template <typename Iterator>
+    void addRange(Iterator begin, Iterator end)
+    {
+        unsigned int dist = std::distance(begin, end);
+
+        if (_data.size() + dist > _capacity)
+            throw std::runtime_error("Span is already full");
+
+        _data.insert(_data.end(), begin, end);
+    }
+
+    int shortestSpan();
+    int longestSpan();
+
+    unsigned int size() const;
+    int at(unsigned int i) const;
 };
 
 std::ostream& operator<<(std::ostream& os, const Span& obj);
