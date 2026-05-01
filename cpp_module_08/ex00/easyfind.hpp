@@ -3,7 +3,7 @@
 
 // -------------------------- INCLUDES --------------------------
 
-#include <iterator>
+#include <algorithm>   // std::find
 #include <stdexcept>
 #include <iostream>
 
@@ -17,30 +17,26 @@
 #define RESET "\033[0m"
 
 // -------------------------- TEMPLATE FUNCTION --------------------------
-// Container = a type that stores multiple elements and can be iterated
-// like a vector, list, deque, etc.
+// T must be a sequence container of integers (vector, list, deque, etc.)
+// with begin(), end() and iterator types. Associative containers not required.
 
 template <typename T>
 typename T::iterator easyfind(T& container, int value)
 {
-    for (typename T::iterator it = container.begin(); it != container.end(); ++it)
-    {
-        if (*it == value)
-            return it;
-    }
-    throw std::runtime_error("Value not found in container");
+    typename T::iterator it = std::find(container.begin(), container.end(), value);
+    if (it == container.end())
+        throw std::runtime_error("Value not found in container");
+    return it;
 }
 
 template <typename T>
 typename T::const_iterator easyfind(const T& container, int value)
 {
-    for (typename T::const_iterator it = container.begin(); it != container.end(); ++it)
-    {
-        if (*it == value)
-            return it;
-    }
-    throw std::runtime_error("Value not found in container");
-}
+    typename T::const_iterator it = std::find(container.begin(), container.end(), value);
+    if (it == container.end())
+        throw std::runtime_error("Value not found in container");
+    return it;
+=}
 
 // easyfind is a template function that takes a container and a value
 // and returns the iterator to the value in the container
