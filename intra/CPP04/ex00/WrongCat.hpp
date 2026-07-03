@@ -1,0 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: meid <meid@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/10 21:08:41 by meid              #+#    #+#             */
+/*   Updated: 2025/10/06 11:17:36 by meid             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef WrongCat_h
+# define WrongCat_h
+
+#include "WrongAnimal.hpp"
+
+class WrongCat : public WrongAnimal
+{
+    public :
+        WrongCat();
+        WrongCat(const WrongCat& other);
+        WrongCat& operator=(const WrongCat& other);
+        ~WrongCat();
+
+        const std::string getType() const;
+        void makeSound() const;
+};
+
+#endif
