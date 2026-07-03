@@ -30,7 +30,7 @@ int main(void)
 {
     std::string name00 = check_and_fix_null("random Zombie ");
     std::string name01 = check_and_fix_null("allocated Zombie 🧟");
-    std::string name02 = check_and_fix_null(NULL);
+    std::string name02 = check_and_fix_null("");
     
     randomChump(name00);
 

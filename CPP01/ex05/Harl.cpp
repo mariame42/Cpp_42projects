@@ -36,6 +36,7 @@ void Harl::error(){
 
 void    Harl::complain( std::string level )
 {
+    // Harl::* => must belong to Harl, needs an object to call
     void (Harl::*funPtr[])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 
     std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};//const

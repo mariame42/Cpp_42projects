@@ -53,10 +53,13 @@ void Harl::switch_cace_fun (std::string level)
     switch (lvl) {
         case DEBUG:
             debug();
+            // fallthrough
         case INFO:
             info();
+            // fallthrough
         case WARNING:
             warning();
+            // fallthrough
         case ERROR:
             error();
             break;

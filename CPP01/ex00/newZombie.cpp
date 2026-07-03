@@ -17,7 +17,7 @@ Zombie* newZombie( std::string name )
     if (name.empty() || name.find_first_not_of(' ') == std::string::npos)
     {
         std::cerr << RED << "Error: Zombie name cannot be empty." << RESET << std::endl;
-        return nullptr;
+        return NULL;
     }
     Zombie *zombie = new Zombie(name); // Safe: it stays alive after the function
     return zombie;
