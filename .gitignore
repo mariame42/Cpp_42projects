@@ -1,0 +1,25 @@
+# under construction <'>_<'>
+Resources.md
+
+# Build artifacts (anywhere in the repo)
+a.out
+*.o
+*.a
+*.so
+*.d
+obj/
+
+# IDE / editor
+.vscode/
+.idea/
+*.code-workspace
+.cursor/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Temp / swap
+*~
+*.swp
+*.swo
